@@ -78,7 +78,7 @@ const navigation = {
       ),
     },
     {
-      name: 'Dribbble',
+      name: 'Linkedin',
       href: '#',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
@@ -108,7 +108,7 @@ export default function FooterSection() {
               alt="Company name"
             />
             <p className="text-gray-500 text-base">
-              Making the world a better place through constructing elegant hierarchies.
+            Cuidar tu auto ahora es más simple. Agenda tu servicio automotriz a domicilio hoy.
             </p>
             <div className="flex space-x-6">
               {navigation.social.map((item) => (

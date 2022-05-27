@@ -1,7 +1,8 @@
 import React from 'react'
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon, PlayIcon} from '@heroicons/react/outline'
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { StarIcon } from '@heroicons/react/solid'
 
 const navigation = [
   { name: 'Servicios', href: '#' },
@@ -17,30 +18,6 @@ const callsToAction = [
 export default function HeroSection() {
   return (
     <div className="relative bg-white overflow-hidden">
-      <div className="hidden lg:block lg:absolute lg:inset-0" aria-hidden="true">
-        <svg
-          className="absolute top-0 left-1/2 transform translate-x-64 -translate-y-8"
-          width={640}
-          height={784}
-          fill="none"
-          viewBox="0 0 640 784"
-        >
-          <defs>
-            <pattern
-              id="9ebea6f4-a1f5-4d96-8c4e-4c2abf658047"
-              x={118}
-              y={0}
-              width={20}
-              height={20}
-              patternUnits="userSpaceOnUse"
-            >
-              <rect x={0} y={0} width={4} height={4} className="text-gray-200" fill="currentColor" />
-            </pattern>
-          </defs>
-          <rect y={72} width={640} height={640} className="text-gray-50" fill="currentColor" />
-          <rect x={118} width={404} height={784} fill="url(#9ebea6f4-a1f5-4d96-8c4e-4c2abf658047)" />
-        </svg>
-      </div>
 
       <div className="relative pt-6 pb-16 sm:pb-24 lg:pb-32">
         <Popover>
@@ -79,7 +56,7 @@ export default function HeroSection() {
                   href="#"
                   className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-50"
                 >
-                  Log in
+                  Agendar
                 </a>
               </span>
             </div>
@@ -154,50 +131,38 @@ export default function HeroSection() {
                   <div className="rounded-md shadow">
                     <a
                       href="#"
-                      className="w-80 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                      className="w-100 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                     >
                       Me interesa
                     </a>
                   </div>
                 </div>
               </div>
+              <div className="mt-6">
+                <div className="inline-flex items-center divide-x divide-gray-300">
+                  <div className="flex-shrink-0 flex pr-5">
+                    <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                    <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                    <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                    <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                    <StarIcon className="h-5 w-5 text-yellow-400" aria-hidden="true" />
+                  </div>
+                  <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
+                    <span className="font-medium text-gray-900">4.8 estrellas</span> por más de {' '}
+                    <span className="font-medium text-indigo-600">100 early adopters</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
-              <svg
-                className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-8 scale-75 origin-top sm:scale-100 lg:hidden"
-                width={640}
-                height={784}
-                fill="none"
-                viewBox="0 0 640 784"
-                aria-hidden="true"
-              >
-                <defs>
-                  <pattern
-                    id="4f4f415c-a0e9-44c2-9601-6ded5a34a13e"
-                    x={118}
-                    y={0}
-                    width={20}
-                    height={20}
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <rect x={0} y={0} width={4} height={4} className="text-gray-200" fill="currentColor" />
-                  </pattern>
-                </defs>
-                <rect y={72} width={640} height={640} className="text-gray-50" fill="currentColor" />
-                <rect x={118} width={404} height={784} fill="url(#4f4f415c-a0e9-44c2-9601-6ded5a34a13e)" />
-              </svg>
-              <div className="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
-                <button
-                  type="button"
-                  className="relative block w-full bg-white rounded-lg overflow-hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
+            <div className="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
+                <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+                  {/* Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ */}
                   <img
-                    className="w-full"
+                    className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
                     src="https://www.carvuk.com/images/booking.svg"
                     alt=""
                   />
-                </button>
-              </div>
+                </div>
             </div>
           </div>
         </main>

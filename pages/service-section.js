@@ -4,7 +4,7 @@ const products = [
     name: 'Lavado a domicilio',
     color: 'White and black',
     href: '#',
-    imageSrc: 'https://www.carvuk.com/images/car-wash.svg',
+    imageSrc: './car-wash.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
   },
@@ -13,7 +13,7 @@ const products = [
     name: 'Revisión técnica',
     color: 'White and lack',
     href: '#',
-    imageSrc: 'https://www.carvuk.com/images/review.svg',
+    imageSrc: './review.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
   },
@@ -22,7 +22,7 @@ const products = [
     name: 'Mantención por kilometraje',
     color: 'White and black',
     href: '#',
-    imageSrc: 'https://www.carvuk.com/images/mantain.svg',
+    imageSrc: './mantain.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
   },
@@ -31,14 +31,77 @@ const products = [
     name: 'Revisión pre-compra',
     color: 'White and black',
     href: '#',
-    imageSrc: 'https://www.carvuk.com/images/sale.svg',
+    imageSrc: './sale.svg',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    price: 'Desde $11.990',
+  },
+  {
+    id: 1,
+    name: 'Desabolladura y pintura',
+    color: 'White and black',
+    href: '#',
+    imageSrc: './crash.svg',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    price: 'Desde $11.990',
+  },
+  {
+    id: 1,
+    name: 'Cambio de aceite',
+    color: 'White and black',
+    href: '#',
+    imageSrc: './aceite.svg',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    price: 'Desde $11.990',
+  },
+  {
+    id: 1,
+    name: 'Cambio de parabrisas',
+    color: 'White and black',
+    href: '#',
+    imageSrc: './parabrisas.svg',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    price: 'Desde $11.990',
+  },
+  {
+    id: 1,
+    name: 'Frenos',
+    color: 'White and black',
+    href: '#',
+    imageSrc: './brakes.svg',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    price: 'Desde $11.990',
+  },
+  {
+    id: 1,
+    name: 'Vulcanización',
+    color: 'White and black',
+    href: '#',
+    imageSrc: './vulca.svg',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    price: 'Desde $11.990',
+  },
+  {
+    id: 1,
+    name: 'Cambio de batería',
+    color: 'White and black',
+    href: '#',
+    imageSrc: './car-fix.svg',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    price: 'Desde $11.990',
+  },
+  {
+    id: 1,
+    name: 'Mecánica general y otros',
+    color: 'White and black',
+    href: '#',
+    imageSrc: './scanner.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
   },
   // More products...
 ]
 
-export default function Example() {
+export default function ServiceSection() {
   return (
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -70,7 +133,7 @@ export default function Example() {
                 <div className="absolute top-0 inset-x-0 h-72 rounded-lg p-4 flex items-end justify-end overflow-hidden">
                   <div
                     aria-hidden="true"
-                    className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-50"
+                    className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-black opacity-80"
                   />
                   <p className="relative text-lg font-semibold text-white">{product.price}</p>
                 </div>
