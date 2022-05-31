@@ -20,8 +20,8 @@ const IndexPage = () => {
       <Service2Section/>
       <PVSection/>
       <BenefitsSection/>
-      <NewsSection/>
       <BoxSuscripcion/>
+      <NewsSection/>
       <FooterSection/>
     </div>
     )
