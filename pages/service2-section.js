@@ -188,7 +188,7 @@ export default function Service2Section() {
   return (
     <div className="bg-white" id="service-section">
       <div className="py-16 sm:py-24 lg:max-w-7xl lg:mx-auto lg:px-8">
-        <FirstModal open={openFirst} onCloseModal={()=> setOpenFirst(false)} product={products[0]}/>
+        <FirstModal open={openFirst} onCloseModal={()=> setOpenFirst(false)} product={activeProduct}/>
         <SecondModal open={openSecond} onCloseModal={()=> setOpenSecond(false)} product={activeProduct}/>
         <div className="px-4 flex items-center justify-between sm:px-6 lg:px-0">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Los más populares</h2>

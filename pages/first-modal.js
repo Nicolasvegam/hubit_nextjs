@@ -69,7 +69,7 @@ function FirstModal(props) {
                   <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
                     <div className="sm:col-span-4 lg:col-span-5">
                       <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden">
-                        <img src={product.imageSrc} alt={product.imageAlt} className="object-center object-cover" />
+                        <img src={product?.imageSrc} alt={product.imageAlt} className="object-center object-cover" />
                       </div>
                       <p className="absolute top-4 left-4 text-center sm:static sm:mt-6">
                         <a href={product.href} className="font-medium text-indigo-600 hover:text-indigo-500">
