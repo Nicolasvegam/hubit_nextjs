@@ -10,10 +10,10 @@ const HeadPage = (props) => {
             <Head>
                 <title>Carvuk: Servicio para vehículos a domicilio</title>  
 
-                <link rel="alternate" hreflang="es-CL" href={href}/>
+                <link rel="alternate" hrefLang="es-CL" href={href}/>
                 <link rel="icon" href={icon}/>
                 <meta charset="UTF-8" />
-                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
                 
                 <link rel="icon" type="icon" sizes="32x32" href={icon}/>
@@ -41,7 +41,7 @@ const HeadPage = (props) => {
                 <meta name="twitter:card" content="summary" />
                 <meta name="twitter:creator" content="@carvuk" />
                 <meta name="twitter:site" content="@carvuk" />
-                <meta name="twitter:image" itemprop="image" content={image} />
+                <meta name="twitter:image" itemProp="image" content={image} />
             </Head>
         </div>
     )
