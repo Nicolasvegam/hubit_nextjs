@@ -13,8 +13,8 @@ function FirstModal(props) {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0])
   const [currentPrice, setCurrentPrice] = useState(product.sizes[0].price)
 
-  function onClickButton(){
-
+  function onClickButton(e){
+    e.preventDefault()
     const value = selectedSize.id
     console.log('push', value)
     props.router.push({
@@ -119,7 +119,7 @@ function FirstModal(props) {
                           Product options
                         </h3>
 
-                        <form onSubmit={()=> onClickButton()}>
+                        <form onSubmit={(e)=> onClickButton(e)}>
                           <div className="sm:flex sm:justify-between">
                             {/* Size selector */}
                             <RadioGroup value={selectedSize} onChange={(e) => onClickType(e)}>

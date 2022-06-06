@@ -175,21 +175,13 @@ export default function Service2Section() {
   const [openSecond, setOpenSecond] = useState(false);
   const [activeProduct, setActiveProduct] = useState(products[0]);
   
-  function onClickAny(){
-    props.router.push({
-      pathname: 'agendar',
-      query: {'servicio': 'valor'}
-    });
-  }
-
   function openModal(product){
+    setActiveProduct(product);
     if (product.name == 'Lavado a domicilio'){
-        setOpenFirst(true);
-        setActiveProduct(product);
+      setOpenFirst(true);
     }
     else {
-        setOpenSecond(true);
-        setActiveProduct(product);
+      setOpenSecond(true);
     }
   }
 
