@@ -1,28 +1,3 @@
-/*** 
-
-const features = [
-  {
-    name: 'A domicilio',
-    description:
-      'Te permitimos elegir el lugar y tiempo a tu medida.',
-    icon: HomeIcon,
-  },
-  {
-    name: 'Confianza',
-    description:
-      'Nuestros técnicos están certificados y tienen una década de experiencia.',
-    icon: ThumbUpIcon,
-  },
-  {
-    name: 'Garantía',
-    description:
-      'Todos nuestros servicios cuentan con garantía.',
-    icon: LockClosedIcon,
-  },
-]
-***/
-
-
 import { CheckIcon, ThumbUpIcon, UserIcon, CalendarIcon } from '@heroicons/react/solid'
 
 const timeline = [
@@ -31,7 +6,7 @@ const timeline = [
     content: 'Agenda en la plataforma o por',
     target: 'WhatsApp con Sergio',
     href: '#',
-    date: '1er paso 🗓',
+    date: '🗓',
     datetime: '2020-09-20',
     icon: CheckIcon,
     iconBackground: 'bg-green-500',
@@ -41,7 +16,7 @@ const timeline = [
     content: 'Carvuk va al lugar en la fecha',
     target: 'indicada',
     href: '#',
-    date: '2do paso ⏱',
+    date: '⏱',
     datetime: '2020-09-22',
     icon: CheckIcon,
     iconBackground: 'bg-green-500',
@@ -51,7 +26,7 @@ const timeline = [
     content: 'Realizamos el',
     target: 'servicio',
     href: '#',
-    date: '3er paso 👨🏻‍🔧',
+    date: '👨🏻‍🔧',
     datetime: '2020-09-28',
     icon: CheckIcon,
     iconBackground: 'bg-green-500',
@@ -61,7 +36,7 @@ const timeline = [
     content: 'Te devolvemos tu',
     target: 'vehículo',
     href: '#',
-    date: '4to paso 🚗',
+    date: '🚗',
     datetime: '2020-09-28',
     icon: CheckIcon,
     iconBackground: 'bg-green-500',
@@ -72,7 +47,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function BenefitsSection() {
+export default function StepbyStep() {
   return (
     <div className="py-12 bg-white">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,7 +79,7 @@ export default function BenefitsSection() {
                       'h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white'
                     )}
                   >
-                    <event.icon className="h-5 w-5 text-white" aria-hidden="true" />
+                    <p className="text-white" aria-hidden="true" >{event.id}</p>
                   </span>
                 </div>
                 <div className="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4">
@@ -132,4 +107,3 @@ export default function BenefitsSection() {
     </div>
   )
 }
-

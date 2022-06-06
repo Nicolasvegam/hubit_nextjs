@@ -1,23 +1,19 @@
 import React from 'react'
 import Image from 'next/image'
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const navigation = {
   solutions: [
-    { name: 'Servicios', href: '#' },
-    { name: 'Carvuk Pro', href: '#' },
+    { name: 'Servicios', href: '#service-section' },
+    // { name: 'Carvuk Pro', href: '#' },
+    // { name: 'Empresas', href: '#' },
   ],
-  support: [
-    { name: 'Soy Empresa', href: '#' },
-    { name: 'Contacto', href: '#' },
-    { name: 'Preguntas Frecuentes', href: '#' },
-
+   support: [
+   // { name: 'Preguntas Frecuentes', href: '#' },
+    { name: 'Contacto', href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20ayuda%20con%20mi%20veh%C3%ADculo' },
   ],
   company: [
-    { name: 'Blog', href: '#' },
-    { name: 'Trabajo con nosotros', href: '#' }
+    { name: 'Trabaja con nosotros', href: 'https://www.notion.so/carvuk/Carvuk-is-hiring-5ac3623d738d43b6bf36ef6202607a29' },
+   // { name: 'Blog', href: '#' },
   ],
   legal: [
     { name: 'Términos y condiciones', href: '#' },
@@ -26,7 +22,7 @@ const navigation = {
   social: [
     {
       name: 'Facebook',
-      href: '#',
+      href: 'https://www.facebook.com/carvuk',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -39,7 +35,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: '#',
+      href: 'https://www.instagram.com/carvuk_com/',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -52,7 +48,7 @@ const navigation = {
     },
     {
       name: 'Twitter',
-      href: '#',
+      href: 'https://twitter.com/carvuk_com',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
@@ -61,7 +57,7 @@ const navigation = {
     },
     {
       name: 'Linkedin',
-      href: '#',
+      href: 'https://www.linkedin.com/company/carvuk',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -117,7 +113,7 @@ export default function FooterSection() {
                 </ul>
               </div>
               <div className="mt-12 md:mt-0">
-                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Soporte</h3>
+                <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">Recursos</h3>
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>

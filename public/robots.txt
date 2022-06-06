@@ -1,0 +1,6 @@
+Sitemap: https://carvuk.com/api/sitemap.xml
+
+User-agent: *
+Allow: /
+Allow: /api/sitemap.xml
+Disallow: /api/

@@ -1,36 +1,41 @@
 import { useState } from 'react'
-import FirstModal from './first-modal'
-import SecondModal from './second-modal'
+import Example from './first-modal'
+import Modal2 from './second-modal'
+import { withRouter } from 'next/router'
+
+import HeadPage from './../components/head'
+import Navbar from '../components/navbar'
+import FooterSection from '../components/footer'
 
 const products = [
   {
     id: 1,
     name: 'Lavado a domicilio',
-    color: 'Vamos a tu 🏡 y te lo lavamos',
+    color: 'Dale lo que se merece',
     href: '#',
     imageSrc: './car-wash.svg',
-    imageAlt: 'Lavado a domicilio de tu vehículo.',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
     sizes: [
-      { name: 'Simple', description: 'Limpiamos tu auto por fuera.' , price: '$11.990', id: 'lavado-simple'},
-      { name: 'Full', description: 'Limpiamos tu auto por dentro y por fuera.', price: '$15.990', id: 'lavado-full'},
-    ],
+      { name: 'Simple - $11.990', description: 'Exterior.' },
+      { name: 'Full - $15.990', description: 'Exterior e Interior.' },
+    ]
   },
   {
-    id: 2,
+    id: 1,
     name: 'Revisión técnica',
-    color: 'Te lo llevamos a la revisión',
+    color: 'Ahórrate la espera',
     href: '#',
     imageSrc: './review.svg',
-    imageAlt: 'Revisión técnica a domicilio. Lo recogemos, lo llevamos a la revisión y te lo devolvemos',
-    price: '$29.990',
+    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    price: 'Desde $11.990',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
   },
   {
-    id: 3,
+    id: 1,
     name: 'Mantención por kilometraje',
     color: 'Mantenlo al 💯',
     href: '#',
@@ -41,10 +46,9 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20la%20mantenci%C3%B3n%20de%20mi%20veh%C3%ADculo...'
   },
   {
-    id: 4,
+    id: 1,
     name: 'Revisión pre-compra',
     color: 'Dale un doble chequeo',
     href: '#',
@@ -57,20 +61,7 @@ const products = [
     ],
   },
   {
-    id: 5,
-    name: 'Inspección general',
-    color: 'Dale un doble chequeo',
-    href: '#',
-    imageSrc: './sale.svg',
-    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
-    price: 'Desde $11.990',
-    sizes: [
-      { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
-      { name: '20L', description: 'Enough room for a serious amount of snacks.' },
-    ],
-  },
-  {
-    id: 6,
+    id: 1,
     name: 'Desabolladura y pintura',
     color: 'White and black',
     href: '#',
@@ -81,10 +72,9 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20cotizar%20una%20desabolladura%2Fpintura...'
   },
   {
-    id: 7,
+    id: 1,
     name: 'Cambio de aceite',
     color: 'White and black',
     href: '#',
@@ -95,10 +85,9 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20aceite...'
   },
   {
-    id: 8,
+    id: 1,
     name: 'Cambio de parabrisas',
     color: 'White and black',
     href: '#',
@@ -109,10 +98,9 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20cambio%20de%20parabrisas...'
   },
   {
-    id: 9,
+    id: 1,
     name: 'Frenos',
     color: 'White and black',
     href: '#',
@@ -123,10 +111,9 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20revisi%C3%B3n%20de%20frenos...'
   },
   {
-    id: 10,
+    id: 1,
     name: 'Vulcanización',
     color: 'White and black',
     href: '#',
@@ -137,10 +124,9 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20vulcanizaci%C3%B3n...'
   },
   {
-    id: 11,
+    id: 1,
     name: 'Cambio de batería',
     color: 'White and black',
     href: '#',
@@ -151,11 +137,10 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20bater%C3%ADa...'
   },
   {
-    id: 12,
-    name: '¿No está lo que buscas?',
+    id: 1,
+    name: 'Mecánica general y otros',
     color: 'White and black',
     href: '#',
     imageSrc: './scanner.svg',
@@ -165,16 +150,15 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20ayuda%20con%20mi%20veh%C3%ADculo'
   },  
 ]
 
-export default function Service2Section() {
+function AllServices(props) {
   
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [activeProduct, setActiveProduct] = useState(products[0]);
-  
+
   function onClickAny(){
     props.router.push({
       pathname: 'agendar',
@@ -192,26 +176,31 @@ export default function Service2Section() {
         setActiveProduct(product);
     }
   }
-
+  
   return (
-    <div className="bg-white" id="service-section">
+    
+    <div className="bg-white">
+      
+      <HeadPage icon='' 
+                 href='https://carvuk.com/servicios' 
+                 title='Carvuk: Selecciona el servicio que necesitas' 
+                 description='Agenda tu servicio automotriz a domicilio hoy. Llevamos el taller mecánico a tu casa, oficina o el lugar que mejor te acomode.' 
+                 image='' />
+      <Navbar/>
+
       <div className="py-16 sm:py-24 lg:max-w-7xl lg:mx-auto lg:px-8">
-        <FirstModal open={openFirst} onCloseModal={()=> setOpenFirst(false)} product={products[0]}/>
-        <SecondModal open={openSecond} onCloseModal={()=> setOpenSecond(false)} product={activeProduct}/>
-        <div className="px-4 flex items-center justify-between sm:px-6 lg:px-0">
-          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Los más populares</h2>
-          <a href="#" className="hidden sm:block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-            Ver todos los servicios<span aria-hidden="true"> &rarr;</span>
-          </a>
-        </div>
+
+        <Example open={openFirst} onCloseModal={()=> setOpenFirst(false)} product={activeProduct}/>
+        <Modal2 open={openSecond} onCloseModal={()=> setOpenSecond(false)} product={activeProduct}/>
+
         <div className="mt-8 relative">
           <div className="relative w-full pb-6 -mb-6 overflow-x-auto">
             <ul
               role="list"
-              className="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:space-x-0 lg:gap-x-8"
+              className="mx-4 inline-flex space-x-8 sm:mx-6 lg:mx-0 lg:space-x-0 lg:grid lg:grid-cols-4 lg:gap-x-8"
             >
               {products.map((product) => (
-                <li key={product.id} className="w-64 inline-flex flex-col text-center">
+                <li key={product.id} className="w-64 inline-flex flex-col text-center lg:w-auto">
   
                   <div className="group relative">
                     <div className="w-full bg-gray-200 rounded-md overflow-hidden aspect-w-1 aspect-h-1">
@@ -233,9 +222,10 @@ export default function Service2Section() {
                       <div className="mt-3">
                           <a
                           href={product.href}
-                          className="relative flex bg-indigo-600 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-white hover:bg-indigo-700"
+                          className="relative flex bg-gray-100 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-gray-900 hover:bg-gray-200"
                           onClick={()=> {
                             openModal(product);
+                           // onClickAny();
                           }}
                           >
                           Ver más<span className="sr-only">, {product.name}</span>
@@ -248,12 +238,11 @@ export default function Service2Section() {
             </ul>
           </div>
         </div>
-        <div className="mt-12 flex px-4 sm:hidden">
-          <a href="#" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-            Ver todos los servicios<span aria-hidden="true"> &rarr;</span>
-          </a>
-        </div>
       </div>
+
+      <FooterSection/>
     </div>
   )
 }
+
+export default withRouter(AllServices);
