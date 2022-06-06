@@ -10,8 +10,8 @@ function classNames(...classes) {
 
 function FirstModal(props) {
   const {open, onCloseModal, product} = props
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0])
-  const [currentPrice, setCurrentPrice] = useState(product.sizes[0].price)
+  const [selectedSize, setSelectedSize] = useState(product?.sizes[0])
+  const [currentPrice, setCurrentPrice] = useState(product?.sizes[0].price)
 
   function onClickButton(e){
     e.preventDefault()
@@ -69,16 +69,16 @@ function FirstModal(props) {
                   <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
                     <div className="sm:col-span-4 lg:col-span-5">
                       <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden">
-                        <img src={product?.imageSrc} alt={product.imageAlt} className="object-center object-cover" />
+                        <img src={product?.imageSrc} alt={product?.imageAlt} className="object-center object-cover" />
                       </div>
                       <p className="absolute top-4 left-4 text-center sm:static sm:mt-6">
-                        <a href={product.href} className="font-medium text-indigo-600 hover:text-indigo-500">
+                        <a href={product?.href} className="font-medium text-indigo-600 hover:text-indigo-500">
                           ¿Tienes dudas? Contáctanos 🤳
                         </a>
                       </p>
                     </div>
                     <div className="sm:col-span-8 lg:col-span-7">
-                      <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{product.name}</h2>
+                      <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{product?.name}</h2>
 
                       <section aria-labelledby="information-heading" className="mt-4">
                         <h3 id="information-heading" className="sr-only">
@@ -88,7 +88,7 @@ function FirstModal(props) {
                         <div className="flex items-center">
                           <p className="text-lg text-gray-900 sm:text-xl">{currentPrice}</p>
 
-                          <div className="ml-4 pl-4 border-l border-gray-300">
+                          { /* <div className="ml-4 pl-4 border-l border-gray-300">
                             <h4 className="sr-only">Reviews</h4>
                             <div className="flex items-center">
                               <div className="flex items-center">
@@ -96,16 +96,16 @@ function FirstModal(props) {
                                   <StarIcon
                                     key={rating}
                                     className={classNames(
-                                      product.rating > rating ? 'text-yellow-400' : 'text-gray-300',
+                                      product?.rating > rating ? 'text-yellow-400' : 'text-gray-300',
                                       'h-5 w-5 flex-shrink-0'
                                     )}
                                     aria-hidden="true"
                                   />
                                 ))}
                               </div>
-                              <p className="sr-only">{product.rating} out of 5 stars</p>
+                              <p className="sr-only">{product?.rating} out of 5 stars</p>
                             </div>
-                          </div>
+                          </div> */} 
                         </div>
 
                         <div className="mt-6 flex items-center">
@@ -127,7 +127,7 @@ function FirstModal(props) {
                                 Tipo
                               </RadioGroup.Label>
                               <div className="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                                {product.sizes.map((size) => (
+                                {product?.sizes.map((size) => (
                                   <RadioGroup.Option
                                     as="div"
                                     key={size.name}

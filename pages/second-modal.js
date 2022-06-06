@@ -49,14 +49,14 @@ export default function SecondModal(props) {
                       </div>
                     </div>
                     <div className="sm:col-span-8 lg:col-span-7">
-                      <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{product.name}</h2>
+                      <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{product?.name}</h2>
 
                       <section aria-labelledby="information-heading" className="mt-3">
                         <h3 id="information-heading" className="sr-only">
                           Product information
                         </h3>
 
-                        <p className="text-2xl text-gray-900">{product.price}</p>
+                        <p className="text-2xl text-gray-900">{product?.price}</p>
 
                         {/* Reviews 
                         <div className="mt-3">
@@ -82,7 +82,7 @@ export default function SecondModal(props) {
                         <div className="mt-6">
                           <h4 className="sr-only">¿En que consiste? </h4>
 
-                          <p className="text-sm text-gray-700">{product.description}</p>
+                          <p className="text-sm text-gray-700">{product?.description}</p>
                         </div>
                       </section>
 
@@ -98,7 +98,7 @@ export default function SecondModal(props) {
                           </div>
 
                           <p className="absolute top-4 left-4 text-center sm:static sm:mt-6">
-                            <a href={product.href} className="font-medium text-indigo-600 hover:text-indigo-500">
+                            <a href={product?.href} className="font-medium text-indigo-600 hover:text-indigo-500">
                               Ver más detalles
                             </a>
                           </p>
