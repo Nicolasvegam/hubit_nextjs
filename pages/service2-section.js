@@ -179,9 +179,11 @@ export default function Service2Section() {
     setActiveProduct(product);
     if (product.name == 'Lavado a domicilio'){
       setOpenFirst(true);
+      setOpenSecond(false);
     }
     else {
       setOpenSecond(true);
+      setOpenFirst(false);
     }
   }
 
@@ -223,15 +225,15 @@ export default function Service2Section() {
                       <p className="text-sm text-gray-500">{product.color}</p>
                       <p className="mt-1 text-gray-900">{product.price}</p>
                       <div className="mt-3">
-                          <a
-                          href={product.href}
-                          className="relative flex bg-indigo-600 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-white hover:bg-indigo-700"
+                          <button
+                          type="button"
+                          className="w-full relative flex bg-indigo-600 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-white hover:bg-indigo-700"
                           onClick={()=> {
                             openModal(product);
                           }}
                           >
                           Ver más<span className="sr-only">, {product.name}</span>
-                          </a>
+                          </button>
                       </div>
                     </div>
                   </div>

@@ -2,14 +2,14 @@ import { Fragment, useState, useEffect } from 'react'
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { ShieldCheckIcon, XIcon } from '@heroicons/react/outline'
 import { CheckIcon, StarIcon } from '@heroicons/react/solid'
-import { withRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-function FirstModal(props) {
-  const {open, onCloseModal, product} = props
+function FirstModal({open, onCloseModal, product}) {
+  const router = useRouter()
   const [selectedSize, setSelectedSize] = useState(product?.sizes[0])
   const [currentPrice, setCurrentPrice] = useState(product?.sizes[0].price)
 
@@ -17,7 +17,7 @@ function FirstModal(props) {
     e.preventDefault()
     const value = selectedSize.id
     console.log('push', value)
-    props.router.push({
+    router.push({
       pathname: '/agendar',
       query: {'servicio': value}
     });
@@ -30,7 +30,7 @@ function FirstModal(props) {
   }
 
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={Boolean(open)} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onCloseModal}>
         <Transition.Child
           as={Fragment}
@@ -193,4 +193,4 @@ function FirstModal(props) {
   )
 }
 
-export default  withRouter(FirstModal);
+export default (FirstModal);

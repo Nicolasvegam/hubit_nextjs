@@ -2,11 +2,9 @@ import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 
-export default function SecondModal(props) {
-  const {open, onCloseModal, product} = props
-
+export default function SecondModal({ open, onCloseModal, product }) {
   return (
-    <Transition.Root show={open} as={Fragment}>
+    <Transition.Root show={Boolean(open)} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onCloseModal}>
         <Transition.Child
           as={Fragment}
