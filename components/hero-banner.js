@@ -50,7 +50,7 @@ export default function HeroSection() {
                 <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
                   <div className='w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none'>
                     <img className="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none" 
-                    src="./booking.png" alt=""/>
+                    src="./hero-image.svg" alt=""/>
                   </div>
                 </div>
             </div>

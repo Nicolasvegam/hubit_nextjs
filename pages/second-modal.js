@@ -1,6 +1,6 @@
 import { Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-import { XIcon } from '@heroicons/react/outline'
+import { XIcon, ShieldCheckIcon } from '@heroicons/react/outline'
 
 export default function SecondModal({ open, onCloseModal, product }) {
   return (
@@ -45,6 +45,11 @@ export default function SecondModal({ open, onCloseModal, product }) {
                       <div className="aspect-w-1 aspect-h-1 rounded-lg bg-gray-100 overflow-hidden">
                         <img src={product?.imageSrc} alt={product?.imageAlt} className="object-center object-cover" />
                       </div>
+                      <p className="absolute top-4 left-4 text-center sm:static sm:mt-6">
+                        <a href={product?.href} className="font-medium text-indigo-600 hover:text-indigo-500">
+                          ¿Tienes dudas? Contáctanos 🤳
+                        </a>
+                      </p>
                     </div>
                     <div className="sm:col-span-8 lg:col-span-7">
                       <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{product?.name}</h2>
@@ -94,12 +99,15 @@ export default function SecondModal({ open, onCloseModal, product }) {
                               Agendar
                             </button>
                           </div>
-
-                          <p className="absolute top-4 left-4 text-center sm:static sm:mt-6">
-                            <a href={product?.href} className="font-medium text-indigo-600 hover:text-indigo-500">
-                              Ver más detalles
-                            </a>
-                          </p>
+                          <div className="mt-6 text-center">
+                            <p className="group inline-flex text-base font-medium">
+                              <ShieldCheckIcon
+                                className="flex-shrink-0 mr-2 h-6 w-6 text-gray-400"
+                                aria-hidden="true"
+                              />
+                              <span className="text-gray-500">Servicio con garantía</span>
+                            </p>
+                          </div>
                         </form>
                       </section>
                     </div>

@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import Stepper from '../components/stepper'
+
 /* Query String
 ?assigned_to=Carvuk
 &event_type_uuid=6e730944-57f1-4808-a67c-450448e74f82
@@ -20,11 +21,11 @@ import Stepper from '../components/stepper'
 */
 
 //realizar links de mercado pago
-const urls = { 'revision-tecnica' : 'https://calendly.com/carvuk/revision-tecnica',
-                'lavado-full': 'https://calendly.com/carvuk/lavado-a-domicilio-full',
-                'lavado-simple': 'https://calendly.com/carvuk/lavado-a-domicilio-simple',
-                'revision-pre-compra': 'https://calendly.com/carvuk/revision-precompra',
-                'inspeccion-general': 'https://calendly.com/carvuk/inspeccion-general',
+const urls = { 'revision-tecnica' : 'https://mpago.la/15pmWjs',
+                'lavado-full': 'https://mpago.la/15pmWjs',
+                'lavado-simple': 'https://mpago.la/15pmWjs',
+                'revision-pre-compra': 'https://mpago.la/15pmWjs',
+                'inspeccion-general': 'https://mpago.la/15pmWjs',
 }
 
 export default function Example() {
@@ -74,12 +75,13 @@ export default function Example() {
               </div>
 
               <div className="mt-2 grid grid-cols-1">
-                <button
+                <a
                 type="submit"
+                href='https://mpago.la/15pmWjs'
                 className="w-full mt-6 bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Pagar
-              </button>
+              </a>
               <p className="flex justify-center text-sm font-medium text-gray-500 mt-6">
                 <LockClosedIcon className="w-5 h-5 text-gray-400 mr-1.5" aria-hidden="true" />
                 Pagos protegidos bajo un sistema seguro

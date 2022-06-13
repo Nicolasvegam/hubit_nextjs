@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import FirstModal from './first-modal'
 import SecondModal from './second-modal'
-
+import Link from 'next/link'
 const products = [
   {
     id: 1,
     name: 'Lavado a domicilio',
     color: 'Vamos a tu 🏡 y te lo lavamos',
-    href: '#',
-    imageSrc: './car-wash.svg',
+    href: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20el%20lavado%20a%20domicilio...',
+    imageSrc: './lavado-img.svg',
     imageAlt: 'Lavado a domicilio de tu vehículo.',
     price: 'Desde $11.990',
     sizes: [
@@ -19,10 +19,11 @@ const products = [
   {
     id: 2,
     name: 'Revisión técnica',
-    color: 'Te lo llevamos a la revisión',
-    href: '#',
-    imageSrc: './review.svg',
-    imageAlt: 'Revisión técnica a domicilio. Lo recogemos, lo llevamos a la revisión y te lo devolvemos',
+    color: 'No hagas más filas, vamos por tí',
+    href: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
+    imageSrc: './revision-img.svg',
+    imageAlt: 'Revisión técnica imagen',
+    description: 'Uno nuestros mecánicos inspecciona el vehículo, lo traslada a la plante de revisión técnica y gestiona su certificado. En caso de de que la revisión salga rechaza nos pondremos en contacto para ayudarte a solucionar el problema.',
     price: '$29.990',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -33,10 +34,11 @@ const products = [
     id: 3,
     name: 'Mantención por kilometraje',
     color: 'Mantenlo al 💯',
-    href: '#',
-    imageSrc: './mantain.svg',
+    href: 'https://wa.me/+56931402144?text=Hola!%20Necesito%20realizar%20la%20mantenci%C3%B3n%20de%20mi%20veh%C3%ADculo...',
+    imageSrc: './mantencion-img.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
+    description: 'Cotizamos el servicio, agendamos y llevamos tu auto al taller sin que tengas que salir de tu casa. Contamos con una red de talleres aliados o si prefieres podemos hacerlo con el taller de tu marca.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
@@ -46,23 +48,26 @@ const products = [
   {
     id: 4,
     name: 'Revisión pre-compra',
-    color: 'Dale un doble chequeo',
+    color: 'Revisamos el 🚘 antes del 💰',
     href: '#',
-    imageSrc: './sale.svg',
+    imageSrc: './precompra-img.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    description: 'El servicio incluye inspección mecánica, estética, scanner, prueba en ruta e informe legal.',
     price: 'Desde $11.990',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
+    link: ''
   },
   {
     id: 5,
     name: 'Inspección general',
-    color: 'Dale un doble chequeo',
+    color: '¿En qué estado está tu 🚘?',
     href: '#',
-    imageSrc: './sale.svg',
-    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    imageSrc: './inspeccion-img.svg',
+    imageAlt: 'Inspección general.',
+    description: 'El servicio incluye inspección mecánica, estética, scanner, prueba en ruta e informe legal.',
     price: 'Desde $11.990',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -73,9 +78,10 @@ const products = [
     id: 6,
     name: 'Desabolladura y pintura',
     color: 'White and black',
-    href: '#',
-    imageSrc: './crash.svg',
-    imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20cotizar%20una%20desabolladura%2Fpintura...',
+    imageSrc: './desabolladura-img.svg',
+    imageAlt: 'Desabolladura y pintura imagen.',
+    description: 'Cotizamos el arreglo según las fotos que nos envíes, agendamos y en tan solo un día desabollamos y pintamos tu auto en el lugar que mas te acomode.',
     price: 'Desde $11.990',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -87,10 +93,11 @@ const products = [
     id: 7,
     name: 'Cambio de aceite',
     color: 'White and black',
-    href: '#',
-    imageSrc: './aceite.svg',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20aceite...',
+    imageSrc: './aceite-img.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
+    description: 'Uno de nuestros mecánicos traslada tu auto a uno de nuestros talleres aliados para certificar que se haga el cambio de aceite y filtros.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
@@ -101,8 +108,8 @@ const products = [
     id: 8,
     name: 'Cambio de parabrisas',
     color: 'White and black',
-    href: '#',
-    imageSrc: './parabrisas.svg',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20cambio%20de%20parabrisas...',
+    imageSrc: './parabrisas-img.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
     sizes: [
@@ -115,8 +122,8 @@ const products = [
     id: 9,
     name: 'Frenos',
     color: 'White and black',
-    href: '#',
-    imageSrc: './brakes.svg',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20revisi%C3%B3n%20de%20frenos...',
+    imageSrc: './frenos-img.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
     sizes: [
@@ -129,8 +136,8 @@ const products = [
     id: 10,
     name: 'Vulcanización',
     color: 'White and black',
-    href: '#',
-    imageSrc: './vulca.svg',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20vulcanizaci%C3%B3n...',
+    imageSrc: './vulca-img.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
     sizes: [
@@ -143,8 +150,8 @@ const products = [
     id: 11,
     name: 'Cambio de batería',
     color: 'White and black',
-    href: '#',
-    imageSrc: './car-fix.svg',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20bater%C3%ADa...',
+    imageSrc: './baterias-img.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
     price: 'Desde $11.990',
     sizes: [
@@ -157,9 +164,10 @@ const products = [
     id: 12,
     name: '¿No está lo que buscas?',
     color: 'White and black',
-    href: '#',
-    imageSrc: './scanner.svg',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20ayuda%20con%20mi%20veh%C3%ADculo',
+    imageSrc: './otros-img.svg',
     imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
+    description: '¿No encontraste lo que buscabas? Háblanos y Sergio 👨🏻‍🔧 solucionará tu problema.',
     price: 'Desde $11.990',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -170,7 +178,8 @@ const products = [
 ]
 
 export default function Service2Section() {
-  
+
+ 
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [activeProduct, setActiveProduct] = useState(products[0]);
@@ -194,9 +203,10 @@ export default function Service2Section() {
         <SecondModal open={openSecond} onCloseModal={()=> setOpenSecond(false)} product={activeProduct}/>
         <div className="px-4 flex items-center justify-between sm:px-6 lg:px-0">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Los más populares</h2>
-          <a href="#" className="hidden sm:block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-            Ver todos los servicios<span aria-hidden="true"> &rarr;</span>
-          </a>
+          <Link href="/servicios">
+            <a className="hidden sm:block text-sm font-semibold text-indigo-600 hover:text-indigo-500" >
+              Ver todos los servicios<span aria-hidden="true"> &rarr;</span></a>
+          </Link>
         </div>
         <div className="mt-8 relative">
           <div className="relative w-full pb-6 -mb-6 overflow-x-auto">
@@ -217,10 +227,13 @@ export default function Service2Section() {
                     </div>
                     <div className="mt-6">
                       <h3 className="mt-1 font-semibold text-gray-900">
-                        <a href={product.href}>
+                        <button 
+                          onClick={()=> {
+                            openModal(product);
+                          }}>
                           <span className="absolute inset-0" />
                           {product.name}
-                        </a>
+                        </button>
                       </h3>
                       <p className="text-sm text-gray-500">{product.color}</p>
                       <p className="mt-1 text-gray-900">{product.price}</p>

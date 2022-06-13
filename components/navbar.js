@@ -2,6 +2,7 @@ import React from 'react'
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { useRouter } from 'next/router'
 
 
 const navigation = [
@@ -15,7 +16,16 @@ const navigation = [
   ]
 
 
-export default function Navbar() {
+export default function Navbar({ctaBool}) {
+
+    const router = useRouter()
+
+    function onClickLogo(){        
+        router.push({
+          pathname: '/'
+        });
+    }
+
     return (
         <div className="relative bg-white">
             <div className="relative pt-6 pb-2 sm:pb-4 lg:pb-4">
@@ -26,14 +36,14 @@ export default function Navbar() {
             >
             <div className="flex items-center flex-1">
                 <div className="flex items-center justify-between w-full md:w-auto">
-                <a href="#">
+                <button onClick={()=> onClickLogo()}>
                     <span className="sr-only">Carvuk</span>
                     <img
                     className="h-8 w-auto sm:h-10"
                     src="./carvuk-logo.svg"
                     alt=""
                     />
-                </a>
+                </button>
                 <div className="-mr-2 flex items-center md:hidden">
                     <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Menu</span>
@@ -49,7 +59,7 @@ export default function Navbar() {
                 ))}
                 </div>
             </div>
-            <div className="hidden md:block text-right">
+            { ctaBool && (<div className="hidden md:block text-right">
                 <span className="inline-flex rounded-md shadow-md ring-1 ring-black ring-opacity-5">
                 <a
                     href="#service-section"
@@ -58,7 +68,8 @@ export default function Navbar() {
                     Me interesa
                 </a>
                 </span>
-            </div>
+            </div>)}
+             
             </nav>
 
             <Transition
@@ -101,12 +112,13 @@ export default function Navbar() {
                     </a>
                     ))}
                 </div>
-                <a
-                    href="#service-section"
-                    className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
-                >
-                    Me interesa
-                </a>
+                { ctaBool && 
+                    (<a
+                        href="#service-section"
+                        className="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100"
+                    >
+                        Me interesa
+                    </a>)}
                 </div>
             </Popover.Panel>
             </Transition>

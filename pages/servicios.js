@@ -1,7 +1,7 @@
 import HeadPage from './../components/head'
 import Navbar from '../components/navbar'
 import FooterSection from '../components/footer'
-
+import AllServices from '../components/all-services'
 
 const IndexPage = () => {
   return(
@@ -11,8 +11,8 @@ const IndexPage = () => {
                  title='Carvuk: Selecciona el servicio que necesitas' 
                  description='Agenda tu servicio automotriz a domicilio hoy. Llevamos el taller mecánico a tu casa, oficina o el lugar que mejor te acomode.' 
                  image='' />
-      <Navbar/>
-      <allServices firstModalState={false} secondModalState={false}/>
+      <Navbar ctaBool={false} />
+      <AllServices/>
       <FooterSection/>
     </div>
     )

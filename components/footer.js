@@ -35,7 +35,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: 'https://www.instagram.com/carvuk_com/',
+      href: 'https://www.instagram.com/carvukchile/',
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path

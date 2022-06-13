@@ -110,13 +110,13 @@ function FirstModal({open, onCloseModal, product}) {
 
                         <div className="mt-6 flex items-center">
                           <CheckIcon className="flex-shrink-0 w-5 h-5 text-green-500" aria-hidden="true" />
-                          <p className="ml-2 font-medium text-gray-500">In stock and ready to ship</p>
+                          <p className="ml-2 font-medium text-gray-500">Lavamos en seco, no ocupamos agua 💚🌎</p>
                         </div>
                       </section>
 
                       <section aria-labelledby="options-heading" className="mt-6">
                         <h3 id="options-heading" className="sr-only">
-                          Product options
+                          Tipo
                         </h3>
 
                         <form onSubmit={(e)=> onClickButton(e)}>

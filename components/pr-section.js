@@ -5,7 +5,7 @@ export default function PRSection() {
           <p className="text-center text-base font-semibold uppercase text-gray-600 tracking-wider">
             Notas de prensa
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-8">
+          <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-2 lg:mt-8">
             <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
               <img 
                className="max-h-12"
@@ -25,6 +25,13 @@ export default function PRSection() {
                 className="max-h-12"
                 src="./bloomerg.png"
                 alt="Bloomberg Línea"
+              />
+            </div>
+            <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+              <img
+                className="max-h-12"
+                src="./ingenieria_uc.png"
+                alt="Ingeniería UC"
               />
             </div>
           </div>

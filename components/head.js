@@ -2,9 +2,6 @@ import Head from 'next/head';
 
 const HeadPage = (props) => {
     const {icon, href, title, description, image } = props
-    //"icon-carvuk.svg", "https://carvuk.com", Carvuk: Servicio para vehículos a domicilio, 
-    //Agenda tu servicio automotriz a domicilio hoy. Llevamos el taller mecánico a tu casa, oficina o el lugar que mejor te acomode.
-    //https://www.carvuk.com/heroimage.svg
     return(
         <div>
             <Head>
@@ -12,7 +9,7 @@ const HeadPage = (props) => {
 
                 <link rel="alternate" hrefLang="es-CL" href={href}/>
                 <link rel="icon" href={icon}/>
-                <meta charset="UTF-8" />
+                <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
                 
@@ -42,6 +39,22 @@ const HeadPage = (props) => {
                 <meta name="twitter:creator" content="@carvuk" />
                 <meta name="twitter:site" content="@carvuk" />
                 <meta name="twitter:image" itemProp="image" content={image} />
+
+                <script
+                    async
+                    src="https://www.googletagmanager.com/gtag/js?id=G-GH5NVHHKZF"
+                />
+
+                <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'G-GH5NVHHKZF', { page_path: window.location.pathname });
+                    `,
+                }}
+                />
             </Head>
         </div>
     )
