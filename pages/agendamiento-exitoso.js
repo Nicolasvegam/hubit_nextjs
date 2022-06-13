@@ -21,24 +21,27 @@ import Stepper from '../components/stepper'
 */
 
 //realizar links de mercado pago
-const urls = { 'revision-tecnica' : 'https://mpago.la/15pmWjs',
-                'lavado-full': 'https://mpago.la/15pmWjs',
-                'lavado-simple': 'https://mpago.la/15pmWjs',
-                'revision-pre-compra': 'https://mpago.la/15pmWjs',
-                'inspeccion-general': 'https://mpago.la/15pmWjs',
+const urls = { 'Revisión técnica' : 'https://mpago.la/1v2xHYQ',
+                'Lavado a domicilio Full': 'https://mpago.la/2yiV1Gh', 
+                'Lavado a domicilio Simple': 'https://mpago.la/28mjfnK', 
+                'Revisión pre-compra': 'https://mpago.la/2pp1vd6', 
+                'Inspección general': 'https://mpago.la/2bViWm5', 
 }
 
 export default function Example() {
 
 
-  const router = useRouter();
-    
+    const router = useRouter();
+
     useEffect(() => {
       if (router.isReady) {
-        console.log(router.query)
         }
       }, [router.isReady]);
     
+    const service = router.query.event_type_name
+    const urlMEPA = urls[service];
+
+
     return !router.isReady ? null : (
     <>
       <header className="bg-white shadow">
@@ -77,14 +80,14 @@ export default function Example() {
               <div className="mt-2 grid grid-cols-1">
                 <a
                 type="submit"
-                href='https://mpago.la/15pmWjs'
+                href={urlMEPA}
                 className="w-full mt-6 bg-indigo-600 border border-transparent rounded-md shadow-sm py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Pagar
               </a>
               <p className="flex justify-center text-sm font-medium text-gray-500 mt-6">
                 <LockClosedIcon className="w-5 h-5 text-gray-400 mr-1.5" aria-hidden="true" />
-                Pagos protegidos bajo un sistema seguro
+                Pagos protegidos por Mercado Pago
               </p>
               </div>
             </div>
