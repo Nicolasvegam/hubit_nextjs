@@ -1,5 +1,6 @@
 
-/* This example requires Tailwind CSS v2.0+ */
+import Script from 'next/script'
+
 export default function Revision() {
   return (
     <div id="te-avisamos" className="bg-indigo-700">
@@ -17,7 +18,7 @@ export default function Revision() {
         >
           Me interesa
         </button>
-        <script src="//embed.typeform.com/next/embed.js"></script>
+        <Script src="//embed.typeform.com/next/embed.js"></Script>
       </div>
     </div>
   )
