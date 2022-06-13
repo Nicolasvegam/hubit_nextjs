@@ -159,13 +159,6 @@ function AllServices(props) {
   const [openSecond, setOpenSecond] = useState(false);
   const [activeProduct, setActiveProduct] = useState(products[0]);
 
-  function onClickAny(){
-    props.router.push({
-      pathname: 'agendar',
-      query: {'servicio': 'valor'}
-    });
-  }
-
   function openModal(product){
     if (product.name == 'Lavado a domicilio'){
         setOpenFirst(true);

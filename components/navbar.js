@@ -6,8 +6,8 @@ import { useRouter } from 'next/router'
 
 
 const navigation = [
-    { name: 'Servicios', href: '#service-section' },
-    //{ name: 'Carvuk Pro', href: '#' },
+    { name: 'Servicios', href: 'servicios' },
+    { name: 'Carvuk Pro', href: 'carvuk-pro' },
     //{ name: 'Empresas', href: '#' }
   ]
   

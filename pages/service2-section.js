@@ -2,6 +2,7 @@ import { useState } from 'react'
 import FirstModal from './first-modal'
 import SecondModal from './second-modal'
 import Link from 'next/link'
+
 const products = [
   {
     id: 1,

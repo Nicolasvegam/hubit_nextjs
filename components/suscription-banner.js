@@ -1,11 +1,14 @@
 import React from 'react'
 import { CheckCircleIcon } from '@heroicons/react/solid'
+import Link from 'next/link'
 
 const includedFeatures = [
-  'Private forum access',
-  'Member resources',
-  'Entry to annual conference',
-  'Official member t-shirt',
+  'Asistencia 24/7',
+  'Revisión técnica a domicilio',
+  'Precios preferenciales',
+  'Lavado a domicilio',
+  'Inspección general',
+  'Entre muchos otros ...',
 ]
 
 export default function BoxSuscripcion() {
@@ -29,8 +32,8 @@ export default function BoxSuscripcion() {
               <div className="flex-1 bg-white px-6 py-8 lg:p-12">
                 <h3 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Carvuk Pro</h3>
                 <p className="mt-6 text-base text-gray-500">
-                  Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis
-                  repellendus etur quidem assumenda.
+                  Hacemos que ser dueño de un auto ya no sea un “cacho”. <br></br>
+                  Tu auto, nuestro problema 🤝
                 </p>
                 <div className="mt-8">
                   <div className="flex items-center">
@@ -52,36 +55,23 @@ export default function BoxSuscripcion() {
                 </div>
               </div>
               <div className="py-8 px-6 text-center bg-gray-50 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12">
-                <p className="text-lg leading-6 font-medium text-gray-900">Paga una vez al año</p>
+                <p className="text-lg leading-6 font-medium text-gray-900">Mensual desde</p>
                 <div className="mt-4 flex items-center justify-center text-5xl font-extrabold text-gray-900">
-                  <span>$80.000</span>
+                  <span>$4.990</span>
                   <span className="ml-3 text-xl font-medium text-gray-500">CLP</span>
                 </div>
                 <div className="mt-6">
-                  <div className="rounded-md shadow">
-                  <form action="#" method="POST" className="mt-3 sm:flex">
-                    <label htmlFor="email" className="sr-only">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      className="block w-full py-3 text-base rounded-md placeholder-gray-500 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:flex-1 border-gray-300"
-                      placeholder="Enter your email"
-                    />
-                    <button
-                      type="submit"
-                      className="mt-3 w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto"
-                    >
-                      Me interesa
-                    </button>
-                  </form>
-                  </div>
+                  <Link  href="/carvuk-pro">
+                    <a
+                        className="mt-3 w-full px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 shadow-sm hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:flex-shrink-0 sm:inline-flex sm:items-center sm:w-auto"
+                      >
+                        Me interesa
+                    </a>
+                  </Link>
                 </div>
                 <div className="mt-4 text-sm">
                   <p className="font-medium text-gray-900">
-                    Te enviaremos nuestros planes
+                    ¡Despreocúpate de tu 🚗 hoy!
                   </p>
                 </div>
               </div>
