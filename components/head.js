@@ -2,6 +2,7 @@ import Head from 'next/head';
 
 const HeadPage = (props) => {
     const {icon, href, title, description, image } = props
+    
     return(
         <div>
             <Head>
@@ -40,16 +41,6 @@ const HeadPage = (props) => {
                 <meta name="twitter:site" content="@carvuk" />
                 <meta name="twitter:image" itemProp="image" content={image} />
 
-                <Script id="google-tag-manager" strategy="afterInteractive">
-                    {
-                        `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                    })(window,document,'script','dataLayer','GTM-MPDRW3Q');`
-                    }
-                </Script>
-                
             </Head>
         </div>
     )

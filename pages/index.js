@@ -20,24 +20,18 @@ const IndexPage = () => {
                  title='Carvuk: Servicio para vehículos a domicilio' 
                  description='Agenda tu servicio automotriz a domicilio hoy. Llevamos el taller mecánico a tu casa, oficina o el lugar que mejor te acomode.' 
                  image='' />
-      <body>
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPDRW3Q" height="0" width="0" style="display: none; visibility: hidden;" />`,
-          }}
-        />
-        <TopAlert/>
-        <Navbar ctaBool={true} />
-        <HeroSection/>
-        <Service2Section/>
-        <PVSection/>
-        <StepbyStep/>
-        <Revision/>
-        <BoxSuscripcion/>
-        <NewsSection/>
-        <ChatwootWidget/>
-        <FooterSection/>
-      </body>
+
+      <TopAlert/>
+      <Navbar ctaBool={true} />
+      <HeroSection/>
+      <Service2Section/>
+      <PVSection/>
+      <StepbyStep/>
+      <Revision/>
+      <BoxSuscripcion/>
+      <NewsSection/>
+      <ChatwootWidget/>
+      <FooterSection/>
     </div>
     )
   }
