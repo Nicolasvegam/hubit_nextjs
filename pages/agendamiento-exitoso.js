@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { LockClosedIcon } from '@heroicons/react/solid'
-import Stepper from '../components/stepper'
 
 /* Query String
 ?assigned_to=Carvuk
