@@ -7,14 +7,13 @@ const pricing = {
       title: 'El curioso 🤔',
       price: "$4.990",
       frequency: '/mes',
-      description: 'Deja que tu  auto, sea nuestro problema 😉 Obtén tu asistente personal para tu auto.',
+      description: 'Deja que tu  auto, sea nuestro problema 😉 Obtén tu asistente personal para tu auto',
       features: [
         'Revisión técnica a domicilio', 
         'Inspección y diagnóstico de tu 🚘', 
         'Precios preferenciales en todos nuestros servicios', 
       ],
-      cta: 'Monthly billing',
-      mostPopular: false,
+      label: 'Más popular',
     },
     {
       title: 'El reluciente ✨',
@@ -27,8 +26,7 @@ const pricing = {
         'Precios preferenciales en todos nuestros servicios',
         'Lavado a domicilio todos los meses',
       ],
-      cta: 'Monthly billing',
-      mostPopular: true,
+      label: 'Más conveniente',
     },
     {
       title: 'El despreocupado 🥱',
@@ -44,8 +42,7 @@ const pricing = {
         'Permiso de circulación',
         '¡Y muchos más!',
       ],
-      cta: 'Monthly billing',
-      mostPopular: false,
+      label: 'Más completo',
     },
   ],
 }
@@ -56,13 +53,12 @@ function classNames(...classes) {
 
 export default function Pricing() {
   return (
-    <div className="max-w-7xl mx-auto py-24 px-4 bg-grey sm:px-6 lg:px-8">
+    <div id="pricing" className="max-w-7xl mx-auto py-24 px-4 bg-grey sm:px-6 lg:px-8">
       <h2 className="text-3xl font-extrabold text-gray-900 sm:text-5xl sm:leading-none sm:tracking-tight lg:text-6xl">
-        Planes para todas personas
+        Para todos los gustos
       </h2>
       <p className="mt-6 max-w-2xl text-xl text-gray-500">    
-        Con Carvuk Pro hacemos que ser dueño de un auto ya no sea un cacho. <br></br>
-        Tu auto, nuestro problema 🤝 
+        Con Carvuk Pro dejas tu auto a cargo de expertos. <br></br>
       </p>
 
       {/* Tiers */}
@@ -74,11 +70,11 @@ export default function Pricing() {
           >
             <div className="flex-1">
               <h3 className="text-xl font-semibold text-gray-900">{tier.title}</h3>
-              {tier.mostPopular ? (
-                <p className="absolute top-0 py-1.5 px-4 bg-indigo-500 rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
-                  Más popular
-                </p>
-              ) : null}
+              
+              <p className="absolute top-0 py-1.5 px-4 bg-indigo-500 rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
+                {tier.label}
+              </p>
+              
               <p className="mt-4 flex items-baseline text-gray-900">
                 <span className="text-5xl font-extrabold tracking-tight">{tier.price}</span>
                 <span className="ml-1 text-xl font-semibold">{tier.frequency}</span>

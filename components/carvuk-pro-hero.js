@@ -9,20 +9,20 @@ export default function HeroSection() {
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
               <h1>
-                <span className="mt-1 block text-4xl tracking-tight font-extrabold sm:text-5xl xl:text-6xl">
+                <span className="mt-1 block text-4xl tracking-tight font-extrabold sm:text-4xl xl:text-5xl">
                   <span className="block text-gray-900">Carvuk Pro</span>
-                  <span className="block text-emerald-400">Ser dueño es simple</span>
+                  <span className="block text-emerald-400">Tu auto, nuestro problema</span>
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-              Ser dueño de un auto ya no es un “cacho”<br></br>
+              Ser dueño de un auto es así de simple<br></br>
               ¡Suscríbete a Carvuk Pro y despreocúpate!
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
                     <a
-                      href="#service-section"
+                      href="#pricing"
                       className="w-100 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                     >
                       Me interesa
@@ -41,7 +41,7 @@ export default function HeroSection() {
                   </div>
                   <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
                     <span className="font-medium text-gray-900">4.8 estrellas</span> por más de {' '}
-                    <span className="font-medium text-indigo-600">100 early adopters</span>
+                    <span className="font-medium text-indigo-600">200 early adopters</span>
                   </div>
                 </div>
               </div>
