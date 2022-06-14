@@ -17,7 +17,7 @@ export default function CTA() {
         >
           Me interesa
         </button>
-        <Script src="//embed.typeform.com/next/embed.js" strategy="beforeInteractive"></Script>      </div>
+        <Script src="https://embed.typeform.com/next/embed.js" strategy="beforeInteractive"></Script>      </div>
     </div>
   )
 }

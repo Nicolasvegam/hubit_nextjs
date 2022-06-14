@@ -10,12 +10,12 @@ export default function HeroSection() {
             <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
               <h1>
                 <span className="mt-1 block text-4xl tracking-tight font-extrabold sm:text-4xl xl:text-5xl">
-                  <span className="block text-gray-900">Carvuk Pro</span>
-                  <span className="block text-emerald-400">Tu auto, nuestro problema</span>
+                  <span className="block text-gray-900">Suscripción</span>
+                  <span className="block text-emerald-400">Carvuk Pro</span>
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-              Ser dueño de un auto es así de simple<br></br>
+              Tu auto, nuestro problema<br></br>
               ¡Suscríbete a Carvuk Pro y despreocúpate!
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
