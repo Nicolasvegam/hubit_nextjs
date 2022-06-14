@@ -1,5 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { CheckIcon } from '@heroicons/react/outline'
+import Badge from './badge'
 
 const pricing = {
   tiers: [
@@ -9,11 +10,11 @@ const pricing = {
       frequency: '/mes',
       description: 'Deja que tu  auto, sea nuestro problema 😉 Obtén tu asistente personal para tu auto',
       features: [
-        'Revisión técnica a domicilio', 
-        'Inspección y diagnóstico de tu 🚘', 
-        'Precios preferenciales en todos nuestros servicios', 
+        {text: 'Revisión técnica a domicilio', tag: 'Ref: $35.000'},
+        {text: 'Inspección y diagnóstico de tu 🚘', tag: 'Ref: $25.000'},
+        {text: 'Precios preferenciales en todos nuestros servicios', tag: 'Ref: $100.000'},
       ],
-      label: 'Más popular',
+      label: 'Ahorra $100.000 y 30 horas',
     },
     {
       title: 'El reluciente ✨',
@@ -21,12 +22,12 @@ const pricing = {
       frequency: '/mes',
       description: 'Si te gusta que tu auto este siempre impecable. ¡Este plan esta hecho para ti!',
       features: [
-        'Revisión técnica a domicilio',
-        'Inspección y diagnóstico de tu 🚘',
-        'Precios preferenciales en todos nuestros servicios',
-        'Lavado a domicilio todos los meses',
+        {text: 'Revisión técnica a domicilio', tag: 'Ref: $35.000'},
+        {text: 'Inspección y diagnóstico de tu 🚘', tag: 'Ref: $25.000'},
+        {text: 'Precios preferenciales en todos nuestros servicios', tag: 'Ref: $100.000'},
+        {text: 'Lavado a domicilio todos los meses', tag: 'Ref: $220.000'},
       ],
-      label: 'Más conveniente',
+      label: 'Ahorra $172.000 y 40 horas',
     },
     {
       title: 'El despreocupado 🥱',
@@ -34,15 +35,15 @@ const pricing = {
       frequency: '/mes',
       description: 'Olvídate de cobros inesperados y paga tan sólo una cuota al mes que incluya todo ✅',
       features: [
-        'Revisión técnica a domicilio',
-        'Inspección y diagnóstico de tu 🚘',
-        'Precios preferenciales en todos nuestros servicios',
-        'Seguro',
-        'Mantención',
-        'Permiso de circulación',
-        '¡Y muchos más!',
+        {text: 'Revisión técnica a domicilio'},
+        {text: 'Inspección y diagnóstico de tu 🚘'},
+        {text: 'Precios preferenciales en todos nuestros servicios'},
+        {text: 'Lavado a domicilio todos los meses'},
+        {text: 'Seguro y permiso de circulación'},
+        {text: 'Mantención por kilometraje'},
+        {text: '¡Y muchos más!'},
       ],
-      label: 'Más completo',
+      label: 'Ahorra a tu medida',
     },
   ],
 }
@@ -86,7 +87,7 @@ export default function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex">
                     <CheckIcon className="flex-shrink-0 w-6 h-6 text-indigo-500" aria-hidden="true" />
-                    <span className="ml-3 text-gray-500">{feature}</span>
+                    <span className="ml-3 text-gray-500">{feature.text} {feature.tag? (<Badge tag={feature.tag}/>) : (null)}</span>
                   </li>
                 ))}
               </ul>
