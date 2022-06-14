@@ -1,8 +1,8 @@
 import HeadPage from '../components/head'
 import Navbar from '../components/navbar'
-import HeroSection from '../components/hero-suscription'
-import CTA from '../components/cta-carvukpro'
-import ChatwootWidget from '../components/chatwoot'
+import HeroSection from '../components/carvuk-pro-hero'
+import CTA from '../components/carvuk-pro-cta'
+import ChatwootWidget from '../components/utils-chatwoot'
 import FooterSection from '../components/footer'
 import Pricing from '../components/carvuk-pro-pricing'
 

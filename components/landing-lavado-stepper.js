@@ -39,7 +39,7 @@ function classNames(...classes) {
 
 export default function StepbyStep() {
   return (
-    <div className="py-12 bg-white">
+    <div className="py-12 bg-grey">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">¿Cómo funciona Carvuk?</h2>

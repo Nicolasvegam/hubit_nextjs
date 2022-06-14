@@ -33,7 +33,6 @@ export default function BookingPage() {
 
   const router = useRouter();
 
-  //esperar el router!
   useEffect(() => {
     if (router.isReady) {
       console.log(router.query);

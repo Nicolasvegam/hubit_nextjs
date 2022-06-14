@@ -18,7 +18,7 @@ export default function Revision() {
         >
           Me interesa
         </button>
-        <Script src="//embed.typeform.com/next/embed.js"></Script>
+        <Script src="//embed.typeform.com/next/embed.js" strategy="beforeInteractive"></Script>
       </div>
     </div>
   )

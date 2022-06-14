@@ -1,8 +1,27 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon, ShieldCheckIcon } from '@heroicons/react/outline'
+import { useRouter } from 'next/router'
 
 export default function SecondModal({ open, onCloseModal, product }) {
+  
+  const router = useRouter()
+
+  function onClickButton(e){
+    
+    e.preventDefault()
+    if (product.queryString){
+      const value = product.queryString
+      router.push({
+        pathname: '/agendar',
+        query: {'servicio': value}
+      });
+    }
+    else {
+      window.location.href = product.href
+    }
+  }
+
   return (
     <Transition.Root show={Boolean(open)} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onCloseModal}>
@@ -90,7 +109,7 @@ export default function SecondModal({ open, onCloseModal, product }) {
                       </section>
 
                       <section aria-labelledby="options-heading" className="mt-6">
-                        <form>
+                        <form onSubmit={(e)=> onClickButton(e)}>
                           <div className="mt-6">
                             <button
                               type="submit"

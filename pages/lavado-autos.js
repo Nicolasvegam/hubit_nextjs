@@ -1,10 +1,10 @@
+import { useState } from 'react'
 import HeadPage from './../components/head'
 import Navbar from '../components/navbar'
-import HeroSection from '../components/hero-lavado'
-import { useState } from 'react'
-import FirstModal from './first-modal'
-import StepbyStep from '../components/step-by-step-lavado'
-import CTALavado from '../components/cta-lavado'
+import HeroSection from '../components/landing-lavado-hero'
+import FirstModal from '../components/modal-first'
+import StepbyStep from '../components/landing-lavado-stepper'
+import CTALavado from '../components/landing-lavado-cta'
 
 const product = {
     id: 1,

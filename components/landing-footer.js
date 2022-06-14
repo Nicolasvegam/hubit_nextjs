@@ -1,7 +1,3 @@
-import React from 'react'
-import Image from 'next/image'
-
-
 export default function FooterSection() {
   return (
     <footer className="bg-slate-50" aria-labelledby="footer-heading">

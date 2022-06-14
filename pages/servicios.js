@@ -1,7 +1,7 @@
 import HeadPage from './../components/head'
 import Navbar from '../components/navbar'
 import FooterSection from '../components/footer'
-import AllServices from '../components/all-services'
+import AllServices from '../components/service-catalog'
 
 const IndexPage = () => {
   return(

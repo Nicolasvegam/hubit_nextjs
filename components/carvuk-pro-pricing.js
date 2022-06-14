@@ -4,41 +4,45 @@ import { CheckIcon } from '@heroicons/react/outline'
 const pricing = {
   tiers: [
     {
-      title: 'Freelancer',
-      price: 4990,
-      frequency: '/month',
-      description: 'The essentials to provide your best work for clients.',
-      features: ['5 products', 'Up to 1,000 subscribers', 'Basic analytics', '48-hour support response time'],
+      title: 'El curioso 🤔',
+      price: "$4.990",
+      frequency: '/mes',
+      description: 'Deja que tu  auto, sea nuestro problema 😉 Obtén tu asistente personal para tu auto.',
+      features: [
+        'Revisión técnica a domicilio', 
+        'Inspección y diagnóstico de tu 🚘', 
+        'Precios preferenciales en todos nuestros servicios', 
+      ],
       cta: 'Monthly billing',
       mostPopular: false,
     },
     {
-      title: 'Startup',
-      price: 15990,
-      frequency: '/month',
-      description: 'A plan that scales with your rapidly growing business.',
+      title: 'El reluciente ✨',
+      price: "$15.990",
+      frequency: '/mes',
+      description: 'Si te gusta que tu auto este siempre impecable. ¡Este plan esta hecho para ti!',
       features: [
-        '25 products',
-        'Up to 10,000 subscribers',
-        'Advanced analytics',
-        '24-hour support response time',
-        'Marketing automations',
+        'Revisión técnica a domicilio',
+        'Inspección y diagnóstico de tu 🚘',
+        'Precios preferenciales en todos nuestros servicios',
+        'Lavado a domicilio todos los meses',
       ],
       cta: 'Monthly billing',
       mostPopular: true,
     },
     {
-      title: 'Enterprise',
-      price: 'Custom',
-      frequency: '/month',
-      description: 'Dedicated support and infrastructure for your company.',
+      title: 'El despreocupado 🥱',
+      price: 'A medida',
+      frequency: '/mes',
+      description: 'Olvídate de cobros inesperados y paga tan sólo una cuota al mes que incluya todo ✅',
       features: [
-        'Unlimited products',
-        'Unlimited subscribers',
-        'Advanced analytics',
-        '1-hour, dedicated support response time',
-        'Marketing automations',
-        'Custom integrations',
+        'Revisión técnica a domicilio',
+        'Inspección y diagnóstico de tu 🚘',
+        'Precios preferenciales en todos nuestros servicios',
+        'Seguro',
+        'Mantención',
+        'Permiso de circulación',
+        '¡Y muchos más!',
       ],
       cta: 'Monthly billing',
       mostPopular: false,
@@ -76,7 +80,7 @@ export default function Pricing() {
                 </p>
               ) : null}
               <p className="mt-4 flex items-baseline text-gray-900">
-                <span className="text-5xl font-extrabold tracking-tight">${tier.price}</span>
+                <span className="text-5xl font-extrabold tracking-tight">{tier.price}</span>
                 <span className="ml-1 text-xl font-semibold">{tier.frequency}</span>
               </p>
               <p className="mt-6 text-gray-500">{tier.description}</p>
@@ -91,18 +95,6 @@ export default function Pricing() {
                 ))}
               </ul>
             </div>
-
-            <a
-              href="#"
-              className={classNames(
-                tier.mostPopular
-                  ? 'bg-indigo-500 text-white hover:bg-indigo-600'
-                  : 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100',
-                'mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'
-              )}
-            >
-              {tier.cta}
-            </a>
           </div>
         ))}
       </div>

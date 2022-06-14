@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import FirstModal from '../pages/first-modal'
-import SecondModal from '../pages/second-modal'
-import { StarIcon } from '@heroicons/react/solid'
+import FirstModal from '../components/modal-first'
+import SecondModal from '../components/modal-second'
 
   
 const products = [
@@ -27,6 +26,7 @@ const products = [
       imageAlt: 'Revisión técnica imagen',
       description: 'Uno nuestros mecánicos inspecciona el vehículo, lo traslada a la plante de revisión técnica y gestiona su certificado. En caso de de que la revisión salga rechaza nos pondremos en contacto para ayudarte a solucionar el problema.',
       price: '$29.990',
+      queryString: 'revision-tecnica',
       sizes: [
         { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
         { name: '20L', description: 'Enough room for a serious amount of snacks.' },
@@ -56,6 +56,7 @@ const products = [
       imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.',
       description: 'El servicio incluye inspección mecánica, estética, scanner, prueba en ruta e informe legal.',
       price: 'Desde $11.990',
+      queryString: 'revision-pre-compra',
       sizes: [
         { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
         { name: '20L', description: 'Enough room for a serious amount of snacks.' },
@@ -71,6 +72,7 @@ const products = [
       imageAlt: 'Inspección general.',
       description: 'El servicio incluye inspección mecánica, estética, scanner, prueba en ruta e informe legal.',
       price: 'Desde $11.990',
+      queryString: 'inspeccion-general',
       sizes: [
         { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
         { name: '20L', description: 'Enough room for a serious amount of snacks.' },
