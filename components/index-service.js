@@ -266,9 +266,10 @@ export default function Service2Section() {
           </div>
         </div>
         <div className="mt-12 flex px-4 sm:hidden">
-          <a href="#" className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-            Ver todos los servicios<span aria-hidden="true"> &rarr;</span>
-          </a>
+            <Link href="/servicios">
+              <a className="text-sm font-semibold text-indigo-600 hover:text-indigo-500">
+              Ver todos los servicios<span aria-hidden="true"> &rarr;</span></a>
+            </Link>
         </div>
       </div>
     </div>

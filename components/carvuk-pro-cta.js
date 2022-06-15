@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 export default function CTA() {
   return (
     <div className="bg-indigo-700">
@@ -17,7 +15,7 @@ export default function CTA() {
         >
           Me interesa
         </button>
-        <Script src="https://embed.typeform.com/next/embed.js" strategy="beforeInteractive"></Script>      </div>
+      </div>
     </div>
   )
 }

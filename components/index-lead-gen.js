@@ -1,6 +1,3 @@
-
-import Script from 'next/script'
-
 export default function Revision() {
   return (
     <div id="te-avisamos" className="bg-indigo-700">
@@ -18,7 +15,6 @@ export default function Revision() {
         >
           Me interesa
         </button>
-        <Script src="//embed.typeform.com/next/embed.js" strategy="beforeInteractive"></Script>
       </div>
     </div>
   )
