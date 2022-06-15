@@ -18,7 +18,7 @@ const IndexPage = () => {
                  href='https://carvuk.com' 
                  title='Carvuk: Servicio para vehículos a domicilio' 
                  description='Agenda tu servicio automotriz a domicilio hoy. Llevamos el taller mecánico a tu casa, oficina o el lugar que mejor te acomode.' 
-                 image='' />
+                 image='./image-preview.svg' />
 
       <TopAlert/>
       <Navbar ctaBool={true} />
