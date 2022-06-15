@@ -22,7 +22,7 @@ class ChatwootWidget extends React.Component {
         g.onload=function(){
           window.chatwootSettings = {
                 type: 'expanded_bubble',
-                 launcherTitle: 'Háblanos aquí',
+                 launcherTitle: 'Chat',
                  showPopoutButton: true
           }
           window.chatwootSDK.run({
