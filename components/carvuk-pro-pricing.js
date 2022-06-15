@@ -5,10 +5,10 @@ import Badge from './badge'
 const pricing = {
   tiers: [
     {
-      title: 'El curioso 🤔',
+      title: 'El clásico 🔥',
       price: "$4.990",
       frequency: '/mes',
-      description: 'Deja que tu  auto, sea nuestro problema 😉 Obtén tu asistente personal para tu auto',
+      description: 'Nos encargamos de la agenda de tu auto. Nunca más se te pasará la mantención o revisión técnica',
       features: [
         {text: 'Revisión técnica a domicilio', tag: '$35.000'},
         {text: 'Inspección y diagnóstico de tu 🚘', tag: '$25.000'},
@@ -25,12 +25,12 @@ const pricing = {
         {text: 'Revisión técnica a domicilio', tag: '$35.000'},
         {text: 'Inspección y diagnóstico de tu 🚘', tag: '$25.000'},
         {text: 'Precios preferenciales en todos nuestros servicios', tag: '$100.000'},
-        {text: 'Lavado a domicilio todos los meses', tag: '$220.000'},
+        {text: 'Lavado a domicilio mensual 🚘🚿', tag: '$220.000'},
       ],
       label: 'Ahorra $172.000 y 40 horas por año',
     },
     {
-      title: 'El despreocupado 🥱',
+      title: 'El full 💎',
       price: 'A medida',
       frequency: '/mes',
       description: 'Olvídate de cobros inesperados y paga tan sólo una cuota al mes que incluya todo ✅',
@@ -38,10 +38,9 @@ const pricing = {
         {text: 'Revisión técnica a domicilio'},
         {text: 'Inspección y diagnóstico de tu 🚘'},
         {text: 'Precios preferenciales en todos nuestros servicios'},
-        {text: 'Lavado a domicilio todos los meses'},
+        {text: 'Lavado a domicilio mensual 🚘🚿'},
         {text: 'Seguro y permiso de circulación'},
         {text: 'Mantención por kilometraje'},
-        {text: '¡Y muchos más!'},
       ],
       label: 'Ahorra a tu medida',
     },
@@ -87,7 +86,7 @@ export default function Pricing() {
                 {tier.features.map((feature) => (
                   <li key={feature} className="flex">
                     <CheckIcon className="flex-shrink-0 w-6 h-6 text-indigo-500" aria-hidden="true" />
-                    <span className="ml-3 text-gray-500">{feature.text} <br></br>{feature.tag? (<Badge tag={feature.tag}/>) : (null)}</span>
+                    <span className="ml-3 text-gray-500">{feature.text} <br></br></span>
                   </li>
                 ))}
               </ul>

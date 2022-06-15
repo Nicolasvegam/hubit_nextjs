@@ -41,7 +41,7 @@ export default function HeroSection() {
                   </div>
                   <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
                     <span className="font-medium text-gray-900">4.8 estrellas</span> por más de {' '}
-                    <span className="font-medium text-indigo-600">100 early adopters</span>
+                    <span className="font-medium text-indigo-600">200 early adopters</span>
                   </div>
                 </div>
               </div>
