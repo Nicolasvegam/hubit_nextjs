@@ -1,3 +1,5 @@
+import { PopupButton } from '@typeform/embed-react'
+
 export default function Revision() {
   return (
     <div id="te-avisamos" className="bg-indigo-700">
@@ -9,12 +11,10 @@ export default function Revision() {
         <p className="mt-4 text-lg leading-6 text-indigo-200">
           ¡Despreocúpate, déjanos tus datos y te avisamos cuando tienes que hacerla!
         </p>
-        <button
-          className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
-          data-tf-popup="BUV1P2dL" data-tf-iframe-props="title=¡Llena este form y te notificaremos!" data-tf-medium="snippet"
-        >
+        <PopupButton id="BUV1P2dL" 
+          className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto">
           Me interesa
-        </button>
+        </PopupButton>
       </div>
     </div>
   )

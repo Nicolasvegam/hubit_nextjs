@@ -27,9 +27,9 @@ const HeadPage = (props) => {
                 <meta property="og:title" content={title}/>
                 <meta property="og:url" content={href}/>
                 <meta property="og:image" content={image}/>
-                <meta property="og:image:type" content="image/svg" />
-                <meta property="og:image:width" content="618" />
-                <meta property="og:image:height" content="487" />
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:image:width" content="300" />
+                <meta property="og:image:height" content="300" />
                 <meta property="og:image:alt" content={title} />
                 <meta property="og:locale" content="es-cl" />
                 <meta property="og:type" content="website" />
