@@ -43,18 +43,7 @@ a {
   text-align:left;
   border-radius: 5px;
   text-decoration:none;
-  font-family: 'Lucida Grande', sans-serif;
   font-size: 10px;
-  text-transform:uppercase;
-}
-
-.app-btn.blu {
-  background-color: #0055A3;
-  transition: background-color .250s linear;
-}
-
-.app-btn.blu:hover {
-  background-color: #02396C;
 }
 
 .app-btn i {

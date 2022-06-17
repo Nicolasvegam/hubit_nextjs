@@ -4,7 +4,8 @@ import { useState} from 'react'
 
 export default function DownloadSection(props) {
     const { device } = props;
-    const [show, setShow] = useState(false);
+    const [showAndroid, setShowAndroid] = useState(false);
+    const [showIOS, setShowIOS] = useState(false);
 
     return (
       <div className="bg-white">
@@ -14,19 +15,21 @@ export default function DownloadSection(props) {
             Descarga Nuestra App:
           </p>
           <div className="flexi social-btns">
-            <a className="app-btn blu flexi vert" onClick={() => {setShow(!show)}}>
+            <a className="app-btn blu flexi vert bg-indigo-700 p-2 hover:bg-indigo-700" onClick={() => {setShowAndroid(false);
+                                                                                                        setShowIOS(!showIOS)}}>
                 <i className="fa fa-apple"></i>
-                <p>Descarga para <br/> <span className="big-txt">iPhone</span></p>
+                <p className="font-medium">Descarga para <br/> <span className="big-txt">iPhone</span></p>
             </a>
 
-            <a className="app-btn blu flexi vert" onClick={() => {setShow(!show)}}>
+            <a className="app-btn blu flexi vert bg-indigo-700 p-2 hover:bg-indigo-700" onClick={() => {setShowIOS(false);
+                                                                                                        setShowAndroid(!showAndroid)}}>
                 <i className="fa fa-play"></i>
-                <p>Descarga para  <br/> <span className="big-txt">Android</span></p>
+                <p className="font-medium">Descarga para  <br/> <span className="big-txt">Android</span></p>
             </a>
             <>
-            {show && device === 'apple' ? (
+            {showIOS ? (
                 <HomeIOS/>
-            ) : show && device === 'android' ? (
+            ) : showAndroid ? (
                 <HomeAndroid/>
             ) : (
                 null
