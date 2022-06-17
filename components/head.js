@@ -16,7 +16,7 @@ const HeadPage = (props) => {
                 
                 <link rel="icon" type="icon" sizes="32x32" href={icon}/>
                 <meta name="msapplication-TileColor" content={icon} />
-                <meta name="theme-color" content="#317EFB" />
+                <meta name="theme-color" content="#4F46E5" />
 
                 <meta name="robots" content="INDEX,FOLLOW"/>
                 <meta name="description" content={description}/>

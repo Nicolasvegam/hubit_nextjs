@@ -3,8 +3,9 @@ import { Transition } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/outline'
 import { XIcon } from '@heroicons/react/solid'
 
-export default function HomeIOS() {
-  const [show, setShow] = useState(true)
+export default function HomeAndroid(props) {
+  const { ios } = props
+  const [show, setShow] = useState(true);
 
   return (
     <>
@@ -31,13 +32,25 @@ export default function HomeIOS() {
                   <div className="flex-shrink-0">
                     <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
                   </div>
-                  <div className="ml-3 w-0 flex-1 pt-0.5">
-                    <p className="text-sm font-medium text-gray-900">Instala la aplicación Carvuk:</p>
-                    <p className="mt-1 text-sm text-gray-500 flex flex-row">
-                    presiona <img src="https://i.stack.imgur.com/JCZNV.png" className="text-icon" /> y despues 
-                    </p>
-                    <p className="mt-1 text-sm text-gray-500">Añadir a pantalla de inicio</p>
-                  </div>
+                  <>
+                  {ios ? (
+                      <div className="ml-3 w-0 flex-1 pt-0.5">
+                        <p className="text-sm font-medium text-gray-900">Instala la aplicación Carvuk:</p>
+                        <p className="mt-1 text-sm text-gray-500 flex flex-row">
+                        presiona <img src="https://i.stack.imgur.com/JCZNV.png" className="text-icon" /> y despues 
+                        </p>
+                        <p className="mt-1 text-sm text-gray-500">Añadir a pantalla de inicio</p>
+                      </div>
+                  ) : (
+                    <div className="ml-3 w-0 flex-1 pt-0.5">
+                      <p className="text-sm font-medium text-gray-900">Instala la aplicación Carvuk:</p>
+                      <p className="mt-1 text-sm text-gray-500 flex flex-row">
+                      presiona <i className="fa fa-ellipsis-v text-icon2" aria-hidden="true"></i> y despues 
+                      </p>
+                      <p className="mt-1 text-sm text-gray-500">Instalar aplicación</p>
+                    </div>
+                  )}
+                  </>
                   <div className="ml-4 flex-shrink-0 flex">
                     <button
                       type="button"

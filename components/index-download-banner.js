@@ -1,5 +1,4 @@
-import HomeIOS from './addHomeIOS.js'
-import HomeAndroid from './addHomeAndroid.js'
+import Home from './addHome.js'
 import { useState} from 'react'
 
 export default function DownloadSection(props) {
@@ -28,9 +27,13 @@ export default function DownloadSection(props) {
             </a>
             <>
             {showIOS ? (
-                <HomeIOS/>
+                <Home
+                ios={true}
+                />
             ) : showAndroid ? (
-                <HomeAndroid/>
+                <Home
+                ios={false}
+                />
             ) : (
                 null
             )}

@@ -2,7 +2,7 @@
 import { CheckIcon } from '@heroicons/react/outline'
 import Badge from './badge'
 import { PopupButton } from '@typeform/embed-react'
-import { CheckCircleIcon} from '@heroicons/react/solid'
+import { CheckCircleIcon } from '@heroicons/react/solid'
 
 const pricing = {
   tiers: [
