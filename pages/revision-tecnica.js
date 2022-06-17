@@ -32,6 +32,7 @@ const RevisionTecnicaPage = () => {
                  href='https://carvuk.com/revision-tecnica' 
                  title='Carvuk: Revisión técnica a domicilio' 
                  description='Agenda tu revisión técnica hoy. No hagas más filas, hacemos todo por tí.' 
+                 image='https://carvuk.com/image-preview.png'
                 />
         <SecondModal open={open} onCloseModal={()=> setOpen(false)} product={product}/>
         <Navbar ctaBool={false} />

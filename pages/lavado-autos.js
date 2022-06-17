@@ -30,6 +30,7 @@ const CarwashPage = () => {
                  href='https://carvuk.com/lavado-autos' 
                  title='Carvuk: Lavado a domicilio' 
                  description='Agenda tu lavado a domicilio hoy. No hagas más filas.' 
+                 image='https://carvuk.com/image-preview.png'
                 />
         <FirstModal open={open} onCloseModal={()=> setOpen(false)} product={product}/>
         <Navbar ctaBool={false} />

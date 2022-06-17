@@ -32,7 +32,8 @@ const DesabolladuraPage = () => {
                  href='https://carvuk.com/desabolladura-pintura' 
                  title='Carvuk: Reparamos tu choque a domicilio' 
                  description='Agenda tu reparación a domicilio y complemente online, lo dejamos listo en un sólo día.' 
-                />
+                 image='https://carvuk.com/image-preview.png'
+                 />
         <SecondModal open={open} onCloseModal={()=> setOpen(false)} product={product}/>
         <Navbar ctaBool={false} />
         <HeroSection onClick={()=> setOpen(true)}/>
