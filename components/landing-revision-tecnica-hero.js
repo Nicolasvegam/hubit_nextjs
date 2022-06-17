@@ -16,8 +16,6 @@ export default function HeroSection({onClick}) {
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
               No hagas más filas, vamos a donde más te acomode. <br></br>
-              Lavamos en seco, no ocupamos agua 💚🌎
-              
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
