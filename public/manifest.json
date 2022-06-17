@@ -59,6 +59,16 @@
         "sizes": "180x180"
       },
       {
+        "src": "/icons/icon.png",
+        "type": "image/png",
+        "sizes": "1024x1024"
+      },
+      {
+        "src": "/icons/splash.png",
+        "type": "image/png",
+        "sizes": "2732x2732"
+      },
+      {
         "src": "/icons/maskable.png",
         "type": "image/png",
         "sizes": "192x192", 
