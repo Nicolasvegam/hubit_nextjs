@@ -1,17 +1,4 @@
 import Link from "next/link"
-const mecanicos = {
-    '':
-    {
-    id: 0,
-    name: '',
-    lastName: '',
-    profession: '',
-    imageSrc: './desabolladura-img.svg',
-    imageAlt: '',
-    description: '¡Hola, soy Nacho! Tu mecánico Carvuk. Estoy acá para ayudarte en lo que necesites. En Carvuk, tu auto es nuestro problema y nuestra prioridad. No dudes en preguntarme lo que necesites, estoy aquí para ayudarte.',
-    rating: 5
-    },
-  }
 
 /* This example requires Tailwind CSS v2.0+ */
 const people = [
@@ -19,31 +6,31 @@ const people = [
       id:0,  
       name: 'Steve',
       lastName:"Jobs",
-      profession: 'Co-Founder / CTO',
+      profession: 'Mecánico',
       imageUrl:
-        'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+        'https://cdn.thegentlemansjournal.com/wp-content/uploads/2015/10/SteveJobsSquare-TGJ.jpg',
     imageAlt: '',
     description: '¡Hola, soy Nacho! Tu mecánico Carvuk. Estoy acá para ayudarte en lo que necesites. En Carvuk, tu auto es nuestro problema y nuestra prioridad. No dudes en preguntarme lo que necesites, estoy aquí para ayudarte.',
     rating: 5
     },
     {
-        id:0,  
-        name: 'Steve',
-        lastName:"Jobs",
-        profession: 'Co-Founder / CTO',
+        id:1,  
+        name: 'Bill',
+        lastName:"Gates",
+        profession: 'Mecánico',
         imageUrl:
-          'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi7q3y0X0sM62AmhmKP9UYWUlxzCK9N-FklDLqT2Ch3vTtHgTaXTYW-Gzs4YUU9nGRN7Q&usqp=CAU',
       imageAlt: '',
       description: '¡Hola, soy Nacho! Tu mecánico Carvuk. Estoy acá para ayudarte en lo que necesites. En Carvuk, tu auto es nuestro problema y nuestra prioridad. No dudes en preguntarme lo que necesites, estoy aquí para ayudarte.',
       rating: 5
       },
       {
-        id:0,  
-        name: 'Steve',
-        lastName:"Jobs",
-        profession: 'Co-Founder / CTO',
+        id:2,  
+        name: 'Jeff',
+        lastName:"Bezzos",
+        profession: 'Mecánico',
         imageUrl:
-          'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFkcfEe7dM9qmu3SVSqt18q1CyxB6T7WR7L4MvYYqQ4cJWSlmEoAeEKOjS9u6yoIqZtDc&usqp=CAU',
       imageAlt: '',
       description: '¡Hola, soy Nacho! Tu mecánico Carvuk. Estoy acá para ayudarte en lo que necesites. En Carvuk, tu auto es nuestro problema y nuestra prioridad. No dudes en preguntarme lo que necesites, estoy aquí para ayudarte.',
       rating: 5
@@ -70,7 +57,7 @@ const people = [
             >
               {people.map((person) => (
                 
-               <Link href={"/mecanicos/" + person.name}><a><li key={person.name}>
+               <Link key={person.id} href={"/mecanicos/" + person.name}><a><li key={person.name}>
                
                   <div className="space-y-4">
                     <img className="mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24" src={person.imageUrl} alt="" />
