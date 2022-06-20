@@ -2,6 +2,7 @@
 import { CheckIcon } from '@heroicons/react/outline'
 import Badge from './badge'
 import { PopupButton } from '@typeform/embed-react'
+import { CheckCircleIcon } from '@heroicons/react/solid'
 
 const pricing = {
   tiers: [
@@ -92,6 +93,22 @@ export default function Pricing() {
                 ))}
               </ul>
             </div>
+            <>
+            {tier.title === 'El clásico 🔥'? (
+              <div className="rounded-md bg-green-50 p-4 mb-2">
+                <div className="flex">
+                  <div className="flex-shrink-0">
+                    <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm font-medium text-green-800">¡Subscríbete HOY y llévate un lavado GRATIS!</p>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              null
+            ) }
+          </>
             <PopupButton id="YE27fOe4" 
               className={classNames(
               tier.mostPopular

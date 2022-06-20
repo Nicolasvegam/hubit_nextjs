@@ -30,6 +30,16 @@ export default function BoxSuscripcion() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-lg mx-auto rounded-lg shadow-lg overflow-hidden lg:max-w-none lg:flex">
               <div className="flex-1 bg-white px-6 py-8 lg:p-12">
+                <div className="rounded-md bg-green-50 p-4 mb-5">
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-green-800">¡Subscríbete HOY y llévate un lavado GRATIS!</p>
+                    </div>
+                  </div>
+                </div>
                 <h3 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Carvuk Pro</h3>
                 <p className="mt-6 text-base text-gray-500">
                   Hacemos que ser dueño de un auto ya no sea un “cacho”. <br></br>
