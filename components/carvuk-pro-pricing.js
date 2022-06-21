@@ -3,6 +3,7 @@ import { CheckIcon } from '@heroicons/react/outline'
 import Badge from './badge'
 import { PopupButton } from '@typeform/embed-react'
 import { CheckCircleIcon } from '@heroicons/react/solid'
+import Link from 'next/link'
 
 const pricing = {
   tiers: [
@@ -120,6 +121,10 @@ export default function Pricing() {
         
           </div>
         ))}
+        
+      </div>
+      <div className='flex items-center justify-center mt-3'>
+     <Link href={'/carvuk-pro/precios'}><button className='text-center bg-indigo-500 rounded-md py-3 px-2 text-white hover:bg-indigo-600'>Ver todos los precios</button></Link> 
       </div>
     </div>
   )

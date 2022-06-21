@@ -1,10 +1,10 @@
-import HeadPage from '../components/head'
-import Navbar from '../components/navbar'
-import HeroSection from '../components/carvuk-pro-hero'
-import CTA from '../components/carvuk-pro-cta'
-import ChatwootWidget from '../components/utils-chatwoot'
-import FooterSection from '../components/footer'
-import Pricing from '../components/carvuk-pro-pricing'
+import HeadPage from '../../components/head'
+import Navbar from '../../components/navbar'
+import HeroSection from '../../components/carvuk-pro-hero'
+import CTA from '../../components/carvuk-pro-cta'
+import ChatwootWidget from '../../components/utils-chatwoot'
+import FooterSection from '../../components/footer'
+import Pricing from '../../components/carvuk-pro-pricing'
 
 const IndexPage = () => {
   
