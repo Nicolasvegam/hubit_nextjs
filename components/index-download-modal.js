@@ -3,10 +3,8 @@ import { Transition } from '@headlessui/react'
 import { CheckCircleIcon } from '@heroicons/react/outline'
 import { XIcon } from '@heroicons/react/solid'
 
-export default function HomeAndroid(props) {
-  const { ios } = props
-  const [show, setShow] = useState(true);
-
+export default function DownloadModal({ios, open, onClose}) {
+  
   return (
     <>
       {/* Global notification live region, render this permanently at the end of the document */}
@@ -17,7 +15,7 @@ export default function HomeAndroid(props) {
         <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
           <Transition
-            show={show}
+            show={open}
             as={Fragment}
             enter="transform ease-out duration-300 transition"
             enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
@@ -55,9 +53,7 @@ export default function HomeAndroid(props) {
                     <button
                       type="button"
                       className="bg-white rounded-md inline-flex text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                      onClick={() => {
-                        setShow(false)
-                      }}
+                      onClick={onClose}
                     >
                       <span className="sr-only">Close</span>
                       <XIcon className="h-5 w-5" aria-hidden="true" />
