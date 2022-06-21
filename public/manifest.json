@@ -1,0 +1,83 @@
+{
+    "short_name": "Carvuk",
+    "name": "Carvuk",
+    "description": "¿Necesitas una limpieza, reparación o mantención? Agenda tu servicio automotriz a domicilio y online.",
+    "icons": [
+      {
+        "src": "/icons/android-36x36.png",
+        "type": "image/png",
+        "sizes": "36x36"
+      },
+      {
+        "src": "/icons/android-48x48.png",
+        "type": "image/png",
+        "sizes": "48x48"
+      },
+      {
+        "src": "/icons/android-72x72.png",
+        "type": "image/png",
+        "sizes": "72x72"
+      },
+      {
+        "src": "/icons/android-96x96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "/icons/android-144x144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "/icons/android-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/icons/android-chrome-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/icons/android-chrome-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "/icons/android-chrome-maskable-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/icons/android-chrome-maskable-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      },
+      {
+        "src": "/icons/apple-touch-icon.png",
+        "type": "image/png",
+        "sizes": "180x180"
+      },
+      {
+        "src": "/icons/icon.png",
+        "type": "image/png",
+        "sizes": "1024x1024"
+      },
+      {
+        "src": "/icons/splash.png",
+        "type": "image/png",
+        "sizes": "2732x2732"
+      },
+      {
+        "src": "/icons/maskable.png",
+        "type": "image/png",
+        "sizes": "192x192", 
+        "purpose": "maskable"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#f3f6fa",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#4338CA"
+}

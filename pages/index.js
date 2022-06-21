@@ -1,4 +1,4 @@
-import HeadPage from './../components/head'
+import HeadPage from '../components/head'
 import TopAlert from '../components/top-alert'
 import Navbar from '../components/navbar'
 import HeroSection from '../components/index-hero'
@@ -8,10 +8,13 @@ import StepbyStep from '../components/index-stepper'
 import Revision from '../components/index-lead-gen.js'
 import BoxSuscripcion from '../components/index-carvuk-pro'
 import NewsSection from '../components/index-pr-banner'
+import DownloadSection from '../components/index-download-banner'
 import ChatwootWidget from '../components/utils-chatwoot'
 import FooterSection from '../components/footer'
 
+
 const IndexPage = () => {
+  
   return(
     <div>
       <HeadPage icon='' 
@@ -29,6 +32,7 @@ const IndexPage = () => {
       <Revision/>
       <BoxSuscripcion/>
       <NewsSection/>
+      <DownloadSection />
       <ChatwootWidget/>
       <FooterSection/>
     </div>

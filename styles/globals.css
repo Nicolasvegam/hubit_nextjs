@@ -19,3 +19,49 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* Styles para index-download-banner */
+.text-icon {
+  width:14px;
+  vertical-align:bottom;
+  margin-left:6px;
+  margin-right:6px;
+  height: 17px;
+}
+
+.flexi {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-btn {
+  width:45%;
+  max-width:160px;
+  color: #fff;
+  margin: 20px 10px;
+  text-align:left;
+  border-radius: 5px;
+  text-decoration:none;
+  font-size: 10px;
+}
+
+.app-btn i {
+  width:20%;
+  text-align:center;
+  font-size: 28px;
+  margin-right:7px;
+}
+
+.app-btn .big-txt {
+  font-size: 17px;
+}
+
+.text-icon2 {
+  width:14px;
+  vertical-align:bottom;
+  margin-left:8px;
+  margin-right:0px;
+  height: 17px;
+}
+/* Fin styles para index-download-banner */

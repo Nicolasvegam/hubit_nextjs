@@ -67,7 +67,7 @@ export default function StepbyStep() {
             A domicilio, seguro y más rápido
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Nuestros lavadores van a donde más te acomode a entregarte un servicio garantizado.
+            Nuestros mecánicos van a donde más te acomode.
           </p>
         </div>
 
