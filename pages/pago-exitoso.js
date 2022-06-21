@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import { LockClosedIcon } from '@heroicons/react/solid'
+
 /* Query String
 ?assigned_to=Carvuk
 &event_type_uuid=6e730944-57f1-4808-a67c-450448e74f82
