@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Script from 'next/script';
 
 const HeadPage = (props) => {
     const {icon, href, title, description, image } = props
@@ -44,7 +43,6 @@ const HeadPage = (props) => {
 
                 <link rel="manifest" href='/manifest.json'/>
                 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-                <Script src="https://kit.fontawesome.com/fe9654d542.js" id="fontawesone" strategy="afterInteractive"/>
             </Head>
         </div>
     )
