@@ -24,7 +24,7 @@ const products = [
     href: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
     imageSrc: './revision-img.svg',
     imageAlt: 'Revisión técnica imagen',
-    description: 'Uno de nuestros mecánicos inspecciona el vehículo, lo traslada a la planta de revisión técnica y gestiona su certificado. En caso de de que la revisión salga rechazada nos pondremos en contacto para ayudarte a solucionar el problema.',
+    description: 'Uno de nuestros mecánicos inspecciona el vehículo, lo traslada a la planta de revisión técnica y gestiona su certificado. En caso de de que la revisión salga rechazada nos pondremos en contacto para ayudarte a solucionar el problema. El servicio incluye el costo de la revisión técnica.',
     price: '$29.990',
     queryString: 'revision-tecnica',
     sizes: [

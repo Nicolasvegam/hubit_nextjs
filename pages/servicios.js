@@ -10,8 +10,7 @@ const IndexPage = () => {
                  href='https://carvuk.com/servicios' 
                  title='Carvuk: Selecciona el servicio que necesitas' 
                  description='Agenda tu servicio automotriz a domicilio hoy. Llevamos el taller mecánico a tu casa, oficina o el lugar que mejor te acomode.' 
-                 image='https://carvuk.com/image-preview.png'
-                 />
+                 image='https://carvuk.com/image-preview.png'/>
       <Navbar ctaBool={false} />
       <AllServices/>
       <FooterSection/>

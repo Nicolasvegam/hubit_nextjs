@@ -11,40 +11,10 @@ import NewsSection from '../components/index-pr-banner'
 import DownloadSection from '../components/index-download-banner'
 import ChatwootWidget from '../components/utils-chatwoot'
 import FooterSection from '../components/footer'
-import { useState, useEffect } from 'react'
 
 
 const IndexPage = () => {
-  const [showInstallMessage, setshowInstallMessage] = useState(false);
-  const [device, setDevice] = useState('apple');
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Detects if device is on iOS 
-      const userAgent = window.navigator.userAgent.toLowerCase();
-      const isIos = () => {
-        return /iphone|ipad|ipod/.test( userAgent );
-      }
-
-      const isAndroid = () => {
-        return /(android)/i.test(userAgent);
-      }
-      // Detects if device is in standalone mode
-      const isInStandaloneMode = () => ('standalone' in window.navigator) && (window.navigator.standalone);
   
-      // Checks if should display install popup notification:
-      if (isIos() && !isInStandaloneMode() && !showInstallMessage) {
-        setshowInstallMessage(true);
-        setDevice('apple');
-      } else if (isAndroid()) {
-        setshowInstallMessage(true);
-        setDevice('android');
-      }
-    }
-  }, [showInstallMessage]);
-  
-  console.log(showInstallMessage)
-
   return(
     <div>
       <HeadPage icon='' 
@@ -62,15 +32,7 @@ const IndexPage = () => {
       <Revision/>
       <BoxSuscripcion/>
       <NewsSection/>
-      <>
-      {showInstallMessage? (
-        <DownloadSection
-        device={device}
-        />
-      ) : (
-        null
-      ) }
-      </>
+      <DownloadSection />
       <ChatwootWidget/>
       <FooterSection/>
     </div>
