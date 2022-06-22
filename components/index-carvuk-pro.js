@@ -19,7 +19,7 @@ export default function BoxSuscripcion() {
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">Despreocúpate completamente</h2>
             <p className="mt-4 text-xl text-gray-600">
-              Nos encargamos de tu auto por una membresía anual.
+              Nos encargamos de tu auto por una membresía mensual.
             </p>
           </div>
         </div>
