@@ -38,6 +38,7 @@ const DesabolladuraPage = () => {
         <HeroSection onClick={()=> setOpen(true)}/>
         <StepbyStep/>
         <CTA onClick={()=> setOpen(true)}/>
+        <WhatsappLogo/>
     </div>
     )
   }

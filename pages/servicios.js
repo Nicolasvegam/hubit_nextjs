@@ -2,6 +2,7 @@ import HeadPage from './../components/head'
 import Navbar from '../components/navbar'
 import FooterSection from '../components/footer'
 import AllServices from '../components/service-catalog'
+import WhatsappLogo from '../components/utils-whatsapp-float'
 
 const IndexPage = () => {
   return(
@@ -13,6 +14,7 @@ const IndexPage = () => {
                  image='https://carvuk.com/image-preview.png'/>
       <Navbar ctaBool={false} />
       <AllServices/>
+      <WhatsappLogo/>
       <FooterSection/>
     </div>
     )

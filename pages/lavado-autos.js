@@ -5,7 +5,7 @@ import HeroSection from '../components/landing-lavado-hero'
 import FirstModal from '../components/modal-first'
 import StepbyStep from '../components/landing-lavado-stepper'
 import CTALavado from '../components/landing-lavado-cta'
-
+import WhatsappLogo from '../components/utils-whatsapp-float'
 const product = {
     id: 1,
     name: 'Lavado a domicilio',
@@ -37,6 +37,7 @@ const CarwashPage = () => {
         <HeroSection onClick={()=> setOpen(true)}/>
         <StepbyStep/>
         <CTALavado onClick={()=> setOpen(true)}/>
+        <WhatsappLogo/>
     </div>
     )
   }
