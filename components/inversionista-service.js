@@ -39,7 +39,7 @@ export default function Service2Section() {
 
   return (
     <div className="bg-white" id="service-section">
-      <div className="pb-12 sm:py-5 lg:max-w-7xl lg:mx-auto lg:px-8">
+      <div className="pb-12 pt-5 sm:py-5 lg:max-w-7xl lg:mx-auto lg:px-8">
         <FirstModal open={openFirst} onCloseModal={()=> setOpenFirst(false)} product={activeProduct}/>
         <SecondModal open={openSecond} onCloseModal={()=> setOpenSecond(false)} product={activeProduct}/>
         <div className="px-4 flex items-center justify-center sm:px-6 lg:px-0">
