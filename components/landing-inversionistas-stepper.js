@@ -3,8 +3,8 @@ import { CheckIcon } from '@heroicons/react/solid'
 const timeline = [
   {
     id: 1,
-    content: 'Agenda en la plataforma o por',
-    target: 'WhatsApp con Sergio',
+    content: 'Agenda en la',
+    target: 'plataforma',
     href: '#',
     date: '🗓',
     datetime: '2020-09-20',
@@ -47,7 +47,7 @@ export default function StepbyStep() {
             A domicilio, seguro y más rápido
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Nuestros lavadores van a donde más te acomode a entregarte un servicio garantizado.
+            Vamos a donde más te acomode a entregarte un servicio garantizado.
           </p>
         </div>
 
