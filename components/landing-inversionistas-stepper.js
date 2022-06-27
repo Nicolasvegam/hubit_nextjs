@@ -44,10 +44,11 @@ export default function StepbyStep() {
         <div className="lg:text-center">
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">¿Cómo funciona Carvuk?</h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            A domicilio, seguro y más rápido
+            A domicilio y más rápido
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Vamos a donde más te acomode a entregarte un servicio garantizado.
+            Vamos a donde más te acomode <br></br>
+            Todos nuestros lavados son en seco 💚🌎
           </p>
         </div>
 

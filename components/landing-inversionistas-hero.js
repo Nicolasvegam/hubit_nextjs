@@ -23,14 +23,14 @@ export default function HeroSection() {
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-              ¿Interesado en vivir la experiencia Carvuk?<br></br>
-              Tenemos un lavado a domicilio gratis sólo para ti.
+              ¿Interesado en la experiencia Carvuk?<br></br>
+              Tenemos un <span className='font-bold	'>lavado a domicilio gratis </span> para ti
               </p>
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
                     <button onClick={()=> redirectToBooking()}
-                      className="w-100 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                     >
                       Agendar gratis
                     </button>
@@ -49,6 +49,11 @@ export default function HeroSection() {
                   <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
                     <span className="font-medium text-gray-900">4.8 estrellas</span> por más de {' '}
                     <span className="font-medium text-indigo-600">200 clientes</span>
+                  </div>
+                  <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
+                    <span className="font-medium text-gray-900">Servicio válido sólo para {' '}</span>
+                    <span className="font-medium text-indigo-600">Santiago 🇨🇱</span>
+
                   </div>
                 </div>
               </div>
