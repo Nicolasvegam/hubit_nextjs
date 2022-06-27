@@ -15,6 +15,16 @@ export default function Example() {
         router.replace('/')
     }
 
+    function getDateFormat(){
+      var fullDate = router.query.event_start_time.toString()
+      var year = fullDate.slice(0,4)
+      var month = fullDate.slice(5,7)
+      var day = fullDate.slice(8,10)
+      var time = fullDate.slice(11,16)
+      var finalDate = day + '/' + month + '/' + year + ' a las ' + time
+      return finalDate
+    }
+
     return !router.isReady ? null : (
     <>
       <header className="bg-white shadow">
@@ -38,7 +48,7 @@ export default function Example() {
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 text-center">
-          <span className="px-2 bg-white text-gray-500 justify-center">Has agendado el servicio un lavado para el {router.query.event_start_time.toString().slice(0,10)}. Ese día vamos a {router.query.answer_5.toLowerCase()} cuando estemos en la dirección {router.query.answer_2} para lavar tu vehículo patente {router.query.answer_4.toUpperCase()}. </span>
+          <span className="px-2 bg-white text-gray-500 justify-center">Has agendado el servicio <span className='font-bold'>lavado a domicilio</span> para el <span className='font-bold'>{getDateFormat()}</span>. Ese día vamos a {router.query.answer_5.toLowerCase()} cuando estemos en la dirección <span className='font-bold'>{router.query.answer_2}</span> para lavar tu vehículo patente <span className='font-bold'>{router.query.answer_4.toUpperCase()}</span>.</span>
 
             <div className="mt-6">
               <div className="relative">
