@@ -2,7 +2,7 @@ import React from 'react'
 import { StarIcon } from '@heroicons/react/solid'
 import { useRouter } from 'next/router'
 
-export default function HeroSection() {
+export default function HeroSection({disabled}) {
 
   const router = useRouter();
 
@@ -29,11 +29,19 @@ export default function HeroSection() {
               <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="rounded-md shadow">
-                    <button onClick={()=> redirectToBooking()}
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-                    >
+                    { disabled ? 
+                      (<button onClick={()=> redirectToBooking()}
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 md:py-4 md:text-lg md:px-10 disabled:opacity-75 cursor-not-allowed"
+                      disabled>
                       Agendar gratis
-                    </button>
+                      </button>
+                      ): 
+                      (<button onClick={()=> redirectToBooking()}
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                      >
+                      Agendar gratis
+                      </button>) 
+                    }
                   </div>
                 </div>
               </div>

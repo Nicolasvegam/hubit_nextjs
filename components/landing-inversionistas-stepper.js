@@ -3,8 +3,8 @@ import { CheckIcon } from '@heroicons/react/solid'
 const timeline = [
   {
     id: 1,
-    content: 'Agenda en la',
-    target: 'plataforma',
+    content: 'Agenda en',
+    target: 'Carvuk',
     href: '#',
     date: '🗓',
     datetime: '2020-09-20',
@@ -13,8 +13,8 @@ const timeline = [
   },
   {
     id: 2,
-    content: 'Carvuk va al lugar en la fecha',
-    target: 'indicada',
+    content: 'Carvuk va al lugar en la',
+    target: 'fecha indicada',
     href: '#',
     date: '⏱',
     datetime: '2020-09-22',
@@ -44,10 +44,9 @@ export default function StepbyStep() {
         <div className="lg:text-center">
           <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">¿Cómo funciona Carvuk?</h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            A domicilio y más rápido
+            Vamos a donde más te acomode
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Vamos a donde más te acomode <br></br>
             Todos nuestros lavados son en seco 💚🌎
           </p>
         </div>
