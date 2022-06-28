@@ -23,8 +23,8 @@ const timeline = [
   },
   {
     id: 3,
-    content: 'Te lavamos el',
-    target: 'vehículo',
+    content: 'Lavamos tu vehículo',
+    target: 'por dentro y por fuera',
     href: '#',
     date: '🚗',
     datetime: '2020-09-28',
