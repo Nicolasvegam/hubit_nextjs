@@ -6,7 +6,7 @@ import CTA from '../components/landing-inversionistas-cta'
 import TopAlert from '../components/top-alert-inversionistas'
 const IndexPage = () => {
   
-  const disabled = true;
+  const disabled = false;
 
   return(
     
