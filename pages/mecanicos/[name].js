@@ -93,12 +93,11 @@ const MecanicPage = ( mecanic ) => {
   }
 
   export const getStaticPaths = async () => {
-    const { data: mecanics } = await supabase.from('Suppliers').select('name')
+    const { data: mecanics } = await supabase.from('Suppliers').select('id')
 
-    const paths = mecanics.map(({name}) =>({
+    const paths = mecanics.map(({id}) =>({
       params: {
-        name: name.toString(),
-        // name: name.split(/(\s+)/)[0]
+        id: id.toString(),
       }
     }))
 
@@ -109,8 +108,8 @@ const MecanicPage = ( mecanic ) => {
 
   }
 
-  export const getStaticProps = async ({ params:  {name}}) => {
-    const { data: mecanic } = await supabase.from('Suppliers').select('*').eq('name', name).single()
+  export const getStaticProps = async ({ params:  {id}}) => {
+    const { data: mecanic } = await supabase.from('Suppliers').select('*').eq('id', id).single()
     return {
       props: {
         data: mecanic
