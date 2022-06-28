@@ -1,24 +1,12 @@
 import { useRouter } from 'next/router'
+import { supabase } from '../../utils/supabaseClient'
+import { ShieldCheckIcon } from '@heroicons/react/outline'
 
-// id , nombre, apellido, profesion, descripcion, imagen, rating
-const mecanicos = {
-  '':
-  {
-  id: 0,
-  name: '',
-  lastName: '',
-  profession: '',
-  imageSrc: './desabolladura-img.svg',
-  imageAlt: '',
-  description: '¡Hola, soy Nacho! Tu mecánico Carvuk. Estoy acá para ayudarte en lo que necesites. En Carvuk, tu auto es nuestro problema y nuestra prioridad. No dudes en preguntarme lo que necesites, estoy aquí para ayudarte.',
-  rating: 5
-  },
-}
-
-const MecanicPage = () => {
+const MecanicPage = ( mecanic ) => {
 
   const router = useRouter()
-  const { mecanico } = router.query
+  console.log('matiaaas')
+  console.log(mecanic)
 
   return(
     <>
@@ -40,13 +28,13 @@ const MecanicPage = () => {
           <div className="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
             <div className="lg:col-start-8 lg:col-span-5">
               <div className="flex justify-between">
-                <h1 className="text-xl font-medium text-gray-900">{mecanico}</h1>
+                <h1 className="text-xl font-medium text-gray-900">{mecanic.data.name}</h1>
               </div>
               <div className="mt-4">
                 <h2 className="sr-only">Reviews</h2>
                 <div className="flex items-center">
                   <p className="text-sm text-gray-700">
-                    3.9
+                    4.8
                     <span className="sr-only"> out of 5 stars</span>
                   </p>
                   <div className="ml-1 flex items-center">
@@ -66,13 +54,9 @@ const MecanicPage = () => {
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
 
-                    <svg className="text-gray-200 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <svg className="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
-                  </div>
-                  <div aria-hidden="true" className="ml-4 text-sm text-gray-300">·</div>
-                  <div className="ml-4 flex">
-                    <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">See all 512 reviews</a>
                   </div>
                 </div>
               </div>
@@ -82,17 +66,22 @@ const MecanicPage = () => {
               <h2 className="sr-only">Images</h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-3 lg:gap-8">
-                <img src="https://st2.depositphotos.com/1518767/6556/i/950/depositphotos_65565071-stock-photo-smiling-mechanic-looking-at-camera.jpg" alt="Back of women&#039;s Basic Tee in black." className="lg:col-span-2 lg:row-span-2 rounded-lg" />
+                <img src={mecanic.data.imageUrl} alt={mecanic.data.id} className="lg:col-span-2 lg:row-span-2 rounded-lg lg:h-2/3 lg:ml-48" />
               </div>
             </div>
 
-            <div className="mt-8 lg:col-span-5">
+            <div className="mt-4 lg:col-span-5">
 
-              <div className="mt-1">
-                <h2 className="text-sm font-medium text-gray-900">Sobre mi</h2>
+              <div>
+                <div className="flex item-center prose prose-sm text-gray-900">
+                  <p> {mecanic.data.profession} </p>
+                  <ShieldCheckIcon className="ml-3 flex h-6 w-5 text-green-400"></ShieldCheckIcon>
+                </div>
+                
+                <h2 className="mt-4 text-sm font-medium text-gray-900">Sobre mi</h2>
 
                 <div className="mt-4 prose prose-sm text-gray-500">
-                  <p>¡Hola, soy Nacho! Tu mecánico Carvuk. Estoy acá para ayudarte en lo que necesites. En Carvuk, tus problemas son nuestros problemas y tus prioridades son las nuestras. No dudes en preguntarme lo que necesites, estoy aquí para ayudarte.</p>
+                  <p> {mecanic.data.description} </p>
                 </div>
               </div>
             </div>
@@ -103,6 +92,32 @@ const MecanicPage = () => {
 
     </>
     )
+  }
+
+  export const getStaticPaths = async () => {
+    const { data: mecanics } = await supabase.from('Suppliers').select('name')
+
+    const paths = mecanics.map(({name}) =>({
+      params: {
+        name: name.toString(),
+        // name: name.split(/(\s+)/)[0]
+      }
+    }))
+
+    return {
+      paths,
+      fallback: false
+    }
+
+  }
+
+  export const getStaticProps = async ({ params:  {name}}) => {
+    const { data: mecanic } = await supabase.from('Suppliers').select('*').eq('name', name).single()
+    return {
+      props: {
+        data: mecanic
+      }
+    }
   }
 
   export default MecanicPage
