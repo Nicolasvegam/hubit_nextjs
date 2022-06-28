@@ -4,6 +4,7 @@ import HeroSection from '../components/landing-inversionistas-hero'
 import StepbyStep from '../components/landing-inversionistas-stepper'
 import CTA from '../components/landing-inversionistas-cta'
 import TopAlert from '../components/top-alert-inversionistas'
+
 const IndexPage = () => {
   
   const disabled = false;

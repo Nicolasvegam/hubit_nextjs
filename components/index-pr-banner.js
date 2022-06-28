@@ -10,12 +10,12 @@ export default function PRSection() {
           </p>
           <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-2 lg:mt-8">
             <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <Link href="https://contxto.com/es/venture-capital-es/platanus-ventures-incrementa-a-15-el-numero-de-startups-en-las-que-invertira-este-2022/">
-                <Image 
-                src="/contxto.png" 
-                alt="Contxto" 
-                width={150}
-                height={50}
+              <Link href="https://www.ing.uc.cl/noticias/dos-ingenieros-uc-crean-plaraforma-tecnologica-para-evitar-que-el-auto-no-sea-un-cacho/">
+                <Image
+                  src="/ingenieria_uc.png"
+                  alt="Ingeniería UC"
+                  width={150}
+                  height={50}
                 />
               </Link>
             </div>
@@ -40,12 +40,12 @@ export default function PRSection() {
               </Link>
             </div>
             <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <Link href="https://www.instagram.com/p/Ce1_UFFLAFH/">
-                <Image
-                  src="/ingenieria_uc.png"
-                  alt="Ingeniería UC"
-                  width={150}
-                  height={50}
+              <Link href="https://contxto.com/es/venture-capital-es/platanus-ventures-incrementa-a-15-el-numero-de-startups-en-las-que-invertira-este-2022/">
+                <Image 
+                src="/contxto.png" 
+                alt="Contxto" 
+                width={150}
+                height={50}
                 />
               </Link>
             </div>

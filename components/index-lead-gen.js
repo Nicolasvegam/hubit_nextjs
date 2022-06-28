@@ -9,7 +9,7 @@ export default function Revision() {
         <span className="block">la revisión técnica? </span>
         </h2>
         <p className="mt-4 text-lg leading-6 text-indigo-200">
-          ¡Despreocúpate, déjanos tus datos y te avisamos cuando tienes que hacerla!
+          Déjanos tus datos y te avisamos completamente <span className='font-bol text-white'>GRATIS</span>
         </p>
         <PopupButton id="BUV1P2dL" 
           className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto">

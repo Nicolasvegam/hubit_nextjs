@@ -26,10 +26,10 @@ const IndexPage = () => {
       <TopAlert/>
       <Navbar ctaBool={true} />
       <HeroSection/>
-      <Service2Section/>
-      <PVSection/>
-      <StepbyStep/>
+      <Service2Section/>      
       <Revision/>
+      <StepbyStep/>
+      <PVSection/>
       <BoxSuscripcion/>
       <NewsSection/>
       <DownloadSection />

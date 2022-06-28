@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { CheckIcon } from '@heroicons/react/outline'
-import Badge from './badge'
+import Badge from './badge-benefit'
 import { PopupButton } from '@typeform/embed-react'
 import { CheckCircleIcon } from '@heroicons/react/solid'
 
@@ -97,9 +97,6 @@ export default function Pricing() {
             {tier.title === 'El clásico 🔥'? (
               <div className="rounded-md bg-green-50 p-4 mb-2">
                 <div className="flex">
-                  <div className="flex-shrink-0">
-                    <CheckCircleIcon className="h-5 w-5 text-green-400" aria-hidden="true" />
-                  </div>
                   <div className="ml-3">
                     <p className="text-sm font-medium text-green-800">¡Subscríbete HOY y llévate un lavado GRATIS!</p>
                   </div>
@@ -115,7 +112,7 @@ export default function Pricing() {
                 ? 'bg-indigo-500 text-white hover:bg-indigo-600'
                 : 'bg-indigo-50 text-indigo-700 hover:bg-indigo-100',
               'mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium')}>
-              Me interesa
+              Suscribirme
             </PopupButton>
         
           </div>

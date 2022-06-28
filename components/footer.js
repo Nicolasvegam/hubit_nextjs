@@ -1,10 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const navigation = {
   solutions: [
-    { name: 'Servicios', href: '#service-section' },
-    // { name: 'Carvuk Pro', href: '#' },
+    { name: 'Servicios', href: '/servicios' },
+     { name: 'Carvuk Pro', href: '/carvuk-pro' },
     // { name: 'Empresas', href: '#' },
   ],
    support: [
@@ -105,9 +106,9 @@ export default function FooterSection() {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
+                      <Link href={item.href}>
+                        <a className="text-base text-gray-500 hover:text-gray-900">{item.name}</a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -117,9 +118,11 @@ export default function FooterSection() {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.support.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
+                      <Link href={item.href}>
+                        <a className="text-base text-gray-500 hover:text-gray-900">
+                          {item.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -131,9 +134,11 @@ export default function FooterSection() {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.company.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
+                      <Link href={item.href}>
+                        <a className="text-base text-gray-500 hover:text-gray-900">
+                          {item.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -143,9 +148,11 @@ export default function FooterSection() {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                        {item.name}
-                      </a>
+                      <Link href={item.href}>
+                        <a className="text-base text-gray-500 hover:text-gray-900">
+                          {item.name}
+                        </a>
+                      </Link>
                     </li>
                   ))}
                   <div className="flex space-x-6">
