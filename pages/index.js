@@ -9,8 +9,8 @@ import Revision from '../components/index-lead-gen.js'
 import BoxSuscripcion from '../components/index-carvuk-pro'
 import NewsSection from '../components/index-pr-banner'
 import DownloadSection from '../components/index-download-banner'
-import ChatwootWidget from '../components/utils-chatwoot'
 import FooterSection from '../components/footer'
+import WhatsappLogo from '../components/utils-whatsapp-float'
 
 
 const IndexPage = () => {
@@ -33,7 +33,7 @@ const IndexPage = () => {
       <BoxSuscripcion/>
       <NewsSection/>
       <DownloadSection />
-      <ChatwootWidget/>
+      <WhatsappLogo/>
       <FooterSection/>
     </div>
     )
