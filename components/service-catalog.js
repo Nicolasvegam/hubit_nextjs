@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import FirstModal from '../components/modal-first'
 import SecondModal from '../components/modal-second'
-
+import Badge from './badge-refPrice'
   
 const products = [
   {
@@ -12,8 +12,8 @@ const products = [
     imageAlt: 'Lavado a domicilio de tu vehículo',
     price: 'Desde $14.990',
     sizes: [
-      { name: 'Simple', description: 'Limpiamos tu auto por fuera.' , price: '$14.990', id: 'lavado-simple'},
-      { name: 'Full', description: 'Limpiamos tu auto por dentro y por fuera.', price: '$18.990', id: 'lavado-full'},
+      { name: 'Simple', description: 'Limpiamos tu auto por fuera.' , price: '$14.990', proBenefit: '$11.990', id: 'lavado-simple'},
+      { name: 'Full', description: 'Limpiamos tu auto por dentro y por fuera.', price: '$18.990', proBenefit: '$14.990', id: 'lavado-full'},
     ],
   },
   {
@@ -24,6 +24,7 @@ const products = [
     imageAlt: 'Revisión técnica imagen',
     description: 'Uno de nuestros mecánicos inspecciona el vehículo, lo traslada a la planta de revisión técnica y gestiona su certificado. En caso de de que la revisión salga rechazada nos pondremos en contacto para ayudarte a solucionar el problema. El servicio incluye el costo de la revisión técnica.',
     price: '$39.990',
+    proBenefit: '$0', 
     queryString: 'revision-tecnica',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -37,7 +38,9 @@ const products = [
     href: 'https://wa.me/+56931402144?text=Hola!%20Necesito%20realizar%20la%20mantenci%C3%B3n%20de%20mi%20veh%C3%ADculo...',
     imageSrc: './mantencion-img.svg',
     imageAlt: 'Mantención imagen.',
-    price: '$180.000 (*)',
+    price: '$180.000',
+    refPrice: true,
+    proBenefit: '10% de descuento',
     description: 'Cotizamos el servicio, agendamos y llevamos tu auto al taller sin que tengas que salir de tu casa. Contamos con una red de talleres aliados o si prefieres podemos hacerlo con el taller de tu marca.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -53,6 +56,7 @@ const products = [
     imageAlt: 'Revisión pre-compra.',
     description: 'El servicio incluye inspección mecánica, estética, scanner, prueba en ruta e informe legal.',
     price: '$34.990',
+    proBenefit: '$29.990',
     queryString: 'revision-pre-compra',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -68,6 +72,7 @@ const products = [
     imageAlt: 'Inspección general imagen.',
     description: 'El servicio incluye inspección mecánica, estética, scanner, prueba en ruta e informe legal.',
     price: '$34.990',
+    proBenefit: '$0',
     queryString: 'inspeccion-general',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -82,7 +87,7 @@ const products = [
     imageSrc: './desabolladura-img.svg',
     imageAlt: 'Desabolladura y pintura imagen.',
     description: 'Cotizamos el arreglo según las fotos que nos envíes, agendamos y en tan solo un día desabollamos y pintamos tu auto en el lugar que mas te acomode.',
-    price: 'Precio sujeto al vehículo (*)',
+    price: 'Sujeto al vehículo',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
@@ -95,7 +100,9 @@ const products = [
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20aceite...',
     imageSrc: './aceite-img.svg',
     imageAlt: 'Cambio de aceite imagen.',
-    price: '$59.990 (*)',
+    price: '$59.990',
+    proBenefit: '10% de descuento',
+    refPrice: true,
     description: 'Uno de nuestros mecánicos traslada tu auto a uno de nuestros talleres aliados para certificar que se haga el cambio de aceite y filtros.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -109,7 +116,9 @@ const products = [
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20cambio%20de%20parabrisas...',
     imageSrc: './parabrisas-img.svg',
     imageAlt: 'Parabrisas imagen.',
-    price: '$120.000 (*)',
+    price: '$125.000',
+    proBenefit: '10% de descuento',
+    refPrice: true,
     description: 'Cotiza y agenda por Whatsapp con Sergio 👨🏻‍🔧. Una vez agendado, vamos a tu domicilio, y hacemos el  cambio de parabrisas.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -124,7 +133,7 @@ const products = [
     imageSrc: './frenos-img.svg',
     imageAlt: 'Frenos imagen.',
     description: 'Cotiza y agenda por Whatsapp con Sergio 👨🏻‍🔧. Una vez agendado, vamos a tu domicilio, y hacemos la revisión de tus frenos, cambio de pastillas, rectificación de disco y cambio de disco, según corresponda.',
-    price: 'Precio sujeto al vehículo (*)',
+    price: 'Sujeto al vehículo',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
@@ -137,7 +146,9 @@ const products = [
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20vulcanizaci%C3%B3n...',
     imageSrc: './vulca-img.svg',
     imageAlt: 'Vulca imagen.',
-    price: '$24.990 (*)',
+    price: '$24.990',
+    proBenefit: '10% de descuento',
+    refPrice: true,
     description: 'Cotiza y agenda por Whatsapp con Sergio 👨🏻‍🔧. Una vez agendado, vamos al lugar que nos indiques, y hacemos el cambio de neumáticos.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -151,7 +162,9 @@ const products = [
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20bater%C3%ADa...',
     imageSrc: './baterias-img.svg',
     imageAlt: 'Cambio de batería imagen.',
-    price: '$85.000 (*)',
+    price: '$85.000',
+    proBenefit: '10% de descuento',
+    refPrice: true,
     description: 'Cotiza y agenda por Whatsapp con Sergio 👨🏻‍🔧. Una vez agendado, vamos al lugar que nos indiques, y hacemos el cambio de batería.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -166,7 +179,7 @@ const products = [
     imageSrc: './otros-img.svg',
     imageAlt: 'Otros servicios imagen.',
     description: '¿No encontraste lo que buscabas? Háblanos y Sergio 👨🏻‍🔧 solucionará tu problema.',
-    price: 'Precio sujeto al vehículo (*)',
+    price: 'Sujeto al vehículo',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
@@ -226,7 +239,12 @@ export default function AllServices() {
                     {product.name}
                   </button>
                 </h3>
-                <p className="mt-4 text-base font-medium text-gray-900">{product.price}</p>
+                <p className="mt-4 text-sm text-gray-500">
+                  { product.refPrice? 
+                    (<Badge label="Precio referencial"/>) : 
+                    (<Badge label="Precio"/>) }
+                </p>
+                <p className="mt-2 text-base font-medium text-gray-900">{product.price}</p>
                 <div className="mt-3 flex flex-col items-center">
                     <button
                         type="button"

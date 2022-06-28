@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon, ShieldCheckIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
+import Badge from './badge-benefits'
 
 export default function SecondModal({ open, onCloseModal, product }) {
   
@@ -78,7 +79,11 @@ export default function SecondModal({ open, onCloseModal, product }) {
                           Product information
                         </h3>
 
-                        <p className="text-2xl text-gray-900">{product?.price}</p>
+                        <p className="text-2xl text-gray-900">{product?.price} &nbsp;&nbsp;
+                            <span>
+                              { product?.proBenefit ? (<Badge label={"Carvuk Pro: " + product.proBenefit}/>) :(null) }
+                            </span>
+                        </p>
 
                         {/* Reviews 
                         <div className="mt-3">
