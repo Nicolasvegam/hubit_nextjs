@@ -43,7 +43,6 @@ const HeadPage = (props) => {
 
                 <link rel="manifest" href='/manifest.json'/>
                 <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-
             </Head>
         </div>
     )

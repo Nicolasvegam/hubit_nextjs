@@ -2,7 +2,7 @@ import HeadPage from '../components/head'
 import Navbar from '../components/navbar'
 import HeroSection from '../components/carvuk-pro-hero'
 import CTA from '../components/carvuk-pro-cta'
-import ChatwootWidget from '../components/utils-chatwoot'
+import WhatsappLogo from '../components/utils-whatsapp-float'
 import FooterSection from '../components/footer'
 import Pricing from '../components/carvuk-pro-pricing'
 
@@ -19,7 +19,7 @@ const IndexPage = () => {
       <HeroSection/>
       <Pricing/>
       <CTA/>
-      <ChatwootWidget/>
+      <WhatsappLogo/>
       <FooterSection/>
     </div>
     )
