@@ -5,8 +5,6 @@ import { ShieldCheckIcon } from '@heroicons/react/outline'
 const MecanicPage = ( mecanic ) => {
 
   const router = useRouter()
-  console.log('matiaaas')
-  console.log(mecanic)
 
   return(
     <>
