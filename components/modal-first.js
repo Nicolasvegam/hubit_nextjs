@@ -90,7 +90,9 @@ function FirstModal({open, onCloseModal, product}) {
                           <p className="text-lg text-gray-900 sm:text-xl">
                             {currentPrice} &nbsp;&nbsp;
                             <span>
-                              { selectedSize.proBenefit ? ( <Badge label={"Carvuk Pro: " + selectedSize.proBenefit}/>) : (null) }
+                              { selectedSize.proBenefit ? ( 
+                              <Badge label={"Carvuk Pro: " + selectedSize.proBenefit}/>
+                                  ) : (null) }
                             </span>
                           </p>
 
