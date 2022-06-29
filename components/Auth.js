@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import { supabase } from '../utils/supabaseClient'
 
+// TODO:
+// Sacar los alerts feos
+// sacar lo que me dijo nico
+// ver el link de confirmacion (ahora local host)
+// reseteo de Contraseña
+
 export default function Auth() {
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
