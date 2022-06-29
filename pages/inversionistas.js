@@ -3,7 +3,8 @@ import Navbar from '../components/navbar'
 import HeroSection from '../components/landing-inversionistas-hero'
 import StepbyStep from '../components/landing-inversionistas-stepper'
 import CTA from '../components/landing-inversionistas-cta'
-import TopAlert from '../components/top-alert-inversionistas'
+import TopAlert from '../components/top-alert-inversionistasOpen'
+import TopAlert2 from '../components/top-alert-inversionistasClose'
 
 const IndexPage = () => {
   
@@ -12,7 +13,7 @@ const IndexPage = () => {
   return(
     
     <div>
-      {disabled ? (<TopAlert/>) : null }
+      {disabled ? (<TopAlert2/>) : (<TopAlert/>) }
       <HeadPage icon='' 
                  href='https://carvuk.com/inversionistas' 
                  title='Carvuk: Lavado a domicilio para inversionistas' 
