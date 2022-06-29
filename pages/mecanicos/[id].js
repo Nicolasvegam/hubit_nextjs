@@ -90,7 +90,7 @@ const MecanicPage = ( mecanic ) => {
   }
 
   export const getStaticPaths = async () => {
-    const { data: mecanics } = await supabase.from('Suppliers').select('id')
+    const { data: mecanics } = await supabase.from('Suppliers').select('id').eq('isCarvuk', true)
 
     const paths = mecanics.map(({id}) =>({
       params: {
