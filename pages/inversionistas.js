@@ -8,7 +8,7 @@ import TopAlert2 from '../components/top-alert-inversionistasClose'
 
 const IndexPage = () => {
   
-  const disabled = false;
+  const disabled = true;
 
   return(
     
