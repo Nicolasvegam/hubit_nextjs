@@ -16,7 +16,7 @@ const LogInPage = () => {
     }, [])
 
     return (
-        <div className="container">
+        <div>
             {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
         </div>
     )

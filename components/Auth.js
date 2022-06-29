@@ -6,6 +6,7 @@ import Notification from './success-notification.js'
 // ver el link de confirmacion (ahora local carvuk)
 // reseteo de Contraseña mail
 // reseteo de Contraseña link
+// camel case base datos
 
 export default function Auth() {
   const [email, setEmail] = useState(null)
