@@ -11,7 +11,7 @@ export default function HeroSection({disabled}) {
   }
 
   return (
-    <div className="relative bg-white overflow-hidden">
+    <div className="relative bg-white">
       <div className="relative pt-3 pb-16 sm:pb-24 lg:pb-32">
         <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
