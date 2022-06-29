@@ -25,7 +25,7 @@ const pricing = {
         {text: 'Revisión técnica a domicilio', tag: '$35.000'},
         {text: 'Inspección y diagnóstico de tu 🚘', tag: '$25.000'},
         {text: 'Precios preferenciales en todos nuestros servicios', tag: '$100.000'},
-        {text: 'Lavado a domicilio mensual 🚘🚿', tag: '$220.000'},
+        {text: 'Lavado full a domicilio mensual 🚿', tag: '$220.000'},
       ],
       label: 'Ahorra $172.000 y 40 horas por año',
     },
@@ -38,7 +38,7 @@ const pricing = {
         {text: 'Revisión técnica a domicilio'},
         {text: 'Inspección y diagnóstico de tu 🚘'},
         {text: 'Precios preferenciales en todos nuestros servicios'},
-        {text: 'Lavado a domicilio mensual 🚘🚿'},
+        {text: 'Lavado full a domicilio mensual 🚿'},
         {text: 'Seguro y permiso de circulación'},
         {text: 'Mantención por kilometraje'},
       ],
@@ -93,7 +93,7 @@ export default function Pricing() {
             </div>
             <>
             {tier.title === 'El clásico 🔥'? (
-              <div className="rounded-md bg-green-50 p-4 mb-2">
+              <div className="rounded-md bg-green-50 p-4 mb-2 mt-4">
                 <div className="flex">
                   <div className="ml-3">
                     <p className="text-sm font-medium text-green-800">¡Subscríbete HOY y llévate un lavado GRATIS!</p>
