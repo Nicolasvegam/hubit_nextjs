@@ -12,7 +12,7 @@ const navigation = [
   ]
   
   const callsToAction = [
-    { name: 'Me interesa', href: '#service-section' },
+    { name: 'Ver servicios', href: '#service-section' },
   ]
 
 
