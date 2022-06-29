@@ -61,7 +61,7 @@ const MecanicPage = ( mecanic ) => {
               <h2 className="sr-only">Images</h2>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-1 lg:gap-8 lg:max-h-fit">
-                <img src={mecanic.data.imageUrl} alt={mecanic.data.id} className="lg:col-span-2 lg:row-span-2 rounded-lg lg:h-3/5 lg:ml-48" />
+                <img src={mecanic.data.image_url} alt={mecanic.data.id} className="lg:col-span-2 lg:row-span-2 rounded-lg lg:h-3/5 lg:ml-48" />
               </div>
             </div>
 
@@ -90,7 +90,7 @@ const MecanicPage = ( mecanic ) => {
   }
 
   export const getStaticPaths = async () => {
-    const { data: mecanics } = await supabase.from('Suppliers').select('id').eq('isCarvuk', true)
+    const { data: mecanics } = await supabase.from('suppliers').select('id').eq('is_carvuk', true)
 
     const paths = mecanics.map(({id}) =>({
       params: {
@@ -106,7 +106,7 @@ const MecanicPage = ( mecanic ) => {
   }
 
   export const getStaticProps = async ({ params:  {id}}) => {
-    const { data: mecanic } = await supabase.from('Suppliers').select('*').eq('id', id).single()
+    const { data: mecanic } = await supabase.from('suppliers').select('*').eq('id', id).single()
     return {
       props: {
         data: mecanic
