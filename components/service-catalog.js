@@ -22,7 +22,7 @@ const products = [
     href: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
     imageSrc: './revision-img.svg',
     imageAlt: 'Revisión técnica imagen',
-    description: 'Uno de nuestros mecánicos inspecciona el vehículo, lo traslada a la planta de revisión técnica y gestiona su certificado. En caso de de que la revisión salga rechazada nos pondremos en contacto para ayudarte a solucionar el problema. El servicio incluye el costo de la revisión técnica.',
+    description: 'Uno de nuestros mecánicos inspecciona el vehículo, lo traslada a la planta de revisión técnica y gestiona su certificado. En caso de que la revisión salga rechazada nos pondremos en contacto para ayudarte a solucionar el problema. El servicio incluye el costo de la revisión técnica.',
     price: '$39.990',
     proBenefit: '$0', 
     queryString: 'revision-tecnica',
@@ -86,7 +86,7 @@ const products = [
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20cotizar%20una%20desabolladura%2Fpintura...',
     imageSrc: './desabolladura-img.svg',
     imageAlt: 'Desabolladura y pintura imagen.',
-    description: 'Cotizamos el arreglo según las fotos que nos envíes, agendamos y en tan solo un día desabollamos y pintamos tu auto en el lugar que mas te acomode.',
+    description: 'Cotizamos el arreglo según las fotos que nos envíes, agendamos y en tan sólo un día desabollamos y pintamos tu auto en el lugar que más te acomode.',
     price: 'Sujeto al vehículo',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -187,6 +187,7 @@ const products = [
     link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20ayuda%20con%20mi%20veh%C3%ADculo'
   },  
 ]
+
   
 export default function AllServices() {
     
