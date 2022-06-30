@@ -5,6 +5,8 @@ import CTA from '../../components/carvuk-pro-cta'
 import ChatwootWidget from '../../components/utils-chatwoot'
 import FooterSection from '../../components/footer'
 import Pricing from '../../components/carvuk-pro-pricing'
+import WhatsappLogo from '../../components/utils-whatsapp-float'
+
 
 const IndexPage = () => {
   

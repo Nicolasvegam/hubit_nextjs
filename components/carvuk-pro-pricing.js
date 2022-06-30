@@ -1,6 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { CheckIcon } from '@heroicons/react/outline'
 import { PopupButton } from '@typeform/embed-react'
+import Link from 'next/link'
 
 const pricing = {
   tiers: [
