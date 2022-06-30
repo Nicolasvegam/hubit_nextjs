@@ -5,6 +5,7 @@ import HeroSection from '../components/landing-revision-tecnica-hero'
 import StepbyStep from '../components/landing-revision-tecnica-stepper'
 import CTA from '../components/landing-revision-tecnica-cta'
 import SecondModal from '../components/modal-second'
+import WhatsappLogo from '../components/utils-whatsapp-float'
 
 const product = {
     id: 2,
@@ -39,6 +40,7 @@ const RevisionTecnicaPage = () => {
         <HeroSection onClick={()=> setOpen(true)}/>
         <StepbyStep/>
         <CTA onClick={()=> setOpen(true)}/>
+        <WhatsappLogo/>
     </div>
     )
   }

@@ -1,10 +1,10 @@
-import { CheckIcon, ThumbUpIcon, UserIcon, CalendarIcon } from '@heroicons/react/solid'
+import { CheckIcon } from '@heroicons/react/solid'
 
 const timeline = [
   {
     id: 1,
-    content: 'Agenda en la plataforma o por',
-    target: 'WhatsApp con Sergio',
+    content: 'Agenda en',
+    target: 'Carvuk',
     href: '#',
     date: '🗓',
     datetime: '2020-09-20',
@@ -13,8 +13,8 @@ const timeline = [
   },
   {
     id: 2,
-    content: 'Carvuk va al lugar en la fecha',
-    target: 'indicada',
+    content: 'Carvuk va al lugar en la',
+    target: 'fecha indicada',
     href: '#',
     date: '⏱',
     datetime: '2020-09-22',
@@ -23,18 +23,8 @@ const timeline = [
   },
   {
     id: 3,
-    content: 'Realizamos el',
-    target: 'servicio',
-    href: '#',
-    date: '👨🏻‍🔧',
-    datetime: '2020-09-28',
-    icon: CheckIcon,
-    iconBackground: 'bg-green-500',
-  },
-  {
-    id: 4,
-    content: 'Te devolvemos tu',
-    target: 'vehículo',
+    content: 'Lavamos tu vehículo',
+    target: 'por dentro y por fuera',
     href: '#',
     date: '🚗',
     datetime: '2020-09-28',
@@ -49,15 +39,15 @@ function classNames(...classes) {
 
 export default function StepbyStep() {
   return (
-    <div className="py-12 bg-white">
+    <div className="py-12 sm:py-24 bg-white">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">¿Por qué Carvuk?</h2>
+          <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">¿Cómo funciona Carvuk?</h2>
           <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            A domicilio, seguro y más rápido
+            Vamos a donde más te acomode
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Nuestros técnicos certificados van a donde más te acomode a entregarte un servicio garantizado.
+            Todos nuestros lavados son en seco 💚🌎
           </p>
         </div>
 

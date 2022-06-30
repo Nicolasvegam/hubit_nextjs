@@ -19,7 +19,7 @@ const IndexPage = () => {
       <HeroSection/>
       <Pricing/>
       <CTA/>
-      <ChatwootWidget/>
+      <WhatsappLogo/>
       <FooterSection/>
     </div>
     )

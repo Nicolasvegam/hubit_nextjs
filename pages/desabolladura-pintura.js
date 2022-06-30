@@ -5,6 +5,7 @@ import HeroSection from '../components/landing-desabolladura-hero'
 import StepbyStep from '../components/landing-desabolladura-stepper'
 import CTA from '../components/landing-revision-tecnica-cta'
 import SecondModal from '../components/modal-second'
+import WhatsappLogo from '../components/utils-whatsapp-float'
 
 const product = {
   id: 6,
@@ -38,6 +39,7 @@ const DesabolladuraPage = () => {
         <HeroSection onClick={()=> setOpen(true)}/>
         <StepbyStep/>
         <CTA onClick={()=> setOpen(true)}/>
+        <WhatsappLogo/>
     </div>
     )
   }

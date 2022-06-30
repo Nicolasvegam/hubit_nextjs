@@ -3,7 +3,7 @@ import { StarIcon } from '@heroicons/react/solid'
 
 export default function HeroSection() {
   return (
-    <div className="relative bg-white overflow-hidden">
+    <div className="relative bg-white">
       <div className="relative pt-3 pb-16 sm:pb-24 lg:pb-32">
         <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8">
@@ -25,7 +25,7 @@ export default function HeroSection() {
                       href="#service-section"
                       className="w-100 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                     >
-                      Me interesa
+                      Ver servicios
                     </a>
                   </div>
                 </div>
@@ -41,7 +41,7 @@ export default function HeroSection() {
                   </div>
                   <div className="min-w-0 flex-1 pl-5 py-1 text-sm text-gray-500 sm:py-3">
                     <span className="font-medium text-gray-900">4.8 estrellas</span> por más de {' '}
-                    <span className="font-medium text-indigo-600">200 early adopters</span>
+                    <span className="font-medium text-indigo-600">200 clientes</span>
                   </div>
                 </div>
               </div>
