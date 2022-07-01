@@ -1,8 +1,8 @@
 import { supabase } from '../../utils/supabaseClient'
 import { ShieldCheckIcon } from '@heroicons/react/outline'
+import Image from 'next/image'
 
 const MecanicPage = ( mecanic ) => {
-
   return(
     <>
       <div className="min-h-full">  
@@ -57,11 +57,20 @@ const MecanicPage = ( mecanic ) => {
               </div>
             </div>
 
-            <div className="mt-8 lg:mt-0 lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-3">
+            <div className="mt-8 lg:mt-0 lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-3 flex justify-center ">
               <h2 className="sr-only">Images</h2>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-1 lg:gap-8 lg:max-h-fit">
-                <img src={mecanic.data.image_url} alt={mecanic.data.id} className="lg:col-span-2 lg:row-span-2 rounded-lg lg:h-3/5 lg:ml-48" />
+              <div className="grid grid-cols-1 w-full max-w-sm">
+                <Image
+                  layout="responsive"
+                  src={mecanic.data.image_url}
+                  alt={mecanic.data.id}
+                  width={500}
+                  className="rounded-md"
+                  height={500}
+                  sizes="50vw"
+                  
+                  />
               </div>
             </div>
 
