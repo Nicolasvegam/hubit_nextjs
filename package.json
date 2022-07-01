@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@headlessui/react": "^1.6.3",
     "@heroicons/react": "^1.0.6",
+    "@supabase/supabase-js": "^1.35.3",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@typeform/embed-react": "^1.17.0",
     "framer-motion": "^6.3.3",
