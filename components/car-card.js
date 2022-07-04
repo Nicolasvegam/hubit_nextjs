@@ -1,44 +1,38 @@
-const features = [
-    {
-      name: 'Durable',
-      description: 'The leather cover and machined steel disc binding stand up to daily use for years to come.',
-    },
-    {
-      name: 'Refillable',
-      description: 'Buy it once and refill as often as you need. Subscribe and save on routine refills.',
-    },
-    {
-      name: 'Thoughtfully designed',
-      description:
-        'The comfortable disc binding allows you to quickly rearrange pages or combine lined, graph, and blank refills.',
-    },
-    { name: 'Locally made', description: 'Responsibly and sustainably made real close to wherever you are, somehow.' },
-  ]
-  
-  export default function Example() {
+  export default function CarCard({ car }) {
+    console.log(car)
     return (
       <div className="bg-white">
         <section aria-labelledby="features-heading" className="relative">
   
-          <div className="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:pb-32 sm:px-6 lg:max-w-7xl lg:pt-32 lg:px-8 lg:grid lg:gap-x-8">
+          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:gap-x-8">
             <div className="lg:col-start-2">
               <h2 id="features-heading" className="font-medium text-gray-500">
-                Leatherbound Daily Journal
+                {car.model.brand.name}
               </h2>
-              <p className="mt-4 text-4xl font-extrabold text-gray-900 tracking-tight">All in the Details</p>
+              <p className="mt-4 text-4xl font-extrabold text-gray-900 tracking-tight">{car.model.name}</p>
               <p className="mt-4 text-gray-500">
-                We've obsessed over every detail of this handcrafted journal to bring you the best materials for daily
-                use.
+                En Carvuk gestionamos todos los datos de tu auto, para que no te tengas que preocupar de nada.
               </p>
   
               <dl className="mt-10 grid grid-cols-1 gap-y-10 gap-x-8 text-sm sm:grid-cols-2">
-                {features.map((feature) => (
-                  <div key={feature.name}>
-                    <dt className="font-medium text-gray-900">{feature.name}</dt>
-                    <dd className="mt-2 text-gray-500">{feature.description}</dd>
+                  <div>
+                    <dt className="font-medium text-gray-900">Patente</dt>
+                    <dd className="mt-2 text-gray-500">{car.plate}</dd>
                   </div>
-                ))}
+                  <div>
+                    <dt className="font-medium text-gray-900">Año</dt>
+                    <dd className="mt-2 text-gray-500">{car.year}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-gray-900">Número de chasis</dt>
+                    <dd className="mt-2 text-gray-500">{car.vim}</dd>
+                  </div>
+                  <div>
+                    <dt className="font-medium text-gray-900">Kilometraje aprox</dt>
+                    <dd className="mt-2 text-gray-500">{car.km ? car.km : 'No manejamos este dato.'}</dd>
+                  </div>
               </dl>
+              <img src={car.image_url}></img>
             </div>
           </div>
         </section>

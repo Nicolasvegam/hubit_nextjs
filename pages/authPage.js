@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
-import Auth from '../components/Auth'
-import Account from '../components/Account'
+import Auth from '../components/auth'
+import Account from '../components/account'
 
 
 const LogInPage = () => {
@@ -9,7 +9,6 @@ const LogInPage = () => {
 
     useEffect(() => {
         setSession(supabase.auth.session())
-
         supabase.auth.onAuthStateChange((_event, session) => {
         setSession(session)
         })
@@ -21,4 +20,5 @@ const LogInPage = () => {
         </div>
     )
 }
+
 export default LogInPage

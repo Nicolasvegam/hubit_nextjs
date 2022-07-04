@@ -2,8 +2,24 @@ import { Disclosure} from '@headlessui/react'
 import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
 import { supabase } from '../utils/supabaseClient'
 import CarCard from './car-card.js'
+import PastServicesCard from './past-services.js'
+import { useState, useEffect } from 'react'
+import { loadCars } from '../lib/load-cars'
+import { loadPastServices } from '../lib/load-past-services'
 
-export default function Account() {
+export default function Account( { session } ) {
+  const [ cars, setCars ] = useState([])
+  const [ servicesPerCar, setServicesPerCar ] = useState([])
+
+  useEffect(() => {
+    loadCars(session.user.id).then((cars) => {
+      setCars(cars)
+    })
+    loadPastServices(session.user.id).then((cars) => {
+      setServicesPerCar(cars)
+    })
+  }, [session])
+
   return (
     <>
       {/* Background color split screen for large screens */}
@@ -109,40 +125,28 @@ export default function Account() {
           )}
         </Disclosure>
 
-        {/* 3 column wrapper */}
-        <div className="flex-grow w-full max-w-7xl mx-auto xl:px-8 lg:flex">
-          {/* Left sidebar & main wrapper */}
-          <div className="flex-1 min-w-0 bg-white xl:flex">
-            <div className="border-b border-gray-200 xl:border-b-0 xl:flex-shrink-0 xl:w-64 xl:border-r xl:border-gray-200 bg-white">
-              <div className="h-full pl-4 pr-6 py-6 sm:pl-6 lg:pl-8 xl:pl-0">
-                {/* Start left column area */}
-                <div className="h-full relative" style={{ minHeight: '12rem' }}>
-                  <div className="absolute inset-0 border-2 border-gray-200 border-dashed rounded-lg" />
+        <div className="relative bg-white overflow-hidden">
+          <div className="relative pb-10 sm:pb-20 lg:pb-10">
+            <div className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32">
+              <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div className="sm:text-center mb-10 md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                  <PastServicesCard></PastServicesCard>
                 </div>
-                {/* End left column area */}
-              </div>
-            </div>
-
-            <div className="bg-white lg:min-w-0 lg:flex-1">
-              <div className="h-full py-6 px-4 sm:px-6 lg:px-8">
-                {/* Start main area*/}
-                <div className="relative h-full" style={{ minHeight: '36rem' }}>
-                  <CarCard></CarCard>
-                  <div className="absolute inset-0 border-gray-200 border-dashed rounded-lg" />
+                <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+                  {cars.map((car) => (
+                    <CarCard car={car}></CarCard>
+                  ))}
                 </div>
-                {/* End main area */}
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="bg-gray-50 pr-4 sm:pr-6 lg:pr-8 lg:flex-shrink-0 lg:border-l lg:border-gray-200 xl:pr-0">
-            <div className="h-full pl-6 py-6 lg:w-80">
-              {/* Start right column area */}
-              <div className="h-full relative" style={{ minHeight: '16rem' }}>
-                <div className="absolute inset-0 border-2 border-gray-200 border-dashed rounded-lg" />
-              </div>
-              {/* End right column area */}
-            </div>
+        <div className="bg-white" id="service-section">
+          <div className="lg:max-w-7xl lg:mx-auto lg:px-8">
+            {servicesPerCar.map((car) => (
+              <PastServicesCard car={car}></PastServicesCard>
+            ))}
           </div>
         </div>
       </div>
