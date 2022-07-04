@@ -6,7 +6,10 @@ import Notification from './success-notification.js'
 // ver el link de confirmacion (ahora local carvuk)
 // reseteo de Contraseña mail
 // reseteo de Contraseña link
-// camel case base datos
+// dar opcion llenar dato si no tiene km
+// poner las otras fotos de autos en supabase
+// linkear cada servicio a un detalle de servicio
+// reviews de servicios
 
 export default function Auth() {
   const [email, setEmail] = useState(null)
