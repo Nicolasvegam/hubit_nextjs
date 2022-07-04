@@ -16,7 +16,6 @@ function FirstModal({open, onCloseModal, product}) {
   function onClickButton(e){
     e.preventDefault()
     const value = selectedSize.id
-    console.log('push', value)
     router.push({
       pathname: '/agendar',
       query: {'servicio': value}
