@@ -1,8 +1,9 @@
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState } from 'react'
 import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { ShieldCheckIcon, XIcon } from '@heroicons/react/outline'
 import { CheckIcon, StarIcon } from '@heroicons/react/solid'
 import { useRouter } from 'next/router'
+import Badge from './badge-benefits'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -85,7 +86,14 @@ function FirstModal({open, onCloseModal, product}) {
                         </h3>
 
                         <div className="flex items-center">
-                          <p className="text-lg text-gray-900 sm:text-xl">{currentPrice}</p>
+                          <p className="text-lg text-gray-900 sm:text-xl">
+                            {currentPrice} &nbsp;&nbsp;
+                            <span>
+                              { selectedSize.proBenefit ? ( 
+                              <Badge label={"Carvuk Pro: " + selectedSize.proBenefit}/>
+                                  ) : (null) }
+                            </span>
+                          </p>
 
                           { /* <div className="ml-4 pl-4 border-l border-gray-300">
                             <h4 className="sr-only">Reviews</h4>

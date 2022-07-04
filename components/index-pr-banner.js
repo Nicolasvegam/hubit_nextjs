@@ -1,3 +1,6 @@
+import Image from "next/image"
+import Link from "next/link"
+
 export default function PRSection() {
     return (
       <div className="bg-white">
@@ -7,32 +10,44 @@ export default function PRSection() {
           </p>
           <div className="mt-6 grid grid-cols-2 gap-0.5 md:grid-cols-2 lg:mt-8">
             <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <img 
-               className="max-h-12"
-               src="./contxto.png" 
-               alt="Contxto" 
-              />
+              <Link href="https://www.ing.uc.cl/noticias/dos-ingenieros-uc-crean-plaraforma-tecnologica-para-evitar-que-el-auto-no-sea-un-cacho/">
+                <Image
+                  src="/ingenieria_uc.png"
+                  alt="Ingeniería UC"
+                  width={150}
+                  height={50}
+                />
+              </Link>
             </div>
             <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <img
-                className="max-h-12"
-                src="./logotipo2.svg"
-                alt="Platanus Ventures"
-              />
+              <Link href="https://ventures.platan.us/startups/carvuk">
+                <Image 
+                  src="/logotipo2.svg"
+                  alt="Platanus Ventures"
+                  width={220}
+                  height={50}
+                />
+              </Link>
             </div>
             <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <img
-                className="max-h-12"
-                src="./bloomerg.png"
-                alt="Bloomberg Línea"
-              />
+              <Link href="https://www.bloomberglinea.com/2022/05/26/platanus-ventures-y-su-apuesta-por-startups-del-metaverso-gamificacion-y-cripto">
+                <Image
+                  src="/bloomerg.png"
+                  alt="Bloomberg Línea"
+                  width={250}
+                  height={10}
+                />
+              </Link>
             </div>
             <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
-              <img
-                className="max-h-12"
-                src="./ingenieria_uc.png"
-                alt="Ingeniería UC"
-              />
+              <Link href="https://contxto.com/es/venture-capital-es/platanus-ventures-incrementa-a-15-el-numero-de-startups-en-las-que-invertira-este-2022/">
+                <Image 
+                src="/contxto.png" 
+                alt="Contxto" 
+                width={150}
+                height={50}
+                />
+              </Link>
             </div>
           </div>
         </div>

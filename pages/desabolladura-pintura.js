@@ -5,6 +5,7 @@ import HeroSection from '../components/landing-desabolladura-hero'
 import StepbyStep from '../components/landing-desabolladura-stepper'
 import CTA from '../components/landing-revision-tecnica-cta'
 import SecondModal from '../components/modal-second'
+import WhatsappLogo from '../components/utils-whatsapp-float'
 
 const product = {
   id: 6,
@@ -32,13 +33,13 @@ const DesabolladuraPage = () => {
                  href='https://carvuk.com/desabolladura-pintura' 
                  title='Carvuk: Reparamos tu choque a domicilio' 
                  description='Agenda tu reparación a domicilio y complemente online, lo dejamos listo en un sólo día.' 
-                 image='https://carvuk.com/image-preview.png'
-                 />
+                 image='https://carvuk.com/image-preview.png'/>
         <SecondModal open={open} onCloseModal={()=> setOpen(false)} product={product}/>
         <Navbar ctaBool={false} />
         <HeroSection onClick={()=> setOpen(true)}/>
         <StepbyStep/>
         <CTA onClick={()=> setOpen(true)}/>
+        <WhatsappLogo/>
     </div>
     )
   }

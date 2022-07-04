@@ -86,9 +86,9 @@ export default function StepbyStep() {
                   <div>
                     <p className="text-sm text-gray-500">
                       {event.content}{' '}
-                      <a href={event.href} className="font-medium text-gray-900">
+                      <span className="font-medium text-gray-900">
                         {event.target}
-                      </a>
+                      </span>
                     </p>
                   </div>
                   <div className="text-right text-sm whitespace-nowrap text-gray-500">
