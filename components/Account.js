@@ -3,13 +3,16 @@ import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
 import { supabase } from '../utils/supabaseClient'
 import CarCard from './car-card.js'
 import PastServicesCard from './past-services.js'
+import FutureServicesCard from './services-suggestions.js'
 import { useState, useEffect } from 'react'
 import { loadCars } from '../lib/load-cars'
 import { loadPastServices } from '../lib/load-past-services'
+import { loadServicesSuggestions } from '../lib/load-service-suggestions'
 
 export default function Account( { session } ) {
   const [ cars, setCars ] = useState([])
   const [ servicesPerCar, setServicesPerCar ] = useState([])
+  const [ suggestionsPerCar, setSuggestionsPerCar ] = useState([])
 
   useEffect(() => {
     loadCars(session.user.id).then((cars) => {
@@ -17,6 +20,10 @@ export default function Account( { session } ) {
     })
     loadPastServices(session.user.id).then((cars) => {
       setServicesPerCar(cars)
+    })
+    loadServicesSuggestions(session.user.id).then(
+      (cars) => {
+        setSuggestionsPerCar(cars)
     })
   }, [session])
 
@@ -130,7 +137,9 @@ export default function Account( { session } ) {
             <div className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24 sm:px-6 lg:mt-32">
               <div className="lg:grid lg:grid-cols-12 lg:gap-8">
                 <div className="sm:text-center mb-10 md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
-                  <PastServicesCard></PastServicesCard>
+                  {suggestionsPerCar.map((car) => (
+                    <FutureServicesCard car={car}></FutureServicesCard>
+                  ))}
                 </div>
                 <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
                   {cars.map((car) => (

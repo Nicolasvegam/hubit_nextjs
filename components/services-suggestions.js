@@ -1,11 +1,13 @@
-import { CalendarIcon, LocationMarkerIcon, ClipboardIcon } from '@heroicons/react/solid'
+import { CalendarIcon, LocationMarkerIcon, UsersIcon } from '@heroicons/react/solid'
 
-export default function PastServicesCard( { car } ) {
+export default function FutureServicesCard( { car } ) {
+  console.log('enjevnekrj')
+  console.log(car)
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md mb-10">
-      <h1 className="font-medium text-gray-900 m-5"> Historial de servicios: </h1>
+      <h1 className="font-medium text-gray-900 m-5"> Sugerencias de servicios: </h1>
       <ul role="list" className="divide-y divide-gray-200">
-        {car ? car.services.map((service) => (
+        {car ? car.suggestions.map((service) => (
           <li key={service.sid}>
             <a href="#" className="block hover:bg-gray-50">
               <div className="px-4 py-4 sm:px-6">
@@ -20,7 +22,7 @@ export default function PastServicesCard( { car } ) {
                 <div className="mt-2 sm:flex sm:justify-between">
                   <div className="sm:flex">
                     <p className="flex items-center text-sm text-gray-500">
-                      <ClipboardIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                      <UsersIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
                       {service.details}
                     </p>
                     <p className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">
