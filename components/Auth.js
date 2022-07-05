@@ -12,6 +12,11 @@ import Notification from './success-notification.js'
 // reviews de servicios
 // soporte link
 // podriamos sugerir lavado con descuento a los no pro
+// for de autos sacar
+// que se registren con sus patentes
+// hacer las querys bien
+// loading
+// flex small page button
 
 export default function Auth() {
   const [email, setEmail] = useState(null)

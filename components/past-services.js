@@ -1,4 +1,6 @@
 import { CalendarIcon, LocationMarkerIcon, ClipboardIcon } from '@heroicons/react/solid'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faNoteSticky } from '@fortawesome/free-regular-svg-icons'
 
 export default function PastServicesCard( { car } ) {
   return (
@@ -20,7 +22,7 @@ export default function PastServicesCard( { car } ) {
                 <div className="mt-2 sm:flex sm:justify-between">
                   <div className="sm:flex">
                     <p className="flex items-center text-sm text-gray-500">
-                      <ClipboardIcon className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
+                      <FontAwesomeIcon icon={faNoteSticky} className="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" aria-hidden="true" />
                       {service.details}
                     </p>
                     <p className="mt-2 flex items-center text-sm text-gray-500 sm:mt-0 sm:ml-6">

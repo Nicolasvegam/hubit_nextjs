@@ -7,9 +7,9 @@
           <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:gap-x-8">
             <div className="lg:col-start-2">
               <h2 id="features-heading" className="font-medium text-gray-500">
-                {car.model.brand.name}
+                {car.brand}
               </h2>
-              <p className="mt-4 text-4xl font-extrabold text-gray-900 tracking-tight">{car.model.name}</p>
+              <p className="mt-4 text-4xl font-extrabold text-gray-900 tracking-tight">{car.model}</p>
               <p className="mt-4 text-gray-500">
                 En Carvuk gestionamos todos los datos de tu auto, para que no te tengas que preocupar de nada.
               </p>
