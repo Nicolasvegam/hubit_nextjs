@@ -154,7 +154,7 @@ export default function Account( { session } ) {
         <div className="bg-white" id="service-section">
           <div className="lg:max-w-7xl lg:mx-auto lg:px-8">
             {servicesPerCar.map((car) => (
-              <PastServicesCard key={car.sid} car={car}></PastServicesCard>
+              <PastServicesCard key={car.id} car={car}></PastServicesCard>
             ))}
           </div>
         </div>
