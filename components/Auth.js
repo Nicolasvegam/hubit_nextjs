@@ -17,8 +17,8 @@ import Notification from './success-notification.js'
 // loading
 
 export default function Auth() {
-  const [email, setEmail] = useState(null)
-  const [password, setPassword] = useState(null)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [isSignUp, setIsSignUp] = useState(false)
   const [main, setMain] = useState(null)
   const [message, setMessage] = useState(null)
