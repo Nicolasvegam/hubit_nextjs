@@ -10,7 +10,7 @@ export default function FutureServicesCard( { car } ) {
       <ul role="list" className="divide-y divide-gray-200">
         {car ? car.suggestions.map((service) => (
           <li key={service.sid}>
-            <a href="#" className="block hover:bg-gray-50">
+            <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name + ' gratis por la suscripción del auto patente ' + car.plate}  className="block hover:bg-gray-50">
               <div className="px-4 py-4 sm:px-6">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-medium text-indigo-600 truncate">{ service.name }</p>
