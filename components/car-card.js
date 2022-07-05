@@ -1,5 +1,4 @@
   export default function CarCard({ car }) {
-    console.log(car)
     return (
       <div className="bg-white">
         <section aria-labelledby="features-heading" className="relative">

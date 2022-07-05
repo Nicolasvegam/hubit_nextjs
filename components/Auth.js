@@ -10,13 +10,11 @@ import Notification from './success-notification.js'
 // poner las otras fotos de autos en supabase
 // linkear cada servicio a un detalle de servicio
 // reviews de servicios
-// soporte link
 // podriamos sugerir lavado con descuento a los no pro
 // for de autos sacar
 // que se registren con sus patentes
 // hacer las querys bien
 // loading
-// flex small page button
 
 export default function Auth() {
   const [email, setEmail] = useState(null)
