@@ -1,7 +1,18 @@
 ---
-title: 'Two Forms of Pre-rendering'
-date: '2020-01-01'
+title: 'Cómo creamos Carvuk App en menos de 6 horas'
+metaTitle: 'Next.js page options and how they work'
+description: 'Probando una descripción cualquiera'
+metaDesc: 'How to use pages in Next.js exploring the options'
+authorImage: ./matias-perez.jpeg
+authorName: 'Matías Perez'
+socialImage: ./blogImg1.jpg
+readingTime: '5 minutos'
+categoryName: 'Tecnología'
+date: '2021-09-22'
+tags:
+  - nextjs
 ---
+# The main content
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.
 
