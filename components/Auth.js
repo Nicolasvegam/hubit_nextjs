@@ -15,6 +15,10 @@ import Notification from './success-notification.js'
 // que se registren con sus patentes
 // hacer las querys bien
 // loading
+// TODO diego
+// tabla revision tecnica
+// servicios ya hechos mostrar, pero no Agendar
+// otros servicios con descuentos
 
 export default function Auth() {
   const [email, setEmail] = useState('')
