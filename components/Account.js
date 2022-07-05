@@ -138,12 +138,12 @@ export default function Account( { session } ) {
               <div className="lg:grid lg:grid-cols-12 lg:gap-8">
                 <div className="sm:text-center mb-10 md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
                   {suggestionsPerCar.map((car) => (
-                    <FutureServicesCard car={car}></FutureServicesCard>
+                    <FutureServicesCard key={car.id} car={car}></FutureServicesCard>
                   ))}
                 </div>
                 <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
                   {cars.map((car) => (
-                    <CarCard car={car}></CarCard>
+                    <CarCard key={car.id} car={car}></CarCard>
                   ))}
                 </div>
               </div>
@@ -154,7 +154,7 @@ export default function Account( { session } ) {
         <div className="bg-white" id="service-section">
           <div className="lg:max-w-7xl lg:mx-auto lg:px-8">
             {servicesPerCar.map((car) => (
-              <PastServicesCard car={car}></PastServicesCard>
+              <PastServicesCard key={car.sid} car={car}></PastServicesCard>
             ))}
           </div>
         </div>
