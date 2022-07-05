@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNoteSticky } from '@fortawesome/free-regular-svg-icons'
 
 export default function PastServicesCard( { car } ) {
+  console.log('peric')
+  console.log(car)
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md mb-10">
       <h1 className="font-medium text-gray-900 m-5"> Historial de servicios: </h1>
       <ul role="list" className="divide-y divide-gray-200">
-        {car ? car.services.map((service) => (
+        {car ? car.map((service) => (
           <li key={service.sid}>
             <a href="#" className="block hover:bg-gray-50">
               <div className="px-4 py-4 sm:px-6">
