@@ -22,7 +22,7 @@ export default function FutureServicesCard( { car } ) {
                 </div>
                 <div className="flex">
                   <div className="mt-2 sm:flex sm:justify-between">
-                    <div className="sm:flex lg:w-[30vw]">
+                    <div className="sm:flex lg:w-[30vw] w-[60vw]">
                       <p className="flex items-center text-xs text-gray-500">
                         Precio anterior:
                       </p>
@@ -31,7 +31,7 @@ export default function FutureServicesCard( { car } ) {
                       </p>
                     </div>
                   </div>
-                  <div className="flex justify-end">
+                  <div className="justify-end">
                     <button
                       type="button"
                       className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
