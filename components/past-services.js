@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faNoteSticky } from '@fortawesome/free-regular-svg-icons'
 
 export default function PastServicesCard( { car } ) {
-  console.log('peric')
+  console.log('periccc')
   console.log(car)
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md mb-10">
