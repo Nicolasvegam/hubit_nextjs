@@ -7,7 +7,7 @@ export default function FutureServicesCard( { car } ) {
       <h1 className="font-medium text-gray-900 m-5"> Sugerencias de servicios  <BadgeSub label={car.subscription}/>: </h1>
       <ul role="list" className="divide-y divide-gray-200">
         {car ? car.suggestions.map((service) => (
-          <li key={service.sid}>
+          <li key={service.id}>
             <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name + ' gratis por la suscripción del auto patente ' + car.plate}  className="block hover:bg-gray-50">
               <div className="px-4 py-4 sm:px-6">
                 <div className="flex items-center justify-between">
