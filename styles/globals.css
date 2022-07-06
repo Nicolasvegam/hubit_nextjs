@@ -107,6 +107,10 @@ img[src*='#center'] {
   margin: auto;
   width: 30%;
 }
+img[src*='#single'] {
+  margin: auto;
+  width: 80%;
+}
 
 .prose :where(img):not(:where([class~="not-prose"] *)) {
   margin-top: 0rem;

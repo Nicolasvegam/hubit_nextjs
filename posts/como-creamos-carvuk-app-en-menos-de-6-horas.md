@@ -20,6 +20,8 @@ Ese es el mismo espíritu que está detrás de Carvuk App, y fue lo que me motiv
 
 Para lograrlo usé una PWA (Progressive Web Application). Las PWA han solucionado silenciosamente los problemas que han presentado las apps móviles durante algunos años. Pero más recientemente, ha habido una gran cantidad de actualizaciones que indican que este año puede ser el momento en que las PWA pasen a ser el centro de atención.
 
+
+![meme-pwa](https://www.binaryfolks.com/media/blog/3cwcox.jpg#single)
 ### ¿Que ¢&@$#/° es una PWA?
 
 Conocí las PWA´s, a través de un ramo que hice en la universidad este semestre y desde el primer minuto me hizo sentido. Digamos que no existe una definición precisa para una PWA, ya que es más un concepto que una "tecnología" real. 
