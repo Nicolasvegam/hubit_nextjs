@@ -8,11 +8,15 @@ import { useState, useEffect } from 'react'
 import { loadCars } from '../lib/load-cars'
 import { loadPastServices } from '../lib/load-past-services'
 import { loadServicesSuggestions } from '../lib/load-service-suggestions'
+import { loadServicesSub } from '../lib/load-services-sub'
+import Service2Section from './dashboard-services'
+import WhatsappLogo from '../components/utils-whatsapp-float'
 
 export default function Account( { session } ) {
   const [ cars, setCars ] = useState([])
   const [ servicesPerCar, setServicesPerCar ] = useState([])
   const [ suggestionsPerCar, setSuggestionsPerCar ] = useState([])
+  const [ servicesSub, setServicesSub ] = useState([])
 
   useEffect(() => {
     loadCars(session.user.id).then((cars) => {
@@ -24,6 +28,10 @@ export default function Account( { session } ) {
     loadServicesSuggestions(session.user.id).then(
       (cars) => {
         setSuggestionsPerCar(cars)
+    })
+    loadServicesSub().then(
+      (services) => {
+        setServicesSub(services)
     })
   }, [session])
 
@@ -158,6 +166,11 @@ export default function Account( { session } ) {
             ))}
           </div>
         </div>
+        { servicesSub.length > 0 && cars.length > 0?
+          <Service2Section products={servicesSub} car={cars[0]}></Service2Section> :
+          null
+        }
+        <WhatsappLogo/>
       </div>
     </>
   )
