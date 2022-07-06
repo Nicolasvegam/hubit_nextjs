@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
-import Auth from '../components/auth'
-import Account from '../components/account'
 
 
 const LogInPage = () => {
@@ -16,7 +14,7 @@ const LogInPage = () => {
 
     return (
         <div>
-            {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
+            {!session ? <p /> : <p key={session.user.id} session={session} />}
         </div>
     )
 }
