@@ -42,7 +42,7 @@ export default function FutureServicesCard( { car } ) {
                         Agendar
                       </button>
                       </a> :
-                      <p className="max-w-[10rem] text-center text-xs text-gray-500"> {'Tu revisión técnica no vence hasta el ' +  new Date(car.rt_due).toLocaleDateString()} </p>
+                      <p className="max-w-[10rem] text-center text-xs text-gray-500"> {'Tu revisión técnica no vence hasta el ' +  new Date(car.rt_due).toLocaleDateString('en', { dateStyle: 'short' })} </p>
                       }
                     </div> :
                     <div className="justify-end">
