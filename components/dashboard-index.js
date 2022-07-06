@@ -3,7 +3,7 @@ import { MenuAlt1Icon, XIcon } from '@heroicons/react/outline'
 import { supabase } from '../utils/supabaseClient'
 import CarCard from './car-card.js'
 import PastServicesCard from './past-services.js'
-import FutureServicesCard from './services-suggestions.js'
+import FutureServicesCard from './dashboard-suggestions.js'
 import { useState, useEffect } from 'react'
 import { loadCars } from '../lib/load-cars'
 import { loadPastServices } from '../lib/load-past-services'
@@ -160,7 +160,7 @@ export default function Account( { session } ) {
           </div>
         </div>
 
-        <div className="bg-white" id="service-section">
+        <div className="bg-white">
           <div className="lg:max-w-7xl lg:mx-auto lg:px-8">
             {servicesPerCar.map((car) => (
               <PastServicesCard key={car.id} car={car}></PastServicesCard>

@@ -79,6 +79,17 @@ export default function FutureServicesCard( { car } ) {
             </div>
           </li>
         )) : null}
+        <li key='ver descuentos'>
+          <div className="block hover:bg-gray-50">
+            <div className="px-4 py-4 sm:px-6">
+              <div className="flex items-center justify-between">
+                <a href="#service-section">
+                  <p className="text-sm font-medium text-indigo-600 truncate xl:w-[30vw] lg:w-[40vw] md:w-[53vw] sm:w-[70vw] w-[45vw]"> Ver más beneficios... </p>
+                </a>
+              </div>      
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   )

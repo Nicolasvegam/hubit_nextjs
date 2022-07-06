@@ -3,23 +3,9 @@ import Badge from './badge-refPrice'
 import BadgeGreen from './badge-benefits'
 
 export default function Service2Section( { products, car } ) {
-  const [openFirst, setOpenFirst] = useState(false);
-  const [openSecond, setOpenSecond] = useState(false);
-  const [activeProduct, setActiveProduct] = useState(products[0]);
-  
-  function openModal(product){
-    setActiveProduct(product);
-    if (product.name == 'Lavado a domicilio'){
-      setOpenFirst(true);
-      setOpenSecond(false);
-    }
-    else {
-      setOpenSecond(true);
-      setOpenFirst(false);
-    }
-  }
 
   return (
+    <>
     <div className="bg-white" id="service-section">
       <div className="pb-16 sm:pb-36 lg:max-w-7xl lg:mx-auto lg:px-8">
         <div className="px-4 flex items-center justify-between sm:px-6 lg:px-0">
@@ -98,5 +84,6 @@ export default function Service2Section( { products, car } ) {
         </div>
       </div>
     </div>
+    </>
   )
 }
