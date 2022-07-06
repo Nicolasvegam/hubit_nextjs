@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
-import Auth from '../components/auth'
-import Account from '../components/account'
+import Auth from '../components/dashboard-auth'
+import Account from '../components/dashboard-index'
 
 
 const LogInPage = () => {
