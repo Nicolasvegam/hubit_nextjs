@@ -11,6 +11,7 @@ import { loadServicesSuggestions } from '../lib/load-service-suggestions'
 import { loadServicesSub } from '../lib/load-services-sub'
 import Service2Section from './dashboard-services'
 import WhatsappLogo from '../components/utils-whatsapp-float'
+import FooterSection from '../components/footer'
 
 export default function Account( { session } ) {
   const [ cars, setCars ] = useState([])
@@ -171,6 +172,7 @@ export default function Account( { session } ) {
           null
         }
         <WhatsappLogo/>
+        <FooterSection></FooterSection>
       </div>
     </>
   )
