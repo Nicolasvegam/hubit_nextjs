@@ -7,17 +7,13 @@ import Notification from './success-notification.js'
 // reseteo de Contraseña mail
 // reseteo de Contraseña link
 // dar opcion llenar dato si no tiene km
-// poner las otras fotos de autos en supabase
 // linkear cada servicio a un detalle de servicio
 // reviews de servicios
-// podriamos sugerir lavado con descuento a los no pro
 // for de autos sacar
 // que se registren con sus patentes
 // hacer las querys bien
 // loading
 // TODO diego
-// tabla revision tecnica
-// servicios ya hechos mostrar, pero no Agendar
 // otros servicios con descuentos
 
 export default function Auth() {

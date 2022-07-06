@@ -13,16 +13,16 @@ export default function FutureServicesCard( { car } ) {
             <div className="block hover:bg-gray-50">
               <div className="px-4 py-4 sm:px-6">
                 <div className="flex items-center justify-between">
-                  <p className="text-sm font-medium text-indigo-600 truncate">{ service.name }</p>
+                  <p className="text-sm font-medium text-indigo-600 truncate xl:w-[30vw] lg:w-[40vw] md:w-[53vw] sm:w-[70vw] w-[45vw]">{ service.name }</p>
                   <div className="ml-2 flex-shrink-0 flex">
                     {service.status == "Realizado" ? <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{ service.status }</p> :
                     service.status == "Agendado" ? <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">{ service.status }</p> :
                     <p className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">{ service.status }</p>}
                   </div>
                 </div>
-                <div className="flex">
+                <div className="flex justify-between">
                   <div className="mt-2 sm:flex sm:justify-between">
-                    <div className="sm:flex lg:w-[30vw] md:w-[53vw] sm:w-[70vw] w-[45vw]">
+                    <div className="sm:flex">
                       <p className="flex items-center text-xs text-gray-500">
                         Precio anterior:
                       </p>
@@ -31,19 +31,38 @@ export default function FutureServicesCard( { car } ) {
                       </p>
                     </div>
                   </div>
-                  <div className="justify-end">
-                    { service.offer ? 
-                    <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}>
-                      <button
-                        type="button"
-                        className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  { service.name == 'Revisión técnica' ? 
+                    <div >
+                      { service.rt_due_check ? 
+                      <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
+                      className="pl-3"
                       >
-                      Agendar
-                    </button>
-                    </a> :
-                    <p className="flex items-center text-xs text-gray-500">Ya utilizaste este beneficio.</p>
-                    }
-                  </div>
+                        <button
+                          type="button"
+                          className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                        Agendar
+                      </button>
+                      </a> :
+                      <p className="max-w-[10rem] text-center text-xs text-gray-500"> {'Tu revisión técnica no vence hasta el ' +  new Date(car.rt_due).toLocaleDateString()} </p>
+                      }
+                    </div> :
+                    <div className="justify-end">
+                      { service.offer ? 
+                      <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
+                      className="pl-3"
+                      >
+                        <button
+                          type="button"
+                          className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                        Agendar
+                      </button>
+                      </a> :
+                      <p className="max-w-xs text-center text-xs text-gray-500">Ya utilizaste este beneficio.</p>
+                      }
+                    </div>
+                  }
                 </div>
                 <div className="mt-2 sm:flex sm:justify-between">
                   <div className="sm:flex">
