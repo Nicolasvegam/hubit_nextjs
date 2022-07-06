@@ -6,9 +6,6 @@ export default function Service2Section( { products, car } ) {
   const [openFirst, setOpenFirst] = useState(false);
   const [openSecond, setOpenSecond] = useState(false);
   const [activeProduct, setActiveProduct] = useState(products[0]);
-
-  console.log('matias')
-  console.log(car)
   
   function openModal(product){
     setActiveProduct(product);

@@ -84,7 +84,6 @@ export default function Auth() {
   }
 
   const onChangePlate = (e) => {
-    console.log(e.target.value)
     if (e.target.value.length <= 6) {
       setPlate(e.target.value.replace(/\s/g, '').toUpperCase())
     }
