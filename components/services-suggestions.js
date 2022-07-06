@@ -2,8 +2,6 @@ import Badge from './badge-benefits'
 import BadgeSub from './badge-refPrice'
 
 export default function FutureServicesCard( { car } ) {
-  console.log('future')
-  console.log(car)
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md mb-10">
       <h1 className="font-medium text-gray-900 m-5"> Sugerencias de servicios  <BadgeSub label={car.subscription}/>: </h1>

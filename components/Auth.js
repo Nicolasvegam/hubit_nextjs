@@ -19,6 +19,7 @@ import Notification from './success-notification.js'
 export default function Auth() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [plate, setPlate] = useState('')
   const [isSignUp, setIsSignUp] = useState(false)
   const [main, setMain] = useState(null)
   const [message, setMessage] = useState(null)
@@ -26,15 +27,19 @@ export default function Auth() {
 
   const handleSignUp = async () => {
     try {
-      const { user, session, error } = await supabase.auth.signUp({
+      if (plate.length != 6) throw { message: 'Debes rellenar tu patente.'}
+      await supabase.auth.signUp({
         email,
         password,
+      }).then((data) => {
+        if (data.error) throw error
+        supabase.from('cars')
+        .upsert({ uid: data.user.id, plate: plate }, { onConflict: 'plate' }).then((data) => {
+          console.log(data)
+        })
+        setMain('¡Cuenta creada exitosamente!')
+        setMessage('Revisa tu correo para confirmar tu cuenta.')
       })
-
-      if (error) throw error
-
-      setMain('¡Cuenta creada exitosamente!')
-      setMessage('Revisa tu correo para confirmar tu cuenta.')
     } catch (error) {
       setSuccess(false)
       setMain(error.message)
@@ -78,6 +83,13 @@ export default function Auth() {
     setIsSignUp(value => !value)
   }
 
+  const onChangePlate = (e) => {
+    console.log(e.target.value)
+    if (e.target.value.length <= 6) {
+      setPlate(e.target.value.replace(/\s/g, '').toUpperCase())
+    }
+  }
+
   return (
     <>
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -116,6 +128,27 @@ export default function Auth() {
                   />
                 </div>
               </div>
+
+              { isSignUp ?
+              <div>
+                <label className="block text-sm font-medium text-gray-700">
+                  Patente de tu vehículo
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="patente"
+                    name="patente"
+                    type="text"
+                    autoComplete="Ej. HPVY21"
+                    placeholder="Ej. HPVY21"
+                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    onChange={onChangePlate}
+                    value={plate}
+                  />
+                </div>
+              </div> :
+              null
+              }
 
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
