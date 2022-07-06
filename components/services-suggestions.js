@@ -2,14 +2,15 @@ import Badge from './badge-benefits'
 import BadgeSub from './badge-refPrice'
 
 export default function FutureServicesCard( { car } ) {
-
+  console.log('future')
+  console.log(car)
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md mb-10">
       <h1 className="font-medium text-gray-900 m-5"> Sugerencias de servicios  <BadgeSub label={car.subscription}/>: </h1>
       <ul role="list" className="divide-y divide-gray-200">
         {car ? car.suggestions.map((service) => (
           <li key={service.id}>
-            <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name + ' gratis por la suscripción del auto patente ' + car.plate}  className="block hover:bg-gray-50">
+            <div className="block hover:bg-gray-50">
               <div className="px-4 py-4 sm:px-6">
                 <div className="flex items-center justify-between">
                   <p className="text-sm font-medium text-indigo-600 truncate">{ service.name }</p>
@@ -21,7 +22,7 @@ export default function FutureServicesCard( { car } ) {
                 </div>
                 <div className="flex">
                   <div className="mt-2 sm:flex sm:justify-between">
-                    <div className="sm:flex lg:w-[30vw] w-[60vw]">
+                    <div className="sm:flex lg:w-[30vw] md:w-[53vw] sm:w-[70vw] w-[45vw]">
                       <p className="flex items-center text-xs text-gray-500">
                         Precio anterior:
                       </p>
@@ -31,12 +32,17 @@ export default function FutureServicesCard( { car } ) {
                     </div>
                   </div>
                   <div className="justify-end">
-                    <button
-                      type="button"
-                      className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
+                    { service.offer ? 
+                    <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}>
+                      <button
+                        type="button"
+                        className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
                       Agendar
                     </button>
+                    </a> :
+                    <p className="flex items-center text-xs text-gray-500">Ya utilizaste este beneficio.</p>
+                    }
                   </div>
                 </div>
                 <div className="mt-2 sm:flex sm:justify-between">
@@ -53,7 +59,7 @@ export default function FutureServicesCard( { car } ) {
                   </div>
                 </div>
               </div>
-            </a>
+            </div>
           </li>
         )) : null}
       </ul>
