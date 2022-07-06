@@ -51,12 +51,16 @@ export default function Service2Section( { products, car } ) {
                           <span className="absolute inset-0" />
                           {product.name}
                         </button>
-                        <p className="mt-1 text-sm text-gray-500">{ product.refprice? (<Badge label="Precio referencial"/>) : 
-                      (<Badge label="Precio"/>) }</p>
+                        <p className="mt-1 text-sm text-gray-500">{ product.refprice ? (<Badge label="Precio referencial"/>) : 
+                      (<Badge label={'Precio anterior: $' + product.price.toLocaleString('en-CL').replace(",", ".")}/>) }</p>
                       </h3>
                       { product.probenefit != 0.1 ?
                       <>
-                      <p className="mt-1 text-gray-900">${(Math.round(product.price * ( 1 - product.probenefit) / 10) * 10).toLocaleString('en-CL').replace(",", ".")} </p>
+                      <div className="mt-1">
+                      <BadgeGreen label={ 'Precio descuento: $' +
+                        (Math.round(product.price * ( 1 - product.probenefit) / 10) * 10).toLocaleString('en-CL').replace(",", ".")
+                        }/>
+                      </div>
                       <div className="mt-3">
                         <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + product.name.toLowerCase() + ' a $' + (Math.round(product.price * ( 1 - product.probenefit) / 10) * 10).toLocaleString('en-CL').replace(",", ".") + ' por la suscripción del auto patente ' + car.plate}>
                         <button
