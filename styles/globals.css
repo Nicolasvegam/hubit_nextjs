@@ -93,3 +93,22 @@ a {
 .whatsapp-icon-float{
 	margin-top:15px;
 }
+
+img[src*='#left'] {
+  float: left;
+  width: 30%;
+}
+img[src*='#right'] {
+  float: right;
+  width: 30%;
+}
+img[src*='#center'] {
+  display: block;
+  margin: auto;
+  width: 30%;
+}
+
+.prose :where(img):not(:where([class~="not-prose"] *)) {
+  margin-top: 0rem;
+  margin-bottom: 0rem
+}

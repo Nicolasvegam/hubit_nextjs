@@ -92,6 +92,9 @@ export default function PostPage({ frontmatter, content, slug }) {
                     <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                     {frontmatter.title}
                     </span>
+                    <span className="mt-10 block text-sm text-center italic leading-8 tracking-tight text-gray-900 sm:text-base">
+                    {frontmatter.subtitle}
+                    </span>
                 </h1>
 
                 <div className='prose mx-auto'>
