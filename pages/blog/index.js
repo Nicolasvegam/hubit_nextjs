@@ -57,7 +57,7 @@ export default function Home({ posts }) {
                         <div className="flex space-x-1 text-sm text-gray-500">
                         <time dateTime={frontmatter.date}>{frontmatter.date}</time>
                         <span aria-hidden="true">&middot;</span>
-                        <span>{frontmatter.readingTime} read</span>
+                        <span>{frontmatter.readingTime} minutos</span>
                         </div>
                     </div>
                     </div>
