@@ -202,6 +202,7 @@ export default function Auth() {
                   <a
                     className="mt-6 w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
                     onClick={changeForm}
+                    href='#'
                   >
                     {isSignUp ? '¿Ya tienes una cuenta? Inicia sesion...' :
                     '¿No tienes una cuenta? Registrate...'}
