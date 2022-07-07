@@ -30,10 +30,7 @@ export default function Service2Section( { products, car } ) {
                     </div>
                     <div className="mt-6">
                       <h3 className="mt-1 font-semibold text-gray-900">
-                        <button 
-                          onClick={()=> {
-                            openModal(product);
-                          }}>
+                        <button >
                           <span className="absolute inset-0" />
                           {product.name}
                         </button>
