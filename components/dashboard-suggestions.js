@@ -112,7 +112,7 @@ export default function FutureServicesCard( { car } ) {
             <div className="px-4 py-4 sm:px-6">
               <div className="flex items-center justify-between">
                 <a href="#service-section">
-                  <p className="text-sm font-medium text-indigo-600 truncate xl:w-[30vw] lg:w-[40vw] md:w-[53vw] sm:w-[70vw] w-[45vw]"> Ver más beneficios... </p>
+                  <p className="text-sm font-medium text-indigo-600 truncate xl:w-[30vw] lg:w-[40vw] md:w-[53vw] sm:w-[70vw] w-[45vw]"> ¿No encuentras lo que necesitas? </p>
                 </a>
               </div>      
             </div>
