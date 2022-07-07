@@ -10,8 +10,6 @@ import { useRouter } from 'next/router'
 // dar opcion llenar dato si no tiene km
 // linkear cada servicio a un detalle de servicio
 // reviews de servicios
-// for de autos sacar
-// que se registren con sus patentes
 // hacer las querys bien
 // loading
 // TODO diego

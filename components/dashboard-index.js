@@ -12,12 +12,14 @@ import { loadServicesSub } from '../lib/load-services-sub'
 import Service2Section from './dashboard-services'
 import WhatsappLogo from '../components/utils-whatsapp-float'
 import FooterSection from '../components/dashboard-footer'
+import Loading from '../components/loading'
 
 export default function Account( { session } ) {
   const [ cars, setCars ] = useState([])
   const [ servicesPerCar, setServicesPerCar ] = useState([])
   const [ suggestionsPerCar, setSuggestionsPerCar ] = useState([])
   const [ servicesSub, setServicesSub ] = useState([])
+  const [ loading, setLoading ] = useState(true)
 
   useEffect(() => {
     loadCars(session.user.id).then((cars) => {
@@ -29,12 +31,19 @@ export default function Account( { session } ) {
     loadServicesSuggestions(session.user.id).then(
       (cars) => {
         setSuggestionsPerCar(cars)
+        setLoading(false)
     })
     loadServicesSub().then(
       (services) => {
         setServicesSub(services)
     })
   }, [session])
+
+  if (loading) {
+    return (
+      <Loading></Loading>
+    )
+  } else {
 
   return (
     <>
@@ -176,4 +185,5 @@ export default function Account( { session } ) {
       </div>
     </>
   )
+  }
 }
