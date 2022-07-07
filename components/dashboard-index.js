@@ -10,7 +10,6 @@ import { loadPastServices } from '../lib/load-past-services'
 import { loadServicesSuggestions } from '../lib/load-service-suggestions'
 import { loadServicesSub } from '../lib/load-services-sub'
 import Service2Section from './dashboard-services'
-import WhatsappLogo from '../components/utils-whatsapp-float'
 import FooterSection from '../components/dashboard-footer'
 import Loading from '../components/loading'
 
@@ -84,7 +83,7 @@ export default function Account( { session } ) {
                     <div className="flex items-center justify-end">
                       <div className="flex">
                         <a
-                          href={'https://wa.me/+56931402144?text=¡Hola! Necesito ayuda con mi cuenta. Mi correo ' + session.user.email}
+                          href={'https://wa.me/+56931402144?text=¡Hola! Necesito ayuda con mi cuenta. Mi correo es ' + session.user.email}
                           className="px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white"
                         >
                           Soporte
@@ -180,7 +179,6 @@ export default function Account( { session } ) {
           <Service2Section products={servicesSub} car={cars[0]}></Service2Section> :
           null
         }
-        <WhatsappLogo/>
         <FooterSection></FooterSection>
       </div>
     </>
