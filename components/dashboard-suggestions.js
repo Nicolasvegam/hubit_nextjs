@@ -2,6 +2,11 @@ import Badge from './badge-benefits'
 import BadgeSub from './badge-sub'
 
 export default function FutureServicesCard( { car } ) {
+  function format_date(string) {
+    let month = new Date(string).toLocaleDateString('es-ES', {month: 'long'})
+    let year = new Date(string).toLocaleDateString('es-ES', {year: 'numeric'})
+    return month.charAt(0).toUpperCase() + month.slice(1) + ' ' + year;
+  }
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md mb-10">
       <h1 className="font-large text-xl text-black-1000 m-5"> Carvuk <BadgeSub label={car.subscription}/> incluye: </h1>
@@ -32,43 +37,55 @@ export default function FutureServicesCard( { car } ) {
                   { service.name == 'Revisión técnica' ? 
                     <div >
                       { service.rt_due_check ? 
-                      <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
-                      className="pr-7"
-                      >
-                        <button
-                          type="button"
-                          className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                          Agendar
-                        </button>
-                      </a> :
                       <>
-                      <div className="pl-8 sm:pr-8">
+                        <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
+                        >
+                          <button
+                            type="button"
+                            className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          >
+                            Agendar revisión
+                          </button>
+                        </a> 
+                        <p className="max-w-xs text-center text-xs text-red-500"> {'Vence en ' +  format_date(car.rt_due) + ' ❗️'} </p>
+                      </>
+                      :
+                      <>
+                      <div>
                         <button
                         disable
                         type="button"
-                        className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-300 hover:bg-indigo-100"
+                        className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-300 hover:bg-indigo-100"
                         >
-                          Agendar
+                          Agendar revisión
                         </button>
                       </div>
-                        <p className="max-w-[10rem] text-center text-xs text-gray-500"> {'Aprobada hasta el ' +  new Date(car.rt_due).toLocaleDateString('es')} </p>
+                        <p className="max-w-xs text-center text-xs text-gray-500"> {'Vence en ' +  format_date(car.rt_due) + ' ✅'} </p>
                       </>
                       }
                     </div> :
                     <div className="justify-end">
                       { service.offer ? 
                       <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
-                      className="pr-7"
                       >
                         <button
                           type="button"
-                          className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                          className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
-                        Agendar
+                        Agendar gratis
                       </button>
                       </a> :
-                      <p className="max-w-xs text-center text-xs text-gray-500">Ya utilizaste este beneficio.</p>
+                      <>
+                      <a href='#service-section'>
+                        <button
+                        type="button"
+                        className="px-4 py-2 border border-transparent text-xs font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                          Agendar con descuento
+                        </button>
+                      </a>
+                      <p className="max-w-xs text-center text-xs text-gray-500">Utilizado para este { service.type == 'monthly 😢' ? 'mes' : 'año 😢'}</p>
+                      </>
                       }
                     </div>
                   }
