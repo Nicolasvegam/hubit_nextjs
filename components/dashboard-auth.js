@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import Notification from './success-notification.js'
+import { useRouter } from 'next/router'
 
 // TODO:
 // ver el link de confirmacion (ahora local carvuk)
@@ -25,6 +26,8 @@ export default function Auth() {
   const [message, setMessage] = useState(null)
   const [success, setSuccess] = useState(true)
 
+  const router = useRouter();
+
   const handleSignUp = async () => {
     try {
       if (plate.length != 6) throw { message: 'Debes rellenar tu patente.'}
@@ -37,8 +40,7 @@ export default function Auth() {
         .upsert({ uid: data.user.id, plate: plate }, { onConflict: 'plate' }).then((data) => {
           console.log(data)
         })
-        setMain('¡Cuenta creada exitosamente!')
-        setMessage('Revisa tu correo para confirmar tu cuenta.')
+        router.replace('/registro-exitoso')
       })
     } catch (error) {
       setSuccess(false)
