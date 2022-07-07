@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import Notification from './success-notification.js'
 import { useRouter } from 'next/router'
+import Loading from '../components/loading'
 
 // TODO:
 // ver el link de confirmacion (ahora local carvuk)
@@ -22,24 +23,26 @@ export default function Auth() {
   const [main, setMain] = useState(null)
   const [message, setMessage] = useState(null)
   const [success, setSuccess] = useState(true)
+  const [loading, setLoading ] = useState(false)
 
   const router = useRouter();
 
   const handleSignUp = async () => {
     try {
       if (plate.length != 6) throw { message: 'Debes rellenar tu patente.'}
+      setLoading(true)
       await supabase.auth.signUp({
         email,
         password,
       }).then((data) => {
         if (data.error) throw error
         supabase.from('cars')
-        .upsert({ uid: data.user.id, plate: plate }, { onConflict: 'plate' }).then((data) => {
-          console.log(data)
-        })
+        .upsert({ uid: data.user.id, plate: plate }, { onConflict: 'plate' })
+        setLoading(false)
         router.replace('/registro-exitoso')
       })
     } catch (error) {
+      setLoading(false)
       setSuccess(false)
       setMain(error.message)
       setMessage(error.error_description)
@@ -87,6 +90,12 @@ export default function Auth() {
       setPlate(e.target.value.replace(/\s/g, '').toUpperCase())
     }
   }
+
+  if (loading) {
+    return (
+      <Loading></Loading>
+    )
+  } else {
 
   return (
     <>
@@ -214,4 +223,5 @@ export default function Auth() {
       </div>
     </>
   )
+  }
 }
