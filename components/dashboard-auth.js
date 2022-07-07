@@ -11,7 +11,6 @@ import { useRouter } from 'next/router'
 // linkear cada servicio a un detalle de servicio
 // reviews de servicios
 // hacer las querys bien
-// loading
 // TODO diego
 // otros servicios con descuentos
 
