@@ -33,22 +33,33 @@ export default function FutureServicesCard( { car } ) {
                     <div >
                       { service.rt_due_check ? 
                       <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
-                      className="pl-3"
+                      className="pr-7"
                       >
                         <button
                           type="button"
                           className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
-                        Agendar
-                      </button>
+                          Agendar
+                        </button>
                       </a> :
-                      <p className="max-w-[10rem] text-center text-xs text-gray-500"> {'Tu revisión técnica no vence hasta el ' +  new Date(car.rt_due).toLocaleDateString('es')} </p>
+                      <>
+                      <div className="pl-8 sm:pr-8">
+                        <button
+                        disable
+                        type="button"
+                        className="px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-300 hover:bg-indigo-100"
+                        >
+                          Agendar
+                        </button>
+                      </div>
+                        <p className="max-w-[10rem] text-center text-xs text-gray-500"> {'Aprobada hasta el ' +  new Date(car.rt_due).toLocaleDateString('es')} </p>
+                      </>
                       }
                     </div> :
                     <div className="justify-end">
                       { service.offer ? 
                       <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
-                      className="pl-3"
+                      className="pr-7"
                       >
                         <button
                           type="button"
