@@ -35,7 +35,7 @@ export default function DownloadModal({ios, open, onClose}) {
                       <div className="ml-3 w-0 flex-1 pt-0.5">
                         <p className="text-sm font-medium text-gray-900">Instala la aplicación Carvuk:</p>
                         <p className="mt-1 text-sm text-gray-500 flex flex-row">
-                        presiona <img src="./dowload_ios.png" className="text-icon" /> y despues 
+                        presiona <img src="./download_ios.png" className="text-icon" /> y despues 
                         </p>
                         <p className="mt-1 text-sm text-gray-500">Añadir a pantalla de inicio</p>
                       </div>
