@@ -17,7 +17,7 @@ const IndexPage = () => {
       <HeadPage icon='' 
                  href='https://carvuk.com/inversionistas' 
                  title='Carvuk: Lavado a domicilio para inversionistas' 
-                 description='Agenda tu lavado domicilio sólo por hoy.' 
+                 description='Agenda tu lavado domicilio.' 
                  image='https://carvuk.com/image-preview.png' /> 
       <Navbar ctaBool={false} />
       <HeroSection disabled={disabled}/>
