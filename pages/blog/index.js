@@ -11,7 +11,7 @@ export default function Home({ posts }) {
         <>
         <HeadPage icon='' 
                  href='https://carvuk.com/blog' 
-                 title='Carvuk - Carblog tu blog favorito' 
+                 title='Carvuk - Carvlog tu blog favorito' 
                  description='El mejor blog sobre autos, tecnología, cultura y otras hierbas.' 
                  image='https://carvuk.com/image-preview.png'/>
         <Navbar ctaBool={false} />
@@ -22,9 +22,9 @@ export default function Home({ posts }) {
         </div>
         <div className="relative max-w-7xl mx-auto">
             <div className="text-center">
-            <h2 className="text-3xl tracking-tight font-extrabold text-indigo-600 sm:text-4xl">Carvlok</h2>
+            <h2 className="text-3xl tracking-tight font-extrabold text-indigo-600 sm:text-4xl">Carvlog</h2>
             <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-                Noticias sobre autos, cultura, tecnología y otros. Las mejores historias contadas por personas como tú
+                Noticias sobre autos, cultura, tecnología y otros. Las mejores artículos relatados por personas como tú
             </p>
             </div>
             <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">

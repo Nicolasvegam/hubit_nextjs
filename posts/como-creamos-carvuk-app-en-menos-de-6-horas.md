@@ -2,7 +2,7 @@
 title: 'Cómo creamos Carvuk App en menos de 6 horas'
 subtitle: 'En mi primer día de pega, saqué a producción Carvuk App. Si necesitas una aplicación confiable, instalable y con altas capacidades, pero además lo necesitas para esta semana esto es lo que podrías hacer.'
 metaTitle: 'Next.js page options and how they work'
-description: 'Probando una descripción cualquiera'
+description: 'En mi primer día de trabajo logré hacer la aplicación de Carvuk ¿Cómo lo logré? Te invito a leer mi artículo'
 metaDesc: 'How to use pages in Next.js exploring the options'
 authorImage: ./matias-perez.jpeg
 authorName: 'Matías Perez'
