@@ -13,6 +13,8 @@ import { useRouter } from 'next/router'
 // hacer las querys bien
 // TODO diego
 // otros servicios con descuentos
+// URGENTE 
+// recrear error en local
 
 export default function Auth() {
   const [email, setEmail] = useState('')
