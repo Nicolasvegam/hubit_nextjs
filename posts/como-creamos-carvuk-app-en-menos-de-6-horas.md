@@ -34,9 +34,7 @@ Por ejemplo, las PWA pueden admitir operaciones sin conexión o con poco ancho d
 
 En Carvuk, aprovechamos esta oportunidad y en una tarde teníamos la aplicación en producción, para iPhone y Android:  
 
-![Screenshot-pwa-1](./pwa-1.png#left)
-![Screenshot-pwa-2](./pwa-2.png#right)
-![Screenshot-pwa-3](./pwa-3.png#center)
+![Screenshot-pwa](../../post-pwa.png)
 ### Ok, pero ¿Cuál es el problema que soluciona las PWA´s?
 
 En resumen, es la herramienta to-go, para tener estar en contacto directo con el cliente desde el primer minuto. Es impresionante la cantidad de startups, que creen que tienen la mejor idea y desarrollan el “mejor producto”, pasan meses sin estar en contacto real con sus clientes, lanzan su producto y sus usuarios simplemente no lo utilizan. 
