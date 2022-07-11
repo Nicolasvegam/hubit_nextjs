@@ -13,9 +13,9 @@ date: '22-09-2021'
 tags:
   - nextjs
 ---
-Me contrataron en Carvuk la semana pasada y me transmitieron desde un inicio, el  enfoque que tenía la empresa en mejorar su producto, mediante el feedback constante de sus clientes. Los desarrollos se dan en horas, no en días, semanas ni meses.
+Me contrataron en Carvuk la semana pasada y me transmitieron desde un inicio que el enfoque que tenía la empresa era mejorar su producto mediante el feedback constante de sus clientes. Los desarrollos se dan en horas, no en días, semanas ni meses.
 
-Ese es el mismo espíritu que está detrás de Carvuk App, y fue lo que me motivó a proponer esta idea. Era recién mi primer día de trabajo y sentía que ya estaba generando valor a la empresa. Desde que lo pensé, hasta dejarlo en producción, no pasaron más de 6 horas.
+Ese es el mismo espíritu que está detrás de Carvuk App, y fue lo que me motivó a proponer esta idea. Era recién mi primer día de trabajo y sentía que ya estaba generando valor a Carvuk. Desde que lo pensé, hasta dejarlo en producción, no pasaron más de 6 horas.
 
 Para lograrlo usé una PWA (Progressive Web Application). Las PWA han solucionado silenciosamente los problemas que han presentado las apps móviles durante algunos años. Pero más recientemente, ha habido una gran cantidad de actualizaciones que indican que este año puede ser el momento en que las PWA pasen a ser el centro de atención.
 
