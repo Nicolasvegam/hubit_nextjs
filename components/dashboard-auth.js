@@ -33,8 +33,12 @@ export default function Auth() {
         password,
       }).then((data) => {
         if (data.error) throw error
-        supabase.from('cars')
-        .upsert({ uid: data.user.id, plate: plate }, { onConflict: 'plate' })
+        supabase.from('profiles')
+        .upsert({ auth_id: data.user.id, mail: email }, { onConflict: 'mail' }).then( (data) => {
+          if (data.error) throw error
+          supabase.from('cars')
+          .upsert({ profile_id: data.data[0].id, plate: plate }, { onConflict: 'plate' })
+        })
         setLoading(false)
         router.replace('/registro-exitoso')
       })
