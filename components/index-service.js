@@ -199,12 +199,12 @@ export default function Service2Section() {
   function openModal(product){
     setActiveProduct(product);
     if (product.name == 'Lavado a domicilio'){
-      setOpenFirst(true);
       setOpenSecond(false);
+      setOpenFirst(true);
     }
     else {
-      setOpenSecond(true);
       setOpenFirst(false);
+      setOpenSecond(true);
     }
   }
 
