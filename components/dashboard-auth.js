@@ -5,15 +5,12 @@ import { useRouter } from 'next/router'
 import Loading from '../components/loading'
 
 // TODO:
-// ver el link de confirmacion (ahora local carvuk)
 // reseteo de Contraseña mail
 // reseteo de Contraseña link
 // dar opcion llenar dato si no tiene km
 // linkear cada servicio a un detalle de servicio
 // reviews de servicios
 // hacer las querys bien
-// TODO diego
-// otros servicios con descuentos
 
 export default function Auth() {
   const [email, setEmail] = useState('')
