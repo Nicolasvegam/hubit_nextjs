@@ -20,7 +20,7 @@ Ese es el mismo espíritu que está detrás de Carvuk App, y fue lo que me motiv
 Para lograrlo usé una PWA (Progressive Web Application). Las PWA han solucionado silenciosamente los problemas que han presentado las apps móviles durante algunos años. Pero más recientemente, ha habido una gran cantidad de actualizaciones que indican que este año puede ser el momento en que las PWA pasen a ser el centro de atención.
 
 
-![meme-pwa](../../post-pwa.png)
+![meme-pwa](../../meme.jpg)
 ### ¿Que ¢&@$#/ es una PWA?
 
 #
