@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import HeadPage from './../components/head'
 
 export default function SuccessfulSignUp() {
 
@@ -11,19 +11,11 @@ export default function SuccessfulSignUp() {
     }
     return (
     <>
-      <header className="bg-white shadow">
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 grid grid-cols-3">
-
-            <a href="#">
-                      <span className="sr-only">Carvuk</span>
-                      <img
-                      className="h-8 w-auto sm:h-10"
-                      src="./carvuk-logo.svg"
-                      alt=""
-                      />
-            </a>
-          </div>
-      </header>
+      <HeadPage icon='' 
+            href='https://carvuk.com/login' 
+            title='Portal Carvuk Pro'
+            description='Agenda tu servicio automotriz a domicilio hoy. Llevamos el taller mecánico a tu casa, oficina o el lugar que mejor te acomode. Servicio exclusivo para nuestros clientes Carvuk Pro' 
+            image='https://carvuk.com/image-preview.png' />
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">¡Cuenta creada exitosamente!</h2>
