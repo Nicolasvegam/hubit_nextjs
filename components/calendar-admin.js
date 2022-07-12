@@ -1,5 +1,4 @@
 import { Menu, Transition } from '@headlessui/react'
-import { DotsVerticalIcon } from '@heroicons/react/outline'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import {
   add,
@@ -16,6 +15,8 @@ import {
   startOfToday,
 } from 'date-fns'
 import { Fragment, useState } from 'react'
+import Selector from '../components/calendar-select-menu'
+import CalendarTable from '../components/calendar-table'
 
 function monthSpanish(date){
     const date_ = date.toString().split(' ')
@@ -41,54 +42,11 @@ function monthSpanish(date){
   
 }
 
-const meetings = [
-  {
-    id: 1,
-    name: 'Leslie Alexander',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-07-11T13:00',
-    endDatetime: '2022-07-11T14:30',
-  },
-  {
-    id: 2,
-    name: 'Michael Foster',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-07-20T09:00',
-    endDatetime: '2022-07-20T11:30',
-  },
-  {
-    id: 3,
-    name: 'Dries Vincent',
-    imageUrl:
-      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-07-20T17:00',
-    endDatetime: '2022-07-20T18:30',
-  },
-  {
-    id: 4,
-    name: 'Leslie Alexander',
-    imageUrl:
-      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-07-09T13:00',
-    endDatetime: '2022-07-09T14:30',
-  },
-  {
-    id: 5,
-    name: 'Michael Foster',
-    imageUrl:
-      'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    startDatetime: '2022-07-13T14:00',
-    endDatetime: '2022-07-13T14:30',
-  },
-]
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Example({ meetings }) {
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
@@ -110,10 +68,11 @@ export default function Example() {
   }
 
   let selectedDayMeetings = meetings.filter((meeting) =>
-    isSameDay(parseISO(meeting.startDatetime), selectedDay)
+    isSameDay(parseISO(meeting.service_date), selectedDay)
   )
 
   return (
+    <>
     <div className="pt-16">
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
@@ -190,7 +149,7 @@ export default function Example() {
 
                   <div className="w-1 h-1 mx-auto mt-1">
                     {meetings.some((meeting) =>
-                      isSameDay(parseISO(meeting.startDatetime), day)
+                      isSameDay(parseISO(meeting.service_date), day)
                     ) && (
                       <div className="w-1 h-1 rounded-full bg-sky-500"></div>
                     )}
@@ -200,39 +159,49 @@ export default function Example() {
             </div>
           </div>
           <section className="mt-12 md:mt-0 md:pl-14">
-            <h2 className="font-semibold text-gray-900">
-              Calendario para el{' '}
-              <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
-                {monthSpanish(format(selectedDay, 'MMM dd yyyy'))}
-              </time>
-            </h2>
-            <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
-              {selectedDayMeetings.length > 0 ? (
-                selectedDayMeetings.map((meeting) => (
-                  <Meeting meeting={meeting} key={meeting.id} />
-                ))
-              ) : (
-                <p>No servicios hoy día.</p>
-              )}
-            </ol>
+          <div>
+            <Selector />
+          </div>
           </section>
         </div>
       </div>
     </div>
+    <CalendarTable services={selectedDayMeetings} selectedDay={selectedDay} monthSpanish={monthSpanish}></CalendarTable>
+    <section className="mt-12 md:mt-0 md:pl-14">
+      <h2 className="font-semibold text-gray-900">
+        Calendario para el{' '}
+        <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
+          {monthSpanish(format(selectedDay, 'MMM dd yyyy'))}
+        </time>
+      </h2>
+      <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
+        {selectedDayMeetings.length > 0 ? (
+          selectedDayMeetings.map((meeting) => (
+            <Meeting meeting={meeting} key={meeting.id} />
+          ))
+        ) : (
+          <p>No servicios hoy día.</p>
+        )}
+      </ol>
+    </section>
+    </>
   )
 }
 
 function Meeting({ meeting }) {
-  let startDateTime = parseISO(meeting.startDatetime)
-  let endDateTime = parseISO(meeting.endDatetime)
+  let service_date = parseISO(meeting.service_date)
 
   return (
     <li className="flex items-center px-4 py-2 space-x-4 group rounded-xl focus-within:bg-gray-100 hover:bg-gray-100">
       <div className="flex-auto">
-        <p className="text-gray-900">{meeting.name}</p>
+        <p className="text-gray-900">{meeting.first_name + ' ' + meeting.last_name + ': ' + meeting.name}</p>
+        <p className="text-gray-500 text-xs">{'Telefono: ' + meeting.phone}</p>
+        <p className="text-gray-500 text-xs">{'Direccion: ' + meeting.address}</p>
+        <p className="text-gray-500 text-xs">{'Auto: ' + meeting.model}</p>
+        <p className="text-gray-500 text-xs">{'Patente: ' + meeting.plate}</p>
         <p className="mt-0.5">
-          <time dateTime={meeting.startDatetime}>
-            {format(startDateTime, 'h:mm a')}
+          <time dateTime={meeting.service_date}>
+            {format(service_date, 'h:mm a')}
           </time>{' '}
         </p>
       </div>

@@ -1,16 +1,18 @@
 import Calendar from '../components/calendar-admin'
-import Selector from '../components/calendar-select-menu'
+import { loadCalendarAdmin } from '../lib/load-calendar-admin'
 
-const CalendarTest = () => {
+const CalendarTest = (services) => {
   
   return(  
     <div>
-      <Calendar />
-      <div className="px-[20vw] pt-10">
-        <Selector />
-      </div>
+      { services ? <Calendar meetings={services.services}/> : null}
     </div>
     )
 }
 
-  export default CalendarTest
+export async function getServerSideProps() {
+  const services = await loadCalendarAdmin()
+  return { props: { services } }
+}
+
+export default CalendarTest
