@@ -8,7 +8,7 @@ const products = [
   {
     id: 1,
     name: 'Lavado a domicilio',
-    href: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20el%20lavado%20a%20domicilio...',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Tengo%20dudas%20con%20el%20lavado%20a%20domicilio...',
     imageSrc: './lavado-img.svg',
     imageAlt: 'Lavado a domicilio de tu vehículo',
     price: 'Desde $14.990',
@@ -20,7 +20,7 @@ const products = [
   {
     id: 2,
     name: 'Revisión técnica',
-    href: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
     imageSrc: './revision-img.svg',
     imageAlt: 'Revisión técnica imagen',
     description: 'Uno de nuestros mecánicos inspecciona el vehículo, lo traslada a la planta de revisión técnica y gestiona su certificado. En caso de que la revisión salga rechazada nos pondremos en contacto para ayudarte a solucionar el problema. El servicio incluye el costo de la revisión técnica.',
@@ -31,12 +31,12 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
+    link: 'https://wa.me/+56983841944?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
   },
   {
     id: 3,
     name: 'Mantención por kilometraje',
-    href: 'https://wa.me/+56931402144?text=Hola!%20Necesito%20realizar%20la%20mantenci%C3%B3n%20de%20mi%20veh%C3%ADculo...',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20la%20mantenci%C3%B3n%20de%20mi%20veh%C3%ADculo...',
     imageSrc: './mantencion-img.svg',
     imageAlt: 'Mantención imagen.',
     price: '$180.000',
@@ -52,7 +52,7 @@ const products = [
   {
     id: 4,
     name: 'Revisión pre-compra',
-    href: 'https://wa.me/+56931402144?text=Hola!%20Necesito%20una%20revisi%C3%B3n%20pre-compra...',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20revisi%C3%B3n%20pre-compra...',
     imageSrc: './precompra-img.svg',
     imageAlt: 'Revisión pre-compra.',
     description: 'El servicio incluye inspección mecánica, estética, scanner, prueba en ruta e informe legal.',
@@ -63,12 +63,12 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56931402144?text=Hola!%20Necesito%20una%20revisi%C3%B3n%20pre-compra...'
+    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20revisi%C3%B3n%20pre-compra...'
   },
   {
     id: 5,
     name: 'Inspección general',
-    href: 'https://wa.me/+56931402144?text=Hola!%20Necesito%20una%20inspecci%C3%B3n%20general...',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20inspecci%C3%B3n%20general...',
     imageSrc: './inspeccion-img.svg',
     imageAlt: 'Inspección general imagen.',
     description: 'El servicio incluye inspección mecánica, estética, scanner, prueba en ruta e informe legal.',
@@ -79,7 +79,7 @@ const products = [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
-    link: 'https://wa.me/+56931402144?text=Hola!%20Necesito%20una%20inspecci%C3%B3n%20general...',
+    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20inspecci%C3%B3n%20general...',
   },
   {
     id: 6,
