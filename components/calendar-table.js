@@ -28,37 +28,37 @@ import {
                         scope="col"
                         className="whitespace-nowrap py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                       >
-                        Transaction ID
+                        Cliente
                       </th>
                       <th
                         scope="col"
                         className="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Company
+                        Teléfono
                       </th>
                       <th
                         scope="col"
                         className="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Share
+                        Dirección
                       </th>
                       <th
                         scope="col"
                         className="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Commision
+                        Servicio
                       </th>
                       <th
                         scope="col"
                         className="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Price
+                        Modelo
                       </th>
                       <th
                         scope="col"
                         className="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
-                        Quantity
+                        Patente
                       </th>
                       <th
                         scope="col"
@@ -75,10 +75,10 @@ import {
                     {services.map((transaction) => (
                       <tr key={transaction.id}>
                         <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-6">
-                          {transaction.id}
+                          {transaction.phone}
                         </td>
                         <td className="whitespace-nowrap px-2 py-2 text-sm font-medium text-gray-900">
-                          {transaction.company}
+                          {transaction.first_name + ' ' + transaction.last_name}
                         </td>
                         <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-900">{transaction.share}</td>
                         <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{transaction.commission}</td>
