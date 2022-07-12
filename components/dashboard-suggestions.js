@@ -2,6 +2,7 @@ import Badge from './badge-benefits'
 import BadgeSub from './badge-sub'
 
 export default function FutureServicesCard( { car } ) {
+  console.log(car)
   function format_date(string) {
     let month = new Date(string).toLocaleDateString('es-ES', {month: 'long'})
     let year = new Date(string).toLocaleDateString('es-ES', {year: 'numeric'})
@@ -9,7 +10,7 @@ export default function FutureServicesCard( { car } ) {
   }
   return (
     <div className="bg-white shadow overflow-hidden sm:rounded-md mb-10">
-      <h1 className="font-large text-xl text-black-1000 m-5"> Carvuk <BadgeSub label={car.subscription}/> incluye: </h1>
+      <h1 className="font-large text-xl text-black-1000 m-5 cursor-default"> Carvuk <BadgeSub label={car.subscription}/> incluye: </h1>
       <ul role="list" className="divide-y divide-gray-200">
         {car ? car.suggestions.map((service) => (
           <li key={service.id}>
