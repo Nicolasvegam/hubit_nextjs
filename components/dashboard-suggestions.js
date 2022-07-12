@@ -39,7 +39,7 @@ export default function FutureServicesCard( { car } ) {
                     <div >
                       { service.rt_due_check ? 
                       <>
-                        <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
+                        <a href={'https://wa.me/+56983841944?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
                         >
                           <button
                             type="button"
@@ -67,7 +67,7 @@ export default function FutureServicesCard( { car } ) {
                     </div> :
                     <div className="justify-end">
                       { service.offer ? 
-                      <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
+                      <a href={'https://wa.me/+56983841944?text=¡Hola! Quería pedir mi ' + service.name.toLowerCase() + ' gratis por la suscripción del auto patente ' + car.plate}
                       >
                         <button
                           type="button"

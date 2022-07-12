@@ -10,7 +10,7 @@ const product = {
     id: 1,
     name: 'Lavado a domicilio',
     color: 'Vamos a tu 🏡 y te lo lavamos',
-    href: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20el%20lavado%20a%20domicilio...',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Tengo%20dudas%20con%20el%20lavado%20a%20domicilio...',
     imageSrc: './lavado-img.svg',
     imageAlt: 'Lavado a domicilio de tu vehículo.',
     price: 'Desde $11.990',

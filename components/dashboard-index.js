@@ -83,7 +83,7 @@ export default function Account( { session } ) {
                     <div className="flex items-center justify-end">
                       <div className="flex">
                         <a
-                          href={'https://wa.me/+56931402144?text=¡Hola! Necesito ayuda con mi cuenta. Mi correo es ' + session.user.email}
+                          href={'https://wa.me/+56983841944?text=¡Hola! Necesito ayuda con mi cuenta. Mi correo es ' + session.user.email}
                           className="px-3 py-2 rounded-md text-sm font-medium text-indigo-200 hover:text-white"
                         >
                           Soporte
@@ -113,7 +113,7 @@ export default function Account( { session } ) {
                   </Disclosure.Button>
                   <Disclosure.Button
                     as="a"
-                    href={'https://wa.me/+56931402144?text=¡Hola! Necesito ayuda con mi cuenta.'}
+                    href={'https://wa.me/+56983841944?text=¡Hola! Necesito ayuda con mi cuenta.'}
                     className="mt-1 block px-3 py-2 rounded-md text-base font-medium text-indigo-200 hover:text-indigo-100 hover:bg-indigo-600"
                   >
                     Support

@@ -11,7 +11,7 @@ const product = {
     id: 2,
     name: 'Revisión técnica',
     color: 'No hagas más filas, vamos por tí',
-    href: 'https://wa.me/+56931402144?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Tengo%20dudas%20con%20la%20revisión%20a%20técnica...',
     imageSrc: './revision-img.svg',
     imageAlt: 'Revisión técnica imagen',
     description: 'Uno nuestros mecánicos inspecciona el vehículo, lo traslada a la plante de revisión técnica y gestiona su certificado. En caso de de que la revisión salga rechaza nos pondremos en contacto para ayudarte a solucionar el problema.',
