@@ -2,7 +2,8 @@ import { useState } from 'react'
 import FirstModal from '../components/modal-first'
 import SecondModal from '../components/modal-second'
 import Badge from './badge-refPrice'
-  
+
+
 const products = [
   {
     id: 1,

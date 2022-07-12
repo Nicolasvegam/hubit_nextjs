@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 const navigation = {
   solutions: [
-    { name: 'Servicios', href: '/servicios' },
-     { name: 'Carvuk Pro', href: '/carvuk-pro' },
+    { name: 'Servicios', href: 'https://carvuk.com/servicios' },
+    { name: 'Carvuk Pro', href: 'https://carvuk.com/carvuk-pro' },
     // { name: 'Empresas', href: '#' },
   ],
    support: [
@@ -14,7 +14,7 @@ const navigation = {
   ],
   company: [
     { name: 'Trabaja con nosotros', href: 'https://www.notion.so/carvuk/Carvuk-is-hiring-5ac3623d738d43b6bf36ef6202607a29' },
-   // { name: 'Blog', href: '#' },
+    { name: 'Blog', href: 'https://carvuk.com/blog' }
   ],
   legal: [
     { name: 'Términos y condiciones', href: '#' },
@@ -84,7 +84,7 @@ export default function FooterSection() {
           <div className="space-y-8 xl:col-span-1">
             <img
               className="h-10"
-              src="./carvuk-logo.svg"
+              src="https://carvuk.com/carvuk-logo.svg"
               alt="Carvuk"
             />
             <p className="text-gray-500 text-base">

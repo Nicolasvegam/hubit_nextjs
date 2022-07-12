@@ -10,7 +10,7 @@ export default function DownloadModal({ios, open, onClose}) {
       {/* Global notification live region, render this permanently at the end of the document */}
       <div
         aria-live="assertive"
-        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start"
+        className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start z-20"
       >
         <div className="w-full flex flex-col items-center space-y-4 sm:items-end">
           {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
@@ -35,7 +35,7 @@ export default function DownloadModal({ios, open, onClose}) {
                       <div className="ml-3 w-0 flex-1 pt-0.5">
                         <p className="text-sm font-medium text-gray-900">Instala la aplicación Carvuk:</p>
                         <p className="mt-1 text-sm text-gray-500 flex flex-row">
-                        presiona <img src="https://i.stack.imgur.com/JCZNV.png" className="text-icon" /> y despues 
+                        presiona <img src="./download_ios.png" className="text-icon" /> y despues 
                         </p>
                         <p className="mt-1 text-sm text-gray-500">Añadir a pantalla de inicio</p>
                       </div>

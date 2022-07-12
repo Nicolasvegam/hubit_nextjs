@@ -6,13 +6,13 @@ import { useRouter } from 'next/router'
 
 
 const navigation = [
-    { name: 'Servicios', href: 'servicios' },
-    { name: 'Carvuk Pro', href: 'carvuk-pro' },
+    { name: 'Servicios', href: 'https://carvuk.com/servicios' },
+    { name: 'Carvuk Pro', href: 'https://carvuk.com/carvuk-pro' },
     //{ name: 'Empresas', href: '#' }
   ]
   
   const callsToAction = [
-    { name: 'Ver servicios', href: '#service-section' },
+    { name: 'Ver servicios', href: 'https://carvuk.com/#service-section' },
   ]
 
 
@@ -40,7 +40,7 @@ export default function Navbar({ctaBool}) {
                     <span className="sr-only">Carvuk</span>
                     <img
                     className="h-8 w-auto sm:h-10"
-                    src="./carvuk-logo.svg"
+                    src="https://carvuk.com/carvuk-logo.svg"
                     alt=""
                     />
                 </button>
