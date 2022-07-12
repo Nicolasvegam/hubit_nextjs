@@ -45,7 +45,7 @@ export default function Service2Section( { products, car } ) {
                         }/>
                       </div>
                       <div className="mt-3">
-                        <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + product.name.toLowerCase() + ' a $' + (Math.round(product.price * ( 1 - product.probenefit) / 10) * 10).toLocaleString('en-CL').replace(",", ".") + ' por la suscripción del auto patente ' + car.plate}>
+                        <a href={'https://wa.me/+56983841944?text=¡Hola! Quería pedir mi ' + product.name.toLowerCase() + ' a $' + (Math.round(product.price * ( 1 - product.probenefit) / 10) * 10).toLocaleString('en-CL').replace(",", ".") + ' por la suscripción del auto patente ' + car.plate}>
                         <button
                           type="button"
                           className="w-full relative flex bg-indigo-600 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-white hover:bg-indigo-700"
@@ -61,7 +61,7 @@ export default function Service2Section( { products, car } ) {
                         <BadgeGreen label={"10% descuento en cotización"}/>
                       </div>
                       <div className="mt-3">
-                        <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + product.name.toLowerCase() + ' con el descuento del 10% por la suscripción del auto patente ' + car.plate}>
+                        <a href={'https://wa.me/+56983841944?text=¡Hola! Quería pedir mi ' + product.name.toLowerCase() + ' con el descuento del 10% por la suscripción del auto patente ' + car.plate}>
                         <button
                           type="button"
                           className="w-full relative flex bg-indigo-600 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-white hover:bg-indigo-700"
