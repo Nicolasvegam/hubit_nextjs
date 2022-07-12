@@ -61,7 +61,7 @@ export default function Service2Section( { products, car } ) {
                         <BadgeGreen label={"10% descuento en cotización"}/>
                       </div>
                       <div className="mt-3">
-                        <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + product.name.toLowerCase() + 'con el descuento del 10% por la suscripción del auto patente ' + car.plate}>
+                        <a href={'https://wa.me/+56931402144?text=¡Hola! Quería pedir mi ' + product.name.toLowerCase() + ' con el descuento del 10% por la suscripción del auto patente ' + car.plate}>
                         <button
                           type="button"
                           className="w-full relative flex bg-indigo-600 border border-transparent rounded-md py-2 px-8 items-center justify-center text-sm font-medium text-white hover:bg-indigo-700"

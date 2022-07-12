@@ -17,6 +17,11 @@ const LogInPage = () => {
 
     return (
         <div>
+            <HeadPage icon='' 
+            href='https://carvuk.com/login' 
+            title='Portal Carvuk Pro'
+            description='Agenda tu servicio automotriz a domicilio hoy. Llevamos el taller mecánico a tu casa, oficina o el lugar que mejor te acomode. Servicio exclusivo para nuestros clientes Carvuk Pro' 
+            image='https://carvuk.com/image-preview.png' />
             {!session ? <Auth /> : <Account key={session.user.id} session={session} />}
             <WhatsappLogo/>
         </div>
