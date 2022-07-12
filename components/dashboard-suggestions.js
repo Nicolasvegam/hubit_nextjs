@@ -54,7 +54,7 @@ export default function FutureServicesCard( { car } ) {
                       <>
                       <div>
                         <button
-                        disable
+                        disable={true}
                         type="button"
                         className="px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-300 hover:bg-indigo-100"
                         >
