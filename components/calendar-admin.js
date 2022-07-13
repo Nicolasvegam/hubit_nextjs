@@ -86,11 +86,11 @@ export default function Example({ meetings, calendars }) {
   const [blockedDates, setblockedDates] = useState([])
 
   useEffect(() => {
-    loadBlockedHours(selectedDay).then((hours) => {
+    loadBlockedHours(selectedDay, calendarSelected.name).then((hours) => {
       setblockedDates(hours)
       console.log(hours)
     })
-  }, [selectedDay])
+  }, [selectedDay, calendarSelected])
 
   let days = eachDayOfInterval({
     start: firstDayCurrentMonth,
