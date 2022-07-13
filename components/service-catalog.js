@@ -89,7 +89,7 @@ const products = [
     imageAlt: 'Láminas de seguridad.',
     price: 'Desde $130.000',
     proBenefit: '10% de descuento',
-    description: 'Instalación de láminas de seguridad en los vidrios laterales, parabrisas y/o vidrio trasero.',
+    description: 'Instalación a domicilio de láminas de seguridad en los vidrios laterales, parabrisas y/o vidrio trasero.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
