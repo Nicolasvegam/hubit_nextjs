@@ -133,7 +133,7 @@ const products = [
     imageSrc: './luces.svg',
     imageAlt: 'Arreglo de luces.',
     price: 'Desde $20.000',
-    proBenefit: '10% de descuento',
+    proBenefit: '$5.000 de descuento',
     description: 'Uno de nuestros Drivers toma la muestra de la ampolleta donde se le indique, se compra el repuesto y se instala donde tú quieras.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
@@ -148,7 +148,7 @@ const products = [
     imageSrc: './grua.svg',
     imageAlt: 'Grúa.',
     price: 'Desde $35.000',
-    proBenefit: '10% de descuento',
+    proBenefit: '$5.000 de descuento',
     description: 'Servicio de grúas 24 horas. Llámanos desde donde estés y vamos al rescate.',
     sizes: [
       { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
