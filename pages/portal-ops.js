@@ -2,7 +2,7 @@ import Calendar from '../components/calendar-admin'
 import { loadCalendarAdmin } from '../lib/load-calendar-admin'
 import { loadCalendarTypes } from '../lib/load-calendar-types'
 
-const CalendarTest = ({services, calendars}) => {
+const PortalOps = ({services, calendars}) => {
   
   return(  
     <div>
@@ -17,4 +17,4 @@ export async function getServerSideProps() {
   return { props: { services, calendars } }
 }
 
-export default CalendarTest
+export default PortalOps

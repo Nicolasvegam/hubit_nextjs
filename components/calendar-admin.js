@@ -42,7 +42,6 @@ function monthSpanish(date){
   const transformed = date_[1] + " de " + months_spanish[date_[0]] + " " + date_[2]
   
   return transformed
-  
 }
 
 async function create_block(start_time, end_time, date, calendar){
@@ -120,7 +119,7 @@ export default function Example({ meetings, calendars }) {
           <div className="md:pr-14">
             <div className="flex items-center">
               <h2 className="flex-auto font-semibold text-gray-900">
-                {format(firstDayCurrentMonth, 'MMMM yyyy')}
+                {monthSpanish(format(selectedDay, 'MMM dd yyyy'))}
               </h2>
               <button
                 type="button"
