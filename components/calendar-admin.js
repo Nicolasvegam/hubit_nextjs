@@ -1,4 +1,3 @@
-import { Menu, Transition } from '@headlessui/react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import {
   add,
@@ -14,9 +13,13 @@ import {
   parseISO,
   startOfToday,
 } from 'date-fns'
-import { Fragment, useState } from 'react'
+import { useState, useEffect } from 'react'
 import Selector from '../components/calendar-select-menu'
 import CalendarTable from '../components/calendar-table'
+import { loadBlockedHours } from '../lib/load-blocked-hours'
+import { supabase } from '../utils/supabaseClient'
+import Router from 'next/router'
+
 
 function monthSpanish(date){
     const date_ = date.toString().split(' ')
@@ -42,6 +45,33 @@ function monthSpanish(date){
   
 }
 
+async function create_block(start_time, end_time, date, calendar){
+  if (start_time.id < end_time.id) {
+    let start_date = date.toISOString().split("T")[0] + ' ' + start_time.name + ':00-04'
+    let end_date = date.toISOString().split("T")[0] + ' ' + end_time.name + ':00-04'
+    await supabase
+    .from('blocked_hours')
+    .insert([
+      { start_time: start_date, end_time: end_date, calendar_type: calendar}
+    ]).then(() => {
+      alert('Creado exitosamente')
+      Router.reload(window.location.pathname)
+    })
+  } else {
+    alert('Tu hora partida tiene que ser mas pequeño que la hora final')
+  }
+}
+
+async function delete_block(id){
+  await supabase
+  .from('blocked_hours')
+  .delete()
+  .match({ id: id }).then(() => {
+    alert('Eliminado exitosamente')
+    Router.reload(window.location.pathname)
+  })
+}
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -51,6 +81,17 @@ export default function Example({ meetings, calendars }) {
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
+  const [calendarSelected, setCalendarSelected] = useState(calendars[0])
+  const [startBlockedSelected, setStartBlockedSelected] = useState(hours[0])
+  const [endBlockedSelected, setEndBlockedSelected] = useState(hours.filter(hour => hour.id > startBlockedSelected.id)[0])
+  const [blockedDates, setblockedDates] = useState([])
+
+  useEffect(() => {
+    loadBlockedHours(selectedDay).then((hours) => {
+      setblockedDates(hours)
+      console.log(hours)
+    })
+  }, [selectedDay])
 
   let days = eachDayOfInterval({
     start: firstDayCurrentMonth,
@@ -160,7 +201,41 @@ export default function Example({ meetings, calendars }) {
           </div>
           <section className="mt-12 md:mt-0 md:pl-14">
           <div>
-            <Selector calendars={calendars} />
+            <h1 className="text-sm font-semibold text-gray-900">Calendario para el{' '} 
+              <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
+                  {monthSpanish(format(selectedDay, 'MMM dd yyyy'))}
+              </time>
+            </h1>
+            <Selector options={calendars} title={'Selecciona una calendario:'} selected={calendarSelected} setSelected={setCalendarSelected}/>
+            <div className="mt-2"></div>
+            <Selector options={hours} title={'Incio hora de bloqueo:'} selected={startBlockedSelected} setSelected={setStartBlockedSelected}/>
+            <div className="mt-2"></div>
+            <Selector options={hours.filter(hour => hour.id > startBlockedSelected.id)} title={'Final hora de bloqueo:'} selected={endBlockedSelected} setSelected={setEndBlockedSelected}/>
+            <div className="mt-2"></div>
+            <button
+              onClick={() => create_block(startBlockedSelected, endBlockedSelected, selectedDay, calendarSelected.name)}
+              type="button"
+              className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-2 py-1 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto"
+            >
+              Bloquear
+            </button>
+            {blockedDates ? 
+            <div>
+              <p className="text-sm font-semibold py-2">Bloqueados: </p>
+              {blockedDates.map((dates) => (
+                <div key={dates.idd} className='flex py-2'>
+                  <p className="pr-5">{format(parseISO(dates.start_block), 'h:mm a') + '-' + format(parseISO(dates.end_block), 'h:mm a')}</p>
+                  <button
+                    onClick={() => delete_block(dates.idd)}
+                    type="button"
+                    className="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 px-1 py-1"
+                  >
+                    Desbloquear
+                  </button>
+                </div>
+              ))}
+            </div>
+            : <p></p>}   
           </div>
           </section>
         </div>
@@ -170,6 +245,26 @@ export default function Example({ meetings, calendars }) {
     </>
   )
 }
+
+let hours = [
+  {name: '09:00', id: 1},
+  {name: '09:30', id: 2},
+  {name: '10:00', id: 3},
+  {name: '10:30', id: 4},
+  {name: '11:00', id: 5},
+  {name: '11:30', id: 6},
+  {name: '12:00', id: 7},
+  {name: '12:30', id: 8},
+  {name: '13:00', id: 9},
+  {name: '13:30', id: 10},
+  {name: '14:00', id: 11},
+  {name: '14:30', id: 12},
+  {name: '15:00', id: 13},
+  {name: '15:30', id: 14},
+  {name: '16:00', id: 15},
+  {name: '16:30', id: 16},
+  {name: '17:00', id: 17},
+]
 
 let colStartClasses = [
   '',
