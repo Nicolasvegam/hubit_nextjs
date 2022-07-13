@@ -19,7 +19,7 @@ import {
     text += 'Nombre cliente: ' + service.first_name + ' ' + service.last_name + '\n'
     text += 'Dirección: ' + service.address + ', ' + service.comuna + '\n'
     text += 'Servicio: ' + service.name + '\n'
-    text += 'Modelo: ' + service.model + '\n'
+    text += 'Modelo: ' + service.brand + ' ' + service.model + '\n'
     text += 'Patente: ' + service.plate
     return text
   }

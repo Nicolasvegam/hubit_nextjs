@@ -46,7 +46,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ meetings }) {
+export default function Example({ meetings, calendars }) {
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
@@ -160,7 +160,7 @@ export default function Example({ meetings }) {
           </div>
           <section className="mt-12 md:mt-0 md:pl-14">
           <div>
-            <Selector />
+            <Selector calendars={calendars} />
           </div>
           </section>
         </div>
