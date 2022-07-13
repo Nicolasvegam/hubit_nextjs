@@ -1,4 +1,4 @@
-import { InlineWidget } from "react-calendly";
+import Calendar from '../components/calendar-client'
 import { useRouter } from 'next/router'
 import { useEffect, useState} from 'react'
 
@@ -22,12 +22,12 @@ function classNames(...classes) {
 &answer_5=Llamar%20a%20tu%20teléfono
 */
 
-const urls = { 'revision-tecnica' : 'https://calendly.com/carvuk/revision-tecnica',
-                'lavado-full': 'https://calendly.com/carvuk/lavado-a-domicilio-full',
-                'lavado-simple': 'https://calendly.com/carvuk/lavado-a-domicilio-simple',
-                'revision-pre-compra': 'https://calendly.com/carvuk/revision-precompra',
-                'inspeccion-general': 'https://calendly.com/carvuk/inspeccion-general',
-}
+const sid = { 'revision-tecnica' : {id: 1, name: 'Revisión técnica'},
+                'lavado-full': {id: 3, name: 'Lavado full'},
+                'lavado-simple': {id: 5, name: 'Lavado simple'},
+                'revision-pre-compra': {id: 3, name: 'Revisión pre-compra'},
+                'inspeccion-general': {id: 2, name: 'Inspección general'},
+            }
 
 export default function BookingPage() {
 
@@ -40,33 +40,11 @@ export default function BookingPage() {
     }, [router.isReady]);
 
   const service = router.query.servicio
-  const urlCalendly = urls[service];
   
 
-  return !urlCalendly ? null : (
-    <>
-      
-      <div className="min-h-full">  
-        <header className="bg-white shadow">
-          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <a href="#">
-                      <span className="sr-only">Carvuk</span>
-                      <img
-                      className="h-8 w-auto sm:h-10"
-                      src="./carvuk-logo.svg"
-                      alt=""
-                      />
-            </a>
-          </div>
-        </header>
-        <main>
-          <div className="max-w-6xl mx-auto py-6 sm:px-6 lg:px-8">
-            <div className="px-2 py-2 sm:px-0">
-              <InlineWidget url={urlCalendly} />
-            </div>
-          </div>
-        </main>
-      </div>
-    </>
-  )
+  return(  
+    <div>
+      <Calendar service={sid[service]}/>
+    </div>
+    )
 }
