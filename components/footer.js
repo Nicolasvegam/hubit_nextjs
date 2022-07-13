@@ -4,8 +4,9 @@ import Link from 'next/link'
 
 const navigation = {
   solutions: [
-    { name: 'Servicios', href: 'https://carvuk.com/servicios' },
-    { name: 'Carvuk Pro', href: 'https://carvuk.com/carvuk-pro' },
+    { name: 'Servicios', href: '/servicios' },
+    { name: 'Carvuk Pro', href: '/carvuk-pro' },
+    { name: 'Blog', href: '/blog' }
     // { name: 'Empresas', href: '#' },
   ],
    support: [
@@ -14,7 +15,6 @@ const navigation = {
   ],
   company: [
     { name: 'Trabaja con nosotros', href: 'https://www.notion.so/carvuk/Carvuk-is-hiring-5ac3623d738d43b6bf36ef6202607a29' },
-    { name: 'Blog', href: 'https://carvuk.com/blog' }
   ],
   legal: [
     { name: 'Términos y condiciones', href: '#' },
@@ -74,6 +74,12 @@ const navigation = {
 }
 
 export default function FooterSection() {
+  
+  const origin =
+        typeof window !== 'undefined' && window.location.origin
+            ? window.location.origin
+            : '';
+
   return (
     <footer className="bg-slate-50" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
@@ -84,7 +90,7 @@ export default function FooterSection() {
           <div className="space-y-8 xl:col-span-1">
             <img
               className="h-10"
-              src="https://carvuk.com/carvuk-logo.svg"
+              src={`${origin}/carvuk-logo.svg`}
               alt="Carvuk"
             />
             <p className="text-gray-500 text-base">
@@ -106,7 +112,7 @@ export default function FooterSection() {
                 <ul role="list" className="mt-4 space-y-4">
                   {navigation.solutions.map((item) => (
                     <li key={item.name}>
-                      <Link href={item.href}>
+                      <Link href={`${origin}${item.href}`}>
                         <a className="text-base text-gray-500 hover:text-gray-900">{item.name}</a>
                       </Link>
                     </li>

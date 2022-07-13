@@ -83,6 +83,21 @@ const products = [
   },
   {
     id: 6,
+    name: 'Láminas de seguridad',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20una%20instalaci%C3%B3n%20de%20l%C3%A1minas%20de%20seguridad...',
+    imageSrc: './laminas.svg',
+    imageAlt: 'Láminas de seguridad.',
+    price: 'Desde $130.000',
+    proBenefit: '10% de descuento',
+    description: 'Instalación de láminas de seguridad en los vidrios laterales, parabrisas y/o vidrio trasero.',
+    sizes: [
+      { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
+      { name: '20L', description: 'Enough room for a serious amount of snacks.' },
+    ],
+    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20una%20instalaci%C3%B3n%20de%20l%C3%A1minas%20de%20seguridad...'
+  },
+  {
+    id: 7,
     name: 'Desabolladura y pintura',
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20cotizar%20una%20desabolladura%2Fpintura...',
     imageSrc: './desabolladura-img.svg',
@@ -96,7 +111,7 @@ const products = [
     link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20cotizar%20una%20desabolladura%2Fpintura...'
   },
   {
-    id: 7,
+    id: 8,
     name: 'Cambio de aceite',
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20aceite...',
     imageSrc: './aceite-img.svg',
@@ -112,7 +127,37 @@ const products = [
     link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20aceite...'
   },
   {
-    id: 8,
+    id: 9,
+    name: 'Arreglo de luces',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20un%20arreglo%20de%20luces...',
+    imageSrc: './luces.svg',
+    imageAlt: 'Arreglo de luces.',
+    price: 'Desde $20.000',
+    proBenefit: '10% de descuento',
+    description: 'Uno de nuestros Drivers toma la muestra de la ampolleta donde se le indique, se compra el repuesto y se instala donde tú quieras.',
+    sizes: [
+      { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
+      { name: '20L', description: 'Enough room for a serious amount of snacks.' },
+    ],
+    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20un%20arreglo%20de%20luces...'
+  },
+  {
+    id: 10,
+    name: 'Grúa',
+    href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20un%20servicio%20de%20gr%C3%BAa...',
+    imageSrc: './grua.svg',
+    imageAlt: 'Grúa.',
+    price: 'Desde $35.000',
+    proBenefit: '10% de descuento',
+    description: 'Servicio de grúas 24 horas. Llámanos desde donde estés y vamos al rescate.',
+    sizes: [
+      { name: '18L', description: 'Perfect for a reasonable amount of snacks.' },
+      { name: '20L', description: 'Enough room for a serious amount of snacks.' },
+    ],
+    link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20un%20servicio%20de%20gr%C3%BAa...'
+  },
+  {
+    id: 11,
     name: 'Cambio de parabrisas',
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20cambio%20de%20parabrisas...',
     imageSrc: './parabrisas-img.svg',
@@ -128,7 +173,7 @@ const products = [
     link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20cambio%20de%20parabrisas...'
   },
   {
-    id: 9,
+    id: 12,
     name: 'Frenos',
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20revisi%C3%B3n%20de%20frenos...',
     imageSrc: './frenos-img.svg',
@@ -142,7 +187,7 @@ const products = [
     link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20hacer%20revisi%C3%B3n%20de%20frenos...'
   },
   {
-    id: 10,
+    id: 13,
     name: 'Vulcanización',
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20vulcanizaci%C3%B3n...',
     imageSrc: './vulca-img.svg',
@@ -158,7 +203,7 @@ const products = [
     link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20una%20vulcanizaci%C3%B3n...'
   },
   {
-    id: 11,
+    id: 14,
     name: 'Cambio de batería',
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20bater%C3%ADa...',
     imageSrc: './baterias-img.svg',
@@ -174,7 +219,7 @@ const products = [
     link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20realizar%20un%20cambio%20de%20bater%C3%ADa...'
   },
   {
-    id: 12,
+    id: 15,
     name: '¿No está lo que buscas?',
     href: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20ayuda%20con%20mi%20veh%C3%ADculo',
     imageSrc: './otros-img.svg',
@@ -186,7 +231,7 @@ const products = [
       { name: '20L', description: 'Enough room for a serious amount of snacks.' },
     ],
     link: 'https://wa.me/+56983841944?text=Hola!%20Necesito%20ayuda%20con%20mi%20veh%C3%ADculo'
-  },  
+  },
 ]
 
 export default function Service2Section() {

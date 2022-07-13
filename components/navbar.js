@@ -6,13 +6,13 @@ import { useRouter } from 'next/router'
 
 
 const navigation = [
-    { name: 'Servicios', href: 'https://carvuk.com/servicios' },
-    { name: 'Carvuk Pro', href: 'https://carvuk.com/carvuk-pro' },
+    { name: 'Servicios', href: '/servicios' },
+    { name: 'Carvuk Pro', href: '/carvuk-pro' },
     //{ name: 'Empresas', href: '#' }
   ]
   
   const callsToAction = [
-    { name: 'Ver servicios', href: 'https://carvuk.com/#service-section' },
+    { name: 'Ver servicios', href: '#service-section' },
   ]
 
 
@@ -25,6 +25,11 @@ export default function Navbar({ctaBool}) {
           pathname: '/'
         });
     }
+
+    const origin =
+    typeof window !== 'undefined' && window.location.origin
+        ? window.location.origin
+        : '';
 
     return (
         <div className="relative bg-white">
@@ -40,7 +45,7 @@ export default function Navbar({ctaBool}) {
                     <span className="sr-only">Carvuk</span>
                     <img
                     className="h-8 w-auto sm:h-10"
-                    src="https://carvuk.com/carvuk-logo.svg"
+                    src={`./carvuk-logo.svg`}
                     alt=""
                     />
                 </button>
@@ -53,7 +58,7 @@ export default function Navbar({ctaBool}) {
                 </div>
                 <div className="hidden md:block md:ml-10 md:space-x-10">
                 {navigation.map((item) => (
-                    <a key={item.name} href={item.href} className="font-medium text-gray-500 hover:text-gray-900">
+                    <a key={item.name} href={`${origin}${item.href}`} className="font-medium text-gray-500 hover:text-gray-900">
                     {item.name}
                     </a>
                 ))}
@@ -105,7 +110,7 @@ export default function Navbar({ctaBool}) {
                     {navigation.map((item) => (
                     <a
                         key={item.name}
-                        href={item.href}
+                        href={`${origin}${item.href}`}
                         className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
                     >
                         {item.name}
