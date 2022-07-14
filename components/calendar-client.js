@@ -12,7 +12,9 @@ import {
   parse,
   parseISO,
   startOfToday,
-  isBefore
+  isBefore,
+  getTime,
+  isWeekend
 } from 'date-fns'
 import { useState } from 'react'
 import RadioGroup from './calendar-radio-group'
@@ -52,6 +54,20 @@ const months_spanish = {
   'Dec': 'Diciembre'  
   }
 
+function getOptions( selected_day, blocked_hours, amount_blocked_today ) {
+  let today = startOfToday()
+  let now = new Date()
+  if ( isEqual(selected_day, today) ) {
+    let minimo = now.getHours() + amount_blocked_today
+    return options.filter((date) => parseInt(date.name.slice(0,2)) >= minimo)
+  } else {
+    return options;
+  }
+}
+
+function createMarkup( s ) {
+  return {__html: s};
+}
 
 function dateSpanish(date){
   const date_ = date.toString().split(' ')
@@ -73,15 +89,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ service }) {
+export default function Example({ service, setConfirmation, selected, setSelected, selectedDay, setSelectedDay}) {
   let today = startOfToday()
-  let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
-  const [selected, setSelected] = useState(false)
 
-  function selectDay(day){
-    if (day >= today){
+  function selectDay(day, options_lenght){
+    if (day >= today && options_lenght && !isWeekend(day)){
       setSelectedDay(day)
     }
   }
@@ -103,7 +117,7 @@ export default function Example({ service }) {
 
   return (
     <>
-    <div className="pt-16">
+    <div className="pt-5">
       <div className="max-w-md px-4 mx-auto sm:px-7 md:max-w-4xl md:px-6">
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-gray-200">
           <div className="md:pr-14">
@@ -148,11 +162,12 @@ export default function Example({ service }) {
                 >
                   <button
                     type="button"
-                    onClick={() => selectDay(day)}
+                    onClick={() => selectDay(day, getOptions(day, null, service.blocked_hours).length)}
                     className={classNames(
                       isEqual(day, selectedDay) && 'text-white',
                       !isEqual(day, selectedDay) &&
                         isToday(day) &&
+                        getOptions(day, null, service.blocked_hours).length > 0 &&
                         'text-red-500',
                       !isEqual(day, selectedDay) &&
                         !isToday(day) &&
@@ -162,13 +177,15 @@ export default function Example({ service }) {
                         !isToday(day) &&
                         !isSameMonth(day, firstDayCurrentMonth) &&
                         'text-gray-400',
-                      isEqual(day, selectedDay) && isToday(day) && 'bg-red-500',
+                      isEqual(day, selectedDay) && isToday(day) && getOptions(day, null, service.blocked_hours).length > 0 && 'bg-red-500',
                       isEqual(day, selectedDay) &&
                         !isToday(day) &&
                         'bg-gray-900',
                       isBefore(day, today) && 'text-gray-300',
+                      isWeekend(day) && 'text-gray-300',
+                      getOptions(day, null, service.blocked_hours).length === 0 && 'text-gray-300',
                       isBefore(today, day) && !isEqual(day, selectedDay) && 'hover:bg-gray-200',
-                      (isEqual(day, selectedDay) || isToday(day)) &&
+                      (isEqual(day, selectedDay) || (isToday(day) && getOptions(day, null, service.blocked_hours).length > 0)) &&
                         'font-semibold',
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
@@ -188,37 +205,46 @@ export default function Example({ service }) {
                 {dateSpanish(format(selectedDay, 'MMM dd yyy'))}
               </time>
             </h2>
-            <RadioGroup selected={selected} setSelected={setSelected} options={options}></RadioGroup>
+            {service ?  <RadioGroup selected={selected} setSelected={setSelected} options={getOptions(selectedDay, null, service.blocked_hours)}></RadioGroup>
+            : null}
           </section>
         </div>
       </div>
     </div>
-    <div className="border-b border-gray-200 pt-10 px-24">
-    <div className="pb-5 sm:flex sm:items-center sm:justify-between">
-      { service ? 
+    { service ? 
       <>
-      <h3 className="text-lg leading-6 font-medium text-gray-900">{service.name}</h3>
-      <div className="mt-3 sm:mt-0 sm:ml-4">
-        <button
-          disabled={!selected}
-          type="button"
-          className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
-        >
-          Agendar
-        </button>
-      </div>
-      </> : null}
+    <div className="border-b border-gray-200 pt-6 lg:px-24 px-6">
+    <div className="sm:flex sm:flex-row sm:justify-between flex flex-col items-center">
+    <img
+    className="w-auto h-[55px] pb-2"
+    src="./carvuk-logo.svg"
+    alt=""
+    />
+    <div className="mt-3 sm:mt-0 sm:mr-12 sm:order-last order-first items-center pb-2">
+      <button
+        disabled={!selected}
+        onClick={() => setConfirmation(true)}
+        type="button"
+        className="inline-flex items-center px-6 py-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
+      >
+        Confirmar
+      </button>
+    </div>
+    </div>
+    <div className="pb-5 sm:flex sm:items-center sm:justify-between items-center">
+      <h3 className="text-lg leading-6 font-bold text-gray-900">{service.name}</h3>
     </div>
     <div className="flex">
       <ClockIcon className="h-6 text-gray-500 pr-2"></ClockIcon>
-      <p className="text-lg leading-6 font-medium text-gray-500">1 h 30 min</p>
+      <p className="text-lg leading-6 font-bold text-gray-500" dangerouslySetInnerHTML={createMarkup(service.duration)}></p>
     </div>
-    <p className="pt-2 text-base leading-6 font-light text-gray-900">Todos nuestros lavados son en seco 💚🌎 y tienen una duración aproximada de 1.5 horas.</p>
-    <p className="pt-2 text-base leading-6 font-light text-gray-900">Vamos a limpiar el interior y exterior de tu auto donde más te acomode.</p>
+    <p className="pt-2 text-base leading-6 font-light text-gray-900" dangerouslySetInnerHTML={createMarkup(service.main)}></p>
+    <p className="pt-2 text-base leading-6 font-light text-gray-900" dangerouslySetInnerHTML={createMarkup(service.description)}></p>
     <p className="pt-2 text-base leading-6 font-medium text-gray-900">¿Tienes dudas?</p>
     <p className="pt-2 text-base leading-6 font-light text-gray-900">Puedes contactarnos por WhatsApp al </p>
-    <a href="https://api.whatsapp.com/send/?phone=%2B56983841944&text=Hola%21+Tengo+dudas+con+la+revisi%C3%B3n+t%C3%A9cnica...&app_absent=0"><p className="pb-4 text-base font-medium">+56 9 8384 1944</p></a>
+    <a className="pt-2" href="https://api.whatsapp.com/send/?phone=%2B56983841944&text=Hola%21+Tengo+dudas+con+la+revisi%C3%B3n+t%C3%A9cnica...&app_absent=0"><p className="pb-4 text-base font-medium">+56 9 8384 1944</p></a>
     </div>
+    </> : null}
     </>
   )
 }
