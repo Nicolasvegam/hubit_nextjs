@@ -2,7 +2,7 @@ import Calendar from '../components/calendar-client'
 import Form from '../components/calendar-form'
 import { useRouter } from 'next/router'
 import { useEffect, useState} from 'react'
-import { startOfToday } from 'date-fns'
+import { startOfTomorrow, isWeekend, nextMonday} from 'date-fns'
 
 /* Query String
 ?assigned_to=Carvuk
@@ -23,23 +23,23 @@ import { startOfToday } from 'date-fns'
 const info = { 'revision-tecnica' : {id: 1, name: 'Revisión técnica', duration: '3 h',
                 main: '<div class="flex flex-row flex-wrap">El servicio a domicilio de la <p class="px-1 font-bold">revisión técnica</p> tiene un costo de <p class="px-1 font-bold">$39.990</p> (con el precio de la revisión incluida).</div>',
                 description: '<p class="pr-1 pb-2 font-bold">Vamos a buscar el auto donde mejor te acomode.</p> Lo llevamos a la planta de revisión técnica y lo devolvemos a tu domicilio o oficina.',
-                blocked_hours: 5 },
+                blocked_hours: 5, calendar: 'Carvuk' },
                 'lavado-full': {id: 3, name: 'Lavado full', duration: '1 h 30 min',
                 main: 'Todos nuestros lavados son en seco 💚🌎 y tienen una duración aproximada de 1.5 horas.',
                 description: '<div class="flex flex-row flex-wrap">Vamos a limpiar el  <p class="px-1 font-bold">interior y exterior</p> de tu auto donde más te acomode.</div>',
-                blocked_hours: 3 },
+                blocked_hours: 3, calendar: 'Pro Wash' },
                 'lavado-simple': {id: 5, name: 'Lavado simple', duration: '1 h 30 min',
                 main: 'Todos nuestros lavados son en seco 💚🌎 y tienen una duración aproximada de 1.5 horas.',
                 description: '<div class="flex flex-row flex-wrap">Vamos a limpiar el <p class="px-1 font-bold">exterior</p> de tu auto donde más te acomode.</div>',
-                blocked_hours: 3 },
+                blocked_hours: 3, calendar: 'Pro Wash' },
                 'revision-pre-compra': {id: 3, name: 'Revisión pre-compra', duration: '1 h 30 min',
                 main: '<div class="flex flex-row flex-wrap">El servicio a domicilio de la <p class="px-1 font-bold">revisión pre-compra</p> tiene un costo de <p class="px-1 font-bold">$34.990</p>.</div> <p class="pt-2 font-bold">Vamos a revisar el auto donde más te acomode.</p>',
                 description: '<div class="flex">El servicio incluye: inspección mecánica, estética, scanner, prueba en ruta e informe legal.</div>',
-                blocked_hours: 5 },
+                blocked_hours: 5, calendar: 'Carvuk' },
                 'inspeccion-general': {id: 2, name: 'Inspección general', duration: '1 h 30 min',
                 main: '<div class="flex flex-row flex-wrap">El servicio a domicilio de la <p class="px-1 font-bold">inspección general</p> tiene un costo de <p class="px-1 font-bold">$34.990</p>.</div> <div class="flex pt-2"><p class="font-bold pr-1">Vamos a donde mejor te acomode</p> e inspeccionamos tu vehículo.</p></div>',
                 description: '<div class="flex">El servicio incluye: inspección mecánica, estética, scanner, prueba en ruta e informe legal.</div>',
-                blocked_hours: 5 }
+                blocked_hours: 5, calendar: 'Carvuk' }
             }
 
 export default function BookingPage() {
@@ -47,8 +47,11 @@ export default function BookingPage() {
   const router = useRouter();
   const [confirmation, setConfirmation] = useState(false)
   const [selectedHour, setSelectedHour] = useState(false)
-  const today = startOfToday()
-  const [selectedDay, setSelectedDay] = useState(today)
+  let day = startOfTomorrow()
+  if (isWeekend(day)) {
+    day = nextMonday(day)
+  }
+  const [selectedDay, setSelectedDay] = useState(day)
 
   useEffect(() => {
     if (router.isReady) {

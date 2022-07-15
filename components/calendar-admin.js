@@ -263,6 +263,7 @@ let hours = [
   {name: '16:00', id: 15},
   {name: '16:30', id: 16},
   {name: '17:00', id: 17},
+  {name: '17:30', id: 18},
 ]
 
 let colStartClasses = [

@@ -6,18 +6,18 @@ import {
   format,
   getDay,
   isEqual,
-  isSameDay,
+  isAfter,
   isSameMonth,
   isToday,
   parse,
   parseISO,
   startOfToday,
   isBefore,
-  getTime,
-  isWeekend
+  isWeekend,
 } from 'date-fns'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import RadioGroup from './calendar-radio-group'
+import { loadBlockedHours } from '../lib/load-blocked-month'
 
 const options = [
   {name: '09:00', id: 1},
@@ -52,17 +52,33 @@ const months_spanish = {
   'Oct': 'Octubre',
   'Nov':'Noviembre',
   'Dec': 'Diciembre'  
-  }
+}
 
-function getOptions( selected_day, blocked_hours, amount_blocked_today ) {
+function getOptions( selected_day, blocked_hours, service ) {
   let today = startOfToday()
   let now = new Date()
+  let new_options = options.filter( (hour) => {
+    let actual_date = new Date(selected_day.getFullYear(), selected_day.getMonth(), selected_day.getDate(), parseInt(hour.name.slice(0,2)), parseInt(hour.name.slice(3,5))+1)
+    let is_blocked = false
+    if (service.calendar == 'Carvuk' && ((parseInt(hour.name.slice(0,2)) === 16 && parseInt(hour.name.slice(3,5)) === 30) || (parseInt(hour.name.slice(0,2)) >= 17)) ) {
+      return false
+    }
+    for (let i = 0; i < blocked_hours.length; i++) {
+      if (isBefore(actual_date, parseISO(blocked_hours[i].end_block)) && isAfter(actual_date, parseISO(blocked_hours[i].start_block))) {
+        is_blocked = true
+      }
+    }
+    return !is_blocked
+  })
   if ( isEqual(selected_day, today) ) {
-    let minimo = now.getHours() + amount_blocked_today
-    return options.filter((date) => parseInt(date.name.slice(0,2)) >= minimo)
-  } else {
-    return options;
+    let minimo = now.getHours() + service.blocked_hours
+    return new_options.filter((date) => {
+      if (parseInt(date.name.slice(0,2)) >= minimo) {
+        return true
+      }
+    })
   }
+  return new_options;
 }
 
 function createMarkup( s ) {
@@ -92,26 +108,48 @@ function classNames(...classes) {
 export default function Example({ service, setConfirmation, selected, setSelected, selectedDay, setSelectedDay}) {
   let today = startOfToday()
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
-  let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
+  let [firstDayCurrentMonth, setFirstDayCurrentMonth] = useState(parse(currentMonth, 'MMM-yyyy', new Date()))
+  const [ currentOptions, setCurrentOptions ] = useState([])
+  const [ days, setDays ] = useState([])
+  const [ blockedHours, setBlockedHours ] = useState([])
 
-  function selectDay(day, options_lenght){
-    if (day >= today && options_lenght && !isWeekend(day)){
+  useEffect(() => {
+    if (service) {
+      loadBlockedHours(firstDayCurrentMonth, service.calendar).then((blocked_hours) => {
+        setBlockedHours(blocked_hours)
+      })
+    }
+  }, [service, firstDayCurrentMonth])
+  
+  useEffect(() => {
+    if (service) {
+        setCurrentOptions(getOptions(selectedDay, blockedHours, service))
+    }
+  }, [selectedDay, service, blockedHours])
+
+  useEffect(() => {
+    let aux_list = eachDayOfInterval({
+      start: firstDayCurrentMonth,
+      end: endOfMonth(firstDayCurrentMonth),
+    })
+    setDays(aux_list)
+  }, [firstDayCurrentMonth])
+
+  function selectDay(day, options_length){
+    if (day >= today && options_length && !isWeekend(day)){
       setSelectedDay(day)
     }
   }
 
-  let days = eachDayOfInterval({
-    start: firstDayCurrentMonth,
-    end: endOfMonth(firstDayCurrentMonth),
-  })
-
   function previousMonth() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 })
+    setFirstDayCurrentMonth(firstDayNextMonth)
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
   function nextMonth() {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 })
+    setFirstDayCurrentMonth(firstDayNextMonth)
     setCurrentMonth(format(firstDayNextMonth, 'MMM-yyyy'))
   }
 
@@ -151,6 +189,7 @@ export default function Example({ service, setConfirmation, selected, setSelecte
               <div>F</div>
               <div>S</div>
             </div>
+            {days && service && blockedHours ?
             <div className="grid grid-cols-7 mt-2 text-sm">
               {days.map((day, dayIdx) => (
                 <div
@@ -160,14 +199,15 @@ export default function Example({ service, setConfirmation, selected, setSelecte
                     'py-1.5'
                   )}
                 >
+                  {service ? 
                   <button
                     type="button"
-                    onClick={() => selectDay(day, getOptions(day, null, service.blocked_hours).length)}
+                    onClick={() => selectDay(day, getOptions(day, blockedHours, service).length)}
                     className={classNames(
                       isEqual(day, selectedDay) && 'text-white',
                       !isEqual(day, selectedDay) &&
                         isToday(day) &&
-                        getOptions(day, null, service.blocked_hours).length > 0 &&
+                        getOptions(day, blockedHours, service).length > 0 &&
                         'text-red-500',
                       !isEqual(day, selectedDay) &&
                         !isToday(day) &&
@@ -177,15 +217,13 @@ export default function Example({ service, setConfirmation, selected, setSelecte
                         !isToday(day) &&
                         !isSameMonth(day, firstDayCurrentMonth) &&
                         'text-gray-400',
-                      isEqual(day, selectedDay) && isToday(day) && getOptions(day, null, service.blocked_hours).length > 0 && 'bg-red-500',
+                      isEqual(day, selectedDay) && isToday(day) && getOptions(day, blockedHours, service).length > 0 && 'bg-red-500',
                       isEqual(day, selectedDay) &&
                         !isToday(day) &&
                         'bg-gray-900',
-                      isBefore(day, today) && 'text-gray-300',
-                      isWeekend(day) && 'text-gray-300',
-                      getOptions(day, null, service.blocked_hours).length === 0 && 'text-gray-300',
+                      (isBefore(day, today) || isWeekend(day) || getOptions(day, blockedHours, service).length == 0) && 'text-gray-300',
                       isBefore(today, day) && !isEqual(day, selectedDay) && 'hover:bg-gray-200',
-                      (isEqual(day, selectedDay) || (isToday(day) && getOptions(day, null, service.blocked_hours).length > 0)) &&
+                      (isEqual(day, selectedDay) || (isToday(day) && getOptions(day, blockedHours, service).length > 0)) &&
                         'font-semibold',
                       'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
                     )}
@@ -194,9 +232,11 @@ export default function Example({ service, setConfirmation, selected, setSelecte
                       {format(day, 'd')}
                     </time>
                   </button>
+                  : null}
                 </div>
               ))}
             </div>
+            : null}
           </div>
           <section className="mt-12 md:mt-0 md:pl-14">
             <h2 className="font-semibold text-gray-900 pb-4 pl-14">
@@ -205,7 +245,7 @@ export default function Example({ service, setConfirmation, selected, setSelecte
                 {dateSpanish(format(selectedDay, 'MMM dd yyy'))}
               </time>
             </h2>
-            {service ?  <RadioGroup selected={selected} setSelected={setSelected} options={getOptions(selectedDay, null, service.blocked_hours)}></RadioGroup>
+            {service ?  <RadioGroup selected={selected} setSelected={setSelected} options={currentOptions}></RadioGroup>
             : null}
           </section>
         </div>
