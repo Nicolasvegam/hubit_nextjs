@@ -101,7 +101,7 @@ export default function Auth() {
   return (
     <>
       <div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        {main? <Notification
+        {main ? <Notification
         main={main}
         message={message}
         success={success}
