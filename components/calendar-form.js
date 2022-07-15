@@ -1,6 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { useState } from 'react'
 import { ClockIcon, ArrowLeftIcon } from '@heroicons/react/outline'
+import Notification from './success-notification.js'
 
 const notificationMethods = [
   { id: 'Tocar el timbre', title: 'Tocar el timbre' },
@@ -18,8 +19,44 @@ function createMarkup( s ) {
 
 export default function Example({ service, setBack }) {
 
+  const [name, setName] = useState(null)
+  const [lastName, setLastName] = useState(null)
+  const [mail, setMail] = useState(null)
+  const [phone, setPhone] = useState('+56')
+  const [comuna, setComuna] = useState(null)
+  const [address, setAddress] = useState(null)
+  const [plate, setPlate] = useState(null)
+  const [notification, setNotification] = useState(null)
+  const [main, setMain] = useState(null)
+  const [message, setMessage] = useState(null)
+  const [success, setSuccess] = useState(true)
+
+  const validateEmail = (email) => {
+    console.log(email)
+    return email.toLowerCase().match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+  };
+
+  function createApointment() {
+    if (name && lastName && validateEmail(mail) && phone.length === 12 && comuna && address && plate && notification) {
+      console.log('post')
+    } else {
+      setSuccess(false)
+      setMain('Tienes que ingresar todos los campos correctamente.')
+      setMessage('Es importante para que nosotros podamos llegar preparados.')
+      setTimeout(function(){
+        setMain(null);
+      }, 5000);
+    }
+  }
+
   return (
     <>
+      {main ? <Notification
+        main={main}
+        message={message}
+        success={success}
+        ></Notification> : null}
       <div className="h-full lg:flex">
         <div className="w-10 pr-4 cursor-pointer">
           <a onClick={() => setBack(false)}>
@@ -52,6 +89,8 @@ export default function Example({ service, setBack }) {
                       autoComplete="given-name"
                       className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                       required
+                      value={name}
+                      onChange={event => setName(event.target.value)}
                     />
                   </div>
                 </div>
@@ -68,6 +107,8 @@ export default function Example({ service, setBack }) {
                       autoComplete="family-name"
                       className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                       required
+                      value={lastName}
+                      onChange={event => setLastName(event.target.value)}
                     />
                   </div>
                 </div>
@@ -84,6 +125,8 @@ export default function Example({ service, setBack }) {
                       autoComplete="email"
                       className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
                       required
+                      value={mail}
+                      onChange={event => setMail(event.target.value)}
                     />
                   </div>
                 </div>
@@ -94,13 +137,13 @@ export default function Example({ service, setBack }) {
                   </label>
                   <div className="mt-1 relative rounded-md shadow-sm">
                     <div className="absolute inset-y-0 left-0 flex items-center">
-                      <label htmlFor="comuna" className="sr-only">
-                        comuna
+                      <label htmlFor="pais" className="sr-only">
+                      pais
                       </label>
                       <select
-                        id="comuna"
-                        name="comuna"
-                        autoComplete="comuna"
+                        id="pais"
+                        name="pais"
+                        autoComplete="pais"
                         className="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-3 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
                       >
                         <option>CL</option>
@@ -112,6 +155,9 @@ export default function Example({ service, setBack }) {
                       id="phone-number"
                       className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-16 sm:text-sm border-gray-300 rounded-md"
                       placeholder="+56977480065"
+                      required
+                      value={phone}
+                      onChange={event => setPhone(event.target.value)}
                     />
                   </div>
                 </div>
@@ -126,7 +172,10 @@ export default function Example({ service, setBack }) {
                       name="comuna"
                       autoComplete="comuna-name"
                       className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                      value={comuna}
+                      onChange={event => setComuna(event.target.value)}
                     >
+                      <option value="" selected disabled hidden>Elige una comuna</option>
                       {comunas.map((comuna) => (
                         <option key={comuna}>{comuna}</option>
                       ))}
@@ -145,6 +194,9 @@ export default function Example({ service, setBack }) {
                       id="street-address"
                       autoComplete="street-address"
                       className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                      required
+                      value={address}
+                      onChange={event => setAddress(event.target.value)}
                     />
                   </div>
                 </div>
@@ -160,6 +212,9 @@ export default function Example({ service, setBack }) {
                       id="city"
                       autoComplete="address-level2"
                       className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                      required
+                      value={plate}
+                      onChange={event => setPlate(event.target.value)}
                     />
                   </div>
                 </div>
@@ -175,8 +230,10 @@ export default function Example({ service, setBack }) {
                             id={notificationMethod.id}
                             name="notification-method"
                             type="radio"
-                            defaultChecked={notificationMethod.id === 'email'}
                             className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                            value={notificationMethod.id}
+                            checked={notification === notificationMethod.id}
+                            onClick={() => setNotification(notificationMethod.id)} 
                           />
                           <label htmlFor={notificationMethod.id} className="ml-3 block text-sm font-medium text-gray-700">
                             {notificationMethod.title}
@@ -193,6 +250,7 @@ export default function Example({ service, setBack }) {
                 <button
                   type="submit"
                   className="ml-5 inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  onClick={createApointment}
                 >
                   Agendar
                 </button>
