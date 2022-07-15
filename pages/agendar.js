@@ -27,6 +27,9 @@ const urls = { 'revision-tecnica' : 'https://calendly.com/carvuk/revision-tecnic
                 'lavado-simple': 'https://calendly.com/carvuk/lavado-a-domicilio-simple',
                 'revision-pre-compra': 'https://calendly.com/carvuk/revision-precompra',
                 'inspeccion-general': 'https://calendly.com/carvuk/inspeccion-general',
+                'revision-tecnica-alianzas' : 'https://calendly.com/carvuk/revision-tecnica-alianzas',
+                'lavado-full-alianzas': 'https://calendly.com/carvuk/lavado-a-domicilio-full-alianzas',
+                'lavado-simple-alianzas': 'https://calendly.com/carvuk/lavado-a-domicilio-simple-alianzas',
 }
 
 export default function BookingPage() {

@@ -25,6 +25,10 @@ const urls = { 'Revisión técnica' : 'https://mpago.la/1v2xHYQ',
                 'Lavado a domicilio Simple': 'https://mpago.la/28mjfnK', 
                 'Revisión pre-compra': 'https://mpago.la/2pp1vd6', 
                 'Inspección general': 'https://mpago.la/2bViWm5', 
+                'Lavado a domicilio Full - Alianzas' : 'https://mpago.la/1E5wzaz',
+                'Lavado a domicilio Simple - Alianzas': 'https://mpago.la/1VnA1U1',
+                'Revisión técnica - Alianzas' : 'https://mpago.la/1E5wzaz'
+
 }
 
 export default function Example() {
