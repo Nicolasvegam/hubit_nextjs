@@ -85,7 +85,7 @@ export default function FutureServicesCard( { car } ) {
                           Agendar con descuento
                         </button>
                       </a>
-                      <p className="max-w-xs text-center text-xs text-gray-500">Utilizado para este { service.type == 'monthly 😢' ? 'mes' : 'año 😢'}</p>
+                      <p className="max-w-xs text-center text-xs text-gray-500">Utilizado para este { service.type == 'monthly' ? 'mes 😢' : 'año 😢'}</p>
                       </>
                       }
                     </div>
