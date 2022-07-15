@@ -52,10 +52,59 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
         })
       };
       fetch('https://hooks.zapier.com/hooks/catch/12223778/bgivlx6/', requestOptions);
+    } else if (!name) {
+      setSuccess(false)
+      setMain('¡Necesitamos tu nombre!')
+      setMessage('Es importante para que nosotros conocer a nuestros clientes.')
+      setTimeout(function(){
+        setMain(null);
+      }, 5000);
+    } else if (!lastName) {
+      setSuccess(false)
+      setMain('¡Necesitamos tu apellido!')
+      setMessage('Es importante para que nosotros conocer a nuestros clientes.')
+      setTimeout(function(){
+        setMain(null);
+      }, 5000);
+    } else if (!validateEmail(mail)) {
+      setSuccess(false)
+      setMain('¡Necesitamos tu mail!')
+      setMessage('Es importante para que te podamos mandar el comprobante.')
+      setTimeout(function(){
+        setMain(null);
+      }, 5000);
+    } else if (!(phone.length === 12)) {
+      setSuccess(false)
+      setMain('¡Necesitamos un teléfono válido!')
+      setMessage('Es importante para que nosotros podamos contactarte.')
+      setTimeout(function(){
+        setMain(null);
+      }, 5000);
+    } else if (!comuna) {
+      setSuccess(false)
+      setMain('¡Necesitamos saber tu dirección!')
+      setMessage('Es importante para que nosotros podamos llegar.')
+      setTimeout(function(){
+        setMain(null);
+      }, 5000);
+    } else if (!address) {
+      setSuccess(false)
+      setMain('¡Necesitamos saber tu dirección!')
+      setMessage('Es importante para que nosotros podamos llegar.')
+      setTimeout(function(){
+        setMain(null);
+      }, 5000);
+    } else if (!(plate.length === 6)) {
+      setSuccess(false)
+      setMain('¡Necesitamos tu patente!')
+      setMessage('Es importante para que nosotros podamos llegar con las herramientas apropiadas.')
+      setTimeout(function(){
+        setMain(null);
+      }, 5000);
     } else {
       setSuccess(false)
-      setMain('Tienes que ingresar todos los campos correctamente.')
-      setMessage('Es importante para que nosotros podamos llegar preparados.')
+      setMain('Ingresa todos los campos correctamente')
+      setMessage('¡Acuérdate de avisarnos como le gustaría que lo contactemos!')
       setTimeout(function(){
         setMain(null);
       }, 5000);
