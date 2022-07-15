@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { ClockIcon, ArrowLeftIcon } from '@heroicons/react/outline'
 import Notification from './success-notification.js'
+import { useRouter } from 'next/router'
 
 const notificationMethods = [
   { id: 'Tocar el timbre', title: 'Tocar el timbre' },
@@ -30,6 +31,7 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
   const [main, setMain] = useState(null)
   const [message, setMessage] = useState(null)
   const [success, setSuccess] = useState(true)
+  const router = useRouter()
 
   const validateEmail = (email) => {
     console.log(email)
@@ -53,9 +55,22 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
           notification: notification,
           booked_date: booked_date,
           service_date: service_date.toISOString(),
+          service: service.name
         })
       };
       fetch('https://hooks.zapier.com/hooks/catch/12223778/bgivlx6/', requestOptions);
+      router.push({
+        pathname: '/agendamiento-exitoso',
+        query: {
+          invitee_first_name: name,
+          invitee_last_name: lastName,
+          event_type_name: service.name,
+          event_start_time: service_date.toISOString(),
+          answer_5: notification,
+          answer_4: plate,
+          answer_2: address
+        }
+      });
     } else if (!name) {
       setSuccess(false)
       setMain('¡Necesitamos tu nombre!')

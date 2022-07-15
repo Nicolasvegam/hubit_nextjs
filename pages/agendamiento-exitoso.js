@@ -21,8 +21,8 @@ import { LockClosedIcon } from '@heroicons/react/solid'
 
 //realizar links de mercado pago
 const urls = { 'Revisión técnica' : 'https://mpago.la/1v2xHYQ',
-                'Lavado a domicilio Full': 'https://mpago.la/2yiV1Gh', 
-                'Lavado a domicilio Simple': 'https://mpago.la/28mjfnK', 
+                'Lavado full': 'https://mpago.la/2yiV1Gh', 
+                'Lavado simple': 'https://mpago.la/28mjfnK', 
                 'Revisión pre-compra': 'https://mpago.la/2pp1vd6', 
                 'Inspección general': 'https://mpago.la/2bViWm5', 
 }
@@ -64,7 +64,7 @@ export default function Example() {
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10 text-center">
-          <span className="px-2 bg-white text-gray-500 justify-center">Has agendado el servicio &quot;{router.query.event_type_name.toLowerCase()}&quot; para el {router.query.event_start_time.toString().slice(0,10)}. Ese día vamos a {router.query.answer_5.toLowerCase()} para recoger tu vehículo patente {router.query.answer_4.toUpperCase()} en la dirección {router.query.answer_2}. Para confirmar tu cita procede a realizar el pago.</span>
+          <span className="px-2 bg-white text-gray-500 justify-center">Has agendado el servicio {router.query.event_type_name.toLowerCase()} para el {router.query.event_start_time.toString().slice(0,10)}. Ese día vamos a {router.query.answer_5.toLowerCase()} para recoger tu vehículo patente {router.query.answer_4.toUpperCase()} en la dirección {router.query.answer_2}. Para confirmar tu cita procede a realizar el pago.</span>
 
             <div className="mt-6">
               <div className="relative">
