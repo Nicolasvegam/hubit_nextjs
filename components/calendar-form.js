@@ -17,7 +17,7 @@ function createMarkup( s ) {
   return {__html: s};
 }
 
-export default function Example({ service, setBack }) {
+export default function Example({ service, setBack, selectedHour, selectedDay }) {
 
   const [name, setName] = useState(null)
   const [lastName, setLastName] = useState(null)
@@ -38,8 +38,20 @@ export default function Example({ service, setBack }) {
   };
 
   function createApointment() {
-    if (name && lastName && validateEmail(mail) && phone.length === 12 && comuna && address && plate && notification) {
-      console.log('post')
+    if (name && lastName && validateEmail(mail) && phone.length === 12 && comuna && address && plate.length === 6 && notification) {
+      const requestOptions = {
+        method: 'POST',
+        body: JSON.stringify({ 
+          nombre: name + ' ' + lastName,
+          mail: mail,
+          phone: phone,
+          comuna: comuna,
+          address: address,
+          car: plate,
+          notification: notification
+        })
+      };
+      fetch('https://hooks.zapier.com/hooks/catch/12223778/bgivlx6/', requestOptions);
     } else {
       setSuccess(false)
       setMain('Tienes que ingresar todos los campos correctamente.')
