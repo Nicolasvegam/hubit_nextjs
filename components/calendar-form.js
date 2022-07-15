@@ -39,6 +39,8 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
 
   function createApointment() {
     if (name && lastName && validateEmail(mail) && phone.length === 12 && comuna && address && plate.length === 6 && notification) {
+      let service_date = new Date(selectedDay.getFullYear(), selectedDay.getMonth(), selectedDay.getDate(), parseInt(selectedHour.name.slice(0,2)), parseInt(selectedHour.name.slice(3,5)))
+      let booked_date = new Date().toISOString(); 
       const requestOptions = {
         method: 'POST',
         body: JSON.stringify({ 
@@ -48,7 +50,9 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
           comuna: comuna,
           address: address,
           car: plate,
-          notification: notification
+          notification: notification,
+          booked_date: booked_date,
+          service_date: service_date.toISOString(),
         })
       };
       fetch('https://hooks.zapier.com/hooks/catch/12223778/bgivlx6/', requestOptions);
@@ -137,7 +141,7 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
               <div>
                 <h3 className="text-lg leading-6 font-medium text-gray-900">Introduzca los detalles</h3>
               </div>
-              <div className="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+              <div className="mt-4 grid grid-cols-1 gap-y-3 gap-x-4 sm:grid-cols-6">
                 <div className="sm:col-span-3">
                   <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
                     Nombre *
