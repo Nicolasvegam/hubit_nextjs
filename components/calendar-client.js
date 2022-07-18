@@ -181,13 +181,13 @@ export default function Example({ service, setConfirmation, selected, setSelecte
               </button>
             </div>
             <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-gray-500">
-              <div>S</div>
-              <div>M</div>
-              <div>T</div>
-              <div>W</div>
-              <div>T</div>
-              <div>F</div>
-              <div>S</div>
+              <div>DOM</div>
+              <div>LUN</div>
+              <div>MAR</div>
+              <div>MIÉ</div>
+              <div>JUE</div>
+              <div>VIE</div>
+              <div>SÁB</div>
             </div>
             {days && service && blockedHours ?
             <div className="grid grid-cols-7 mt-2 text-sm">
