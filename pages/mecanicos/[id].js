@@ -5,7 +5,7 @@ import Image from 'next/image'
 const MecanicPage = ( mecanic ) => {
   return(
     <>
-      <div className="min-h-full">  
+      <div className="min-h-full">
         <header className="bg-white shadow">
           <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <a href="#">
@@ -69,7 +69,7 @@ const MecanicPage = ( mecanic ) => {
                   className="rounded-md"
                   height={500}
                   sizes="50vw"
-                  
+
                   />
               </div>
             </div>
@@ -81,7 +81,7 @@ const MecanicPage = ( mecanic ) => {
                   <p> {mecanic.data.profession} </p>
                   <ShieldCheckIcon className="ml-3 flex h-6 w-5 text-green-400"></ShieldCheckIcon>
                 </div>
-                
+
                 <h2 className="mt-4 text-sm font-medium text-gray-900">Sobre mi</h2>
 
                 <div className="mt-4 prose prose-sm text-gray-500">
@@ -99,7 +99,7 @@ const MecanicPage = ( mecanic ) => {
   }
 
   export const getStaticPaths = async () => {
-    const { data: mecanics } = await supabase.from('suppliers').select('id').eq('is_carvuk', true)
+    const { data: mecanics } = await supabase.from('drivers').select('id')
 
     const paths = mecanics.map(({id}) =>({
       params: {
@@ -115,7 +115,7 @@ const MecanicPage = ( mecanic ) => {
   }
 
   export const getStaticProps = async ({ params:  {id}}) => {
-    const { data: mecanic } = await supabase.from('suppliers').select('*').eq('id', id).single()
+    const { data: mecanic } = await supabase.from('drivers').select('*').eq('id', id).single()
     return {
       props: {
         data: mecanic
