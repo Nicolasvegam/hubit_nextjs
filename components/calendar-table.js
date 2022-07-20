@@ -2,6 +2,8 @@ import {
     format,
     parseISO
   } from 'date-fns'
+import { useRouter } from 'next/router'
+import { supabase } from '../utils/supabaseClient'
 
   function copiar( e ) {
     var copyText = document.getElementById(e.target.value);
@@ -11,19 +13,41 @@ import {
     navigator.clipboard.writeText(copyText.value);
   }
 
-  function generate_text( service ) {
-    let text = 'Hora: ' + format(parseISO(service.service_date), 'h:mm a') + '\n'
-    text += 'Telefono Contacto: ' + service.phone + '\n'
-    text += 'Nombre cliente: ' + service.first_name + ' ' + service.last_name + '\n'
-    text += 'Dirección: ' + service.address + ', ' + service.comuna + '\n'
-    text += 'Servicio: ' + service.name + '\n'
-    text += 'Modelo: ' + service.brand + ' ' + service.model + '\n'
-    text += 'Patente: ' + service.plate
-    return text
-  }
-
   export default function Example( { services, selectedDay, monthSpanish, drivers, suppliers }) {
-    console.log(suppliers)
+    const router = useRouter()
+
+    function generate_text( service ) {
+      let text = 'Hora: ' + format(parseISO(service.service_date), 'h:mm a') + '\n'
+      text += 'Telefono Contacto: ' + service.phone + '\n'
+      text += 'Nombre cliente: ' + service.first_name + ' ' + service.last_name + '\n'
+      text += 'Dirección: ' + service.address + ', ' + service.comuna + '\n'
+      text += 'Servicio: ' + service.name + '\n'
+      text += 'Modelo: ' + service.brand + ' ' + service.model + '\n'
+      text += 'Patente: ' + service.plate + '\n'
+      if (typeof window !== "undefined") {
+        let supplier = document.getElementById('supplier' + service.id);
+        supplier = suppliers.find(x => x.id === parseInt(supplier.value))
+        text += supplier.name + ': ' + supplier.address
+      }
+      return text
+    }
+
+    const onChangeDriver = (e) => {
+      supabase.from('services_requested').update({ did: e.target.value }).match({ id: e.target.id }).then((data) => {
+        router.push({
+          pathname: '/portal-ops'
+        });
+      })
+    }
+
+    const onChangeSupplier = (e) => {
+      supabase.from('services_requested').update({ supid: e.target.value }).match({ id: e.target.id }).then((data) => {
+        router.push({
+          pathname: '/portal-ops'
+        });
+      })
+    }
+
     return (
       <div className="px-8 sm:px-12 lg:px-14 py-10">
         <div className="sm:flex sm:items-center">
@@ -40,9 +64,9 @@ import {
         </div>
         {services.length > 0 ?
         <div className="mt-8 flex flex-col">
-          <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="-my-2 -mx-4 sm:-mx-6 lg:-mx-8 overflow-x-auto">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-              <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+              <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg w-[150vw]">
                 <table className="min-w-full divide-y divide-gray-300">
                   <thead className="bg-gray-50">
                     <tr>
@@ -129,13 +153,14 @@ import {
                         <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                           <div>
                             <select
-                              id="location"
-                              name="location"
+                              id={'driver' + transaction.id}
+                              name="driver"
                               className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                              defaultValue="Canada"
+                              onChange={e => onChangeDriver(e)}
+                              defaultValue={transaction.driver}
                             >
                               {drivers.map((driver) => (
-                                <option key={driver.id}>{driver.name}</option>
+                                <option key={driver.id} value={driver.id}>{driver.name}</option>
                               ))}
                             </select>
                           </div>
@@ -143,13 +168,14 @@ import {
                         <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                           <div>
                             <select
-                              id="location"
-                              name="location"
+                              id={'supplier' + transaction.id}
+                              name="supplier"
                               className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                              defaultValue="Canada"
+                              onChange={e => onChangeSupplier(e)}
+                              defaultValue={transaction.supplier}
                             >
                               {suppliers.map((supplier) => (
-                                <option key={supplier.id}>{supplier.name}</option>
+                                <option key={supplier.id} value={supplier.id} address={supplier.address}>{supplier.name}</option>
                               ))}
                             </select>
                           </div>
