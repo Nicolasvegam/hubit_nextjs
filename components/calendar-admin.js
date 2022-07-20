@@ -23,7 +23,7 @@ import Router from 'next/router'
 
 function monthSpanish(date){
     const date_ = date.toString().split(' ')
-  
+
      const months_spanish = {
        'Jan':'Enero',
        'Feb':'Febrero',
@@ -36,11 +36,11 @@ function monthSpanish(date){
        'Sep': 'Septiembre',
        'Oct': 'Octubre',
        'Nov':'Noviembre',
-       'Dec': 'Diciembre'  
+       'Dec': 'Diciembre'
        }
-  
+
   const transformed = date_[1] + " de " + months_spanish[date_[0]] + " " + date_[2]
-  
+
   return transformed
 }
 
@@ -75,7 +75,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example({ meetings, calendars }) {
+export default function Example({ meetings, calendars, drivers, suppliers }) {
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
@@ -88,7 +88,6 @@ export default function Example({ meetings, calendars }) {
   useEffect(() => {
     loadBlockedHours(selectedDay, calendarSelected.name).then((hours) => {
       setblockedDates(hours)
-      console.log(hours)
     })
   }, [selectedDay, calendarSelected])
 
@@ -200,7 +199,7 @@ export default function Example({ meetings, calendars }) {
           </div>
           <section className="mt-12 md:mt-0 md:pl-14">
           <div>
-            <h1 className="text-sm font-semibold text-gray-900">Calendario para el{' '} 
+            <h1 className="text-sm font-semibold text-gray-900">Calendario para el{' '}
               <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                   {monthSpanish(format(selectedDay, 'MMM dd yyyy'))}
               </time>
@@ -218,7 +217,7 @@ export default function Example({ meetings, calendars }) {
             >
               Bloquear
             </button>
-            {blockedDates ? 
+            {blockedDates ?
             <div>
               <p className="text-sm font-semibold py-2">Bloqueados: </p>
               {blockedDates.map((dates) => (
@@ -234,13 +233,13 @@ export default function Example({ meetings, calendars }) {
                 </div>
               ))}
             </div>
-            : <p></p>}   
+            : <p></p>}
           </div>
           </section>
         </div>
       </div>
     </div>
-    <CalendarTable services={selectedDayMeetings} selectedDay={selectedDay} monthSpanish={monthSpanish}></CalendarTable>
+    <CalendarTable services={selectedDayMeetings} selectedDay={selectedDay} monthSpanish={monthSpanish} drivers={drivers} suppliers={suppliers}></CalendarTable>
     </>
   )
 }

@@ -4,12 +4,10 @@ import {
   } from 'date-fns'
 
   function copiar( e ) {
-    console.log(e.target.value);
     var copyText = document.getElementById(e.target.value);
-    console.log(copyText);
-  
+
     copyText.select();
-  
+
     navigator.clipboard.writeText(copyText.value);
   }
 
@@ -23,13 +21,14 @@ import {
     text += 'Patente: ' + service.plate
     return text
   }
-  
-  export default function Example( { services, selectedDay, monthSpanish }) {
+
+  export default function Example( { services, selectedDay, monthSpanish, drivers, suppliers }) {
+    console.log(suppliers)
     return (
       <div className="px-8 sm:px-12 lg:px-14 py-10">
         <div className="sm:flex sm:items-center">
           <div className="sm:flex-auto">
-            <h1 className="text-xl font-semibold text-gray-900">Calendario para el{' '} 
+            <h1 className="text-xl font-semibold text-gray-900">Calendario para el{' '}
             <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                 {monthSpanish(format(selectedDay, 'MMM dd yyyy'))}
             </time>
@@ -39,7 +38,7 @@ import {
             </p>
           </div>
         </div>
-        {services.length > 0 ? 
+        {services.length > 0 ?
         <div className="mt-8 flex flex-col">
           <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
@@ -93,6 +92,18 @@ import {
                         scope="col"
                         className="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
+                        Driver
+                      </th>
+                      <th
+                        scope="col"
+                        className="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      >
+                        Proveedor
+                      </th>
+                      <th
+                        scope="col"
+                        className="whitespace-nowrap px-2 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      >
                         Copiar
                       </th>
                     </tr>
@@ -116,6 +127,34 @@ import {
                         <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{transaction.model}</td>
                         <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">{transaction.plate}</td>
                         <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
+                          <div>
+                            <select
+                              id="location"
+                              name="location"
+                              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                              defaultValue="Canada"
+                            >
+                              {drivers.map((driver) => (
+                                <option key={driver.id}>{driver.name}</option>
+                              ))}
+                            </select>
+                          </div>
+                        </td>
+                        <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
+                          <div>
+                            <select
+                              id="location"
+                              name="location"
+                              className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                              defaultValue="Canada"
+                            >
+                              {suppliers.map((supplier) => (
+                                <option key={supplier.id}>{supplier.name}</option>
+                              ))}
+                            </select>
+                          </div>
+                        </td>
+                        <td className="whitespace-nowrap px-2 py-2 text-sm text-gray-500">
                           <button
                             onClick={copiar}
                             type="button"
@@ -134,7 +173,7 @@ import {
             </div>
           </div>
         </div>
-        : 
+        :
         <p>No servicios hoy día.</p> }
       </div>
     )

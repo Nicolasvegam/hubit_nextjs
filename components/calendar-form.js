@@ -34,7 +34,6 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
   const router = useRouter()
 
   const validateEmail = (email) => {
-    console.log(email)
     return email.toLowerCase().match(
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
   };
@@ -42,10 +41,10 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
   function createApointment() {
     if (name && lastName && validateEmail(mail) && phone.length === 12 && comuna && address && plate.length === 6 && notification) {
       let service_date = new Date(selectedDay.getFullYear(), selectedDay.getMonth(), selectedDay.getDate(), parseInt(selectedHour.name.slice(0,2)), parseInt(selectedHour.name.slice(3,5)))
-      let booked_date = new Date().toISOString(); 
+      let booked_date = new Date().toISOString();
       const requestOptions = {
         method: 'POST',
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           nombre: name + ' ' + lastName,
           mail: mail,
           phone: phone,
@@ -313,7 +312,7 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
                             className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
                             value={notificationMethod.id}
                             checked={notification === notificationMethod.id}
-                            onClick={() => setNotification(notificationMethod.id)} 
+                            onClick={() => setNotification(notificationMethod.id)}
                           />
                           <label htmlFor={notificationMethod.id} className="ml-3 block text-sm font-medium text-gray-700">
                             {notificationMethod.title}
@@ -341,7 +340,7 @@ export default function Example({ service, setBack, selectedHour, selectedDay })
             {/* Secondary column (hidden on smaller screens) */}
             <aside className="lg:block lg:flex-shrink-0 order-first hidden">
               <div className="h-full relative w-96 border-r border-gray-200 bg-white overflow-y-auto">
-              { service ? 
+              { service ?
                   <>
                 <div className="pt-5 px-8">
                 <div className="flex justify-between">
