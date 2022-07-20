@@ -5,6 +5,7 @@ import Image from 'next/image'
 const MecanicPage = ( mecanic ) => {
   return(
     <>
+    {mecanic.data.image_url ?
       <div className="min-h-full">
         <header className="bg-white shadow">
           <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -93,7 +94,7 @@ const MecanicPage = ( mecanic ) => {
         </div>
         </main>
       </div>
-
+    : null}
     </>
     )
   }
