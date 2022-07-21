@@ -81,7 +81,6 @@ a {
 	text-align:center;
   font-size:30px;
 	box-shadow: 2px 2px 3px #999;
-  z-index:100;
 }
 
 .whatsapp-icon:hover {
@@ -92,4 +91,101 @@ a {
 
 .whatsapp-icon-float{
 	margin-top:15px;
+}
+
+.loader {
+  width: 250px;
+  height: 250px;
+}
+/* ------Wheels animation---------- */
+.wheel {
+  fill: #202020;
+}
+.wheel-details {
+  fill: #f9f9f9;
+}
+.back-wheel {
+  transform-origin: 18px 56px;
+  animation: wheel 300ms linear infinite;
+}
+.front-wheel {
+  transform-origin: 59px 56px;
+  animation: wheel 300ms linear infinite;
+  animation-delay: 200ms;
+}
+@keyframes wheel {
+  0% {
+    transform: rotate(0deg);
+ }
+  100% {
+    transform: rotate(360deg);
+ }
+}
+/* ------Lines styles---------- */
+.line {
+  stroke: #202020;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6px;
+}
+.line-1 {
+  stroke-dasharray: 20% 80%;
+  animation: line-1 400ms linear infinite;
+}
+.line-2 {
+  stroke-dasharray: 10% 90%;
+  animation: line-1 400ms linear infinite;
+  animation-delay: 200ms;
+}
+.line-floor {
+  stroke-dasharray: 60% 10%;
+  stroke-dashoffset: 65;
+  animation: line-2 800ms linear infinite;
+}
+/* ------Lines animation---------- */
+@keyframes line-1 {
+  from {
+    stroke-dashoffset: 0;
+ }
+  to {
+    stroke-dashoffset: -80;
+ }
+}
+@keyframes line-2 {
+  from {
+    stroke-dashoffset: 0;
+ }
+  to {
+    stroke-dashoffset: -56;
+ }
+}
+/* ------Car styles---------- */
+.car {
+  transform-origin: center center;
+  animation: car 600ms linear infinite;
+}
+/* ------Car animation---------- */
+@keyframes car {
+  0% {
+    transform: rotate(0deg);
+ }
+  50% {
+    transform: rotate(-1deg) translateY(1px);
+ }
+  100% {
+    transform: rotate(0deg);
+ }
+}
+.cloud {
+  fill: #202020;
+  opacity: 0.1;
+  animation: cloud 900ms linear infinite;
+}
+@keyframes cloud {
+  from {
+    transform: translateX(40%);
+ }
+  to {
+    transform: translateX(-90%);
+ }
 }
