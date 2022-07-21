@@ -15,6 +15,7 @@ import Loading from '../components/loading'
 export default function Auth() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [plate, setPlate] = useState('')
   const [isSignUp, setIsSignUp] = useState(false)
   const [main, setMain] = useState(null)
@@ -26,6 +27,7 @@ export default function Auth() {
 
   const handleSignUp = async () => {
     try {
+      if (password !== confirmPassword) throw { message: 'Tu contraseña debe coincidir.'}
       if (plate.length != 6) throw { message: 'Debes rellenar tu patente.'}
       setLoading(true)
       await supabase.auth.signUp({
@@ -47,6 +49,9 @@ export default function Auth() {
       setSuccess(false)
       setMain(error.message)
       setMessage(error.error_description)
+      setTimeout(function(){
+        setMain('');
+      }, 2000);
     }
   }
 
@@ -176,13 +181,34 @@ export default function Auth() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              { isSignUp ? 
+                <div>
+                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                    Confirmar contraseña
+                  </label>
+                  <div className="mt-1">
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      autoComplete="current-password"
+                      required
+                      className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      onChange={e => setConfirmPassword(e.target.value)}
+                      value={confirmPassword}
+                    />
+                  </div>
+                </div>
+              : null}
 
+              <div className="flex items-center justify-between">
+              { !isSignUp ? 
                 <div className="text-sm">
                   <a onClick={handleForgotPass} className="font-medium text-indigo-600 hover:text-indigo-300">
                     ¿Olvidaste tu contraseña?
                   </a>
                 </div>
+              : null}
               </div>
 
               { isSignUp ? 
